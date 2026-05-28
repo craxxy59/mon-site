@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="IMG/Colombus_Isle.JPG" type="image/x-icon">
+  <style>
+    .chat-page {
+      width: min(980px, calc(100% - 2rem));
+      margin: 7.4rem auto 2rem;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+      animation: fade-up 400ms ease both;
+    }
+
+    .chat-head {
+      padding: 1.2rem 1.2rem 0.9rem;
+      border-bottom: 1px solid #e2e8f0;
+      background: linear-gradient(120deg, #ffffff, #f8fafc);
+    }
+
+    .chat-head h1 {
+      font-size: 1.35rem;
+      color: #0f172a;
+      margin-bottom: 0.2rem;
+    }
+
+    .chat-head p {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+
+    .chat-messages {
+      height: min(62vh, 560px);
+      overflow-y: auto;
+      padding: 1rem;
+      background: #f8fafc;
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 0.65rem 0.8rem;
+      border-radius: 12px;
+      margin-bottom: 0.65rem;
+      line-height: 1.45;
+      animation: pop-in 220ms ease both;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
+    .message.own {
+      margin-left: auto;
+      background: #2563eb;
+      color: #ffffff;
+      border-bottom-right-radius: 4px;
+    }
+
+    .message.other {
+      margin-right: auto;
+      background: #ffffff;
+      color: #0f172a;
+      border: 1px solid #e2e8f0;
+      border-bottom-left-radius: 4px;
+    }
+
+    .message.system {
+      margin: 0 auto 0.65rem;
+      max-width: 95%;
+      text-align: center;
+      background: #eff6ff;
+      color: #1e40af;
+      border: 1px dashed #bfdbfe;
+    }
+
+    .message-meta {
+      font-size: 0.72rem;
+      opacity: 0.85;
+      margin-bottom: 0.22rem;
+      font-weight: 600;
+    }
+
+    .chat-controls {
+      display: flex;
+      gap: 0.55rem;
+      padding: 0.9rem;
+      border-top: 1px solid #e2e8f0;
+      background: #ffffff;
+    }
+
+    .chat-setup {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr auto;
+      gap: 0.55rem;
+      padding: 0.9rem;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      background: #ffffff;
+    }
+
+    .auth-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr auto auto;
+      gap: 0.55rem;
+      padding: 0.9rem;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      background: #ffffff;
+    }
+
+    .chat-setup input {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 0.65rem 0.75rem;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .auth-panel input {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 0.65rem 0.75rem;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .chat-setup input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .auth-panel input:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    #chatInput {
+      flex: 1;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 0.7rem 0.8rem;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    #chatInput:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .chat-btn {
+      border: 0;
+      border-radius: 10px;
+      padding: 0.68rem 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .chat-btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    #sendBtn {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    #clearBtn {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    .admin-note {
+      margin-top: 0.35rem;
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    .admin-mode {
+      color: #b91c1c;
+      font-weight: 700;
+    }
+
+    .message-actions {
+      display: flex;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+    }
+
+    .mini-btn {
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #0f172a;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.42rem;
+      cursor: pointer;
+    }
+
+    .danger-btn {
+      border-color: #fecaca;
+      color: #991b1b;
+      background: #fff1f2;
+    }
+
+    @keyframes pop-in {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .chat-page {
+        width: calc(100% - 1rem);
+        margin-top: 6.7rem;
+      }
+
+      .chat-controls {
+        flex-wrap: wrap;
+      }
+
+      .chat-setup {
+        grid-template-columns: 1fr;
+      }
+
+      .auth-panel {
+        grid-template-columns: 1fr;
+      }
+
+      #sendBtn,
+      #clearBtn,
+      #joinBtn {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">Mon Site</a>
+    <div class="nav-link">
+      <ul>
+        <li class="nav"><a href="Cours.html">Cours</a></li>
+        <li class="nav"><a href="Musique.html">Musique</a></li>
+        <li class="nav"><p>Chat</p></li>
+        <li class="nav"><a href="ip.html">Infos</a></li>
+        <li class="nav"><a href="crosshair.html">Crosshair</a></li>
+        <li class="nav"><a href="HTML.html">HTML, CSS, JS</a></li>
+        <li class="nav"><a href="PY.html">Python</a></li>
+        <li class="nav"><a href="film.html"><img src="IMG/noir.png" alt="Mode sombre"></a></li>
+      </ul>
+    </div>
+    <img src="IMG/menu-btn.png" alt="menu-btn" class="menu-btn">
+  </header>
+
+  <main class="chat-page">
+    <div class="chat-head">
+      <h1>Chat du site</h1>
+      <p>Chat interactif en direct entre les utilisateurs.</p>
+      <p id="adminState" class="admin-note">Mode utilisateur</p>
+    </div>
+    <form id="authForm" class="auth-panel">
+      <input id="authEmail" type="email" placeholder="Email" required>
+      <input id="authPassword" type="password" placeholder="Mot de passe" minlength="6" required>
+      <input id="authUsername" type="text" placeholder="Pseudo public" maxlength="24" required>
+      <button id="registerBtn" class="chat-btn" type="button">Créer compte</button>
+      <button id="loginBtn" class="chat-btn" type="button">Connexion</button>
+    </form>
+    <form id="setupForm" class="chat-setup">
+      <input id="usernameInput" type="text" placeholder="Ton pseudo (ex: Hugo)" maxlength="24" required disabled>
+      <input id="roomInput" type="text" placeholder="Salon (ex: general)" maxlength="32" required>
+      <input id="adminCodeInput" type="password" placeholder="Code admin de secours (optionnel)" maxlength="80">
+      <button id="joinBtn" class="chat-btn" type="submit" disabled>Rejoindre</button>
+    </form>
+    <div id="chatMessages" class="chat-messages"></div>
+    <form id="chatForm" class="chat-controls">
+      <input id="chatInput" type="text" placeholder="Écris ton message..." autocomplete="off" required disabled>
+      <button id="sendBtn" class="chat-btn" type="submit">Envoyer</button>
+      <button id="clearBtn" class="chat-btn" type="button">Vider salon</button>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-analytics.js";
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+    import {
+      getDatabase,
+      ref,
+      push,
+      onChildAdded,
+      onChildChanged,
+      onChildRemoved,
+      onValue,
+      query,
+      limitToLast,
+      remove,
+      update,
+      set,
+      get
+    } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyD49IE1sXKLnM0ejFfK3mWDXy4Ydb1RGGA",
+      authDomain: "chat-3c477.firebaseapp.com",
+      databaseURL: "https://chat-3c477-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "chat-3c477",
+      storageBucket: "chat-3c477.firebasestorage.app",
+      messagingSenderId: "602565349913",
+      appId: "1:602565349913:web:528e20a5e5cd2e88281088",
+      measurementId: "G-QMM8HQ1M06"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    getAnalytics(app);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+
+    const chatMessages = document.getElementById("chatMessages");
+    const chatForm = document.getElementById("chatForm");
+    const chatInput = document.getElementById("chatInput");
+    const clearBtn = document.getElementById("clearBtn");
+    const setupForm = document.getElementById("setupForm");
+    const usernameInput = document.getElementById("usernameInput");
+    const roomInput = document.getElementById("roomInput");
+    const adminCodeInput = document.getElementById("adminCodeInput");
+    const adminState = document.getElementById("adminState");
+    const authEmail = document.getElementById("authEmail");
+    const authPassword = document.getElementById("authPassword");
+    const authUsername = document.getElementById("authUsername");
+    const registerBtn = document.getElementById("registerBtn");
+    const loginBtn = document.getElementById("loginBtn");
+    const joinBtn = document.getElementById("joinBtn");
+    const authForm = document.getElementById("authForm");
+
+    const localNameKey = "mon-site-chat-username";
+    const localRoomKey = "mon-site-chat-room";
+    const ADMIN_PASSCODE = "5909";
+    const ADMIN_UIDS = ["WoGHqUvQzsO6dMUHkLzecWnc7hJ3"];
+
+    let currentUser = "";
+    let currentRoom = "";
+    let started = false;
+    let isAdmin = false;
+    let isModerator = false;
+    let currentMessagesRef = null;
+    let currentRoleRef = null;
+    let currentMemberRef = null;
+    let currentAuthUser = null;
+
+    usernameInput.value = localStorage.getItem(localNameKey) || "";
+    roomInput.value = localStorage.getItem(localRoomKey) || "general";
+
+    function formatTime(ts) {
+      const date = new Date(ts);
+      return date.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+    }
+
+    function addSystemMessage(text) {
+      const div = document.createElement("div");
+      div.className = "message system";
+      div.textContent = text;
+      chatMessages.appendChild(div);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    async function setRoleForUser(targetUid, role) {
+      if (!isAdmin || !currentRoom) return;
+      await set(ref(db, "rooms/" + currentRoom + "/roles/" + targetUid), role);
+    }
+
+    async function banUser(targetUid, targetName, durationMs) {
+      if (!isAdmin || !currentRoom) return;
+      const until = durationMs ? Date.now() + durationMs : 0;
+      await set(ref(db, "rooms/" + currentRoom + "/bans/" + targetUid), {
+        by: currentAuthUser.uid,
+        byName: currentUser,
+        reason: "moderation",
+        bannedAt: Date.now(),
+        bannedUntil: until
+      });
+      await push(currentMessagesRef, {
+        user: "SYSTEM",
+        uid: "system",
+        text: targetName + " a été banni" + (durationMs ? " temporairement." : "."),
+        createdAt: Date.now()
+      });
+    }
+
+    async function kickUser(targetUid, targetName) {
+      if (!isAdmin || !currentRoom) return;
+      await set(ref(db, "rooms/" + currentRoom + "/kicks/" + targetUid), {
+        by: currentAuthUser.uid,
+        byName: currentUser,
+        at: Date.now()
+      });
+      await push(currentMessagesRef, {
+        user: "SYSTEM",
+        uid: "system",
+        text: targetName + " a été expulsé du salon.",
+        createdAt: Date.now()
+      });
+    }
+
+    function canModerate() {
+      return isAdmin || isModerator;
+    }
+
+    function addChatMessage(key, data) {
+      const role = data.user === currentUser ? "own" : "other";
+      const wrapper = document.createElement("div");
+      wrapper.className = "message " + role;
+      wrapper.dataset.key = key;
+
+      const meta = document.createElement("div");
+      meta.className = "message-meta";
+      meta.textContent = data.user + " - " + formatTime(data.createdAt || Date.now());
+
+      const body = document.createElement("div");
+      body.className = "message-body";
+      body.textContent = data.text;
+
+      wrapper.appendChild(meta);
+      wrapper.appendChild(body);
+
+      if (canModerate() && data.uid !== "system") {
+        const actions = document.createElement("div");
+        actions.className = "message-actions";
+
+        const editBtn = document.createElement("button");
+        editBtn.type = "button";
+        editBtn.className = "mini-btn";
+        editBtn.textContent = "Modifier";
+        editBtn.addEventListener("click", async () => {
+          const updated = window.prompt("Modifier le message :", body.textContent || "");
+          if (updated === null) return;
+          const nextValue = updated.trim();
+          if (!nextValue) return;
+          await update(ref(db, "rooms/" + currentRoom + "/messages/" + key), {
+            text: nextValue,
+            editedAt: Date.now(),
+            editedBy: currentUser
+          });
+        });
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.type = "button";
+        deleteBtn.className = "mini-btn";
+        deleteBtn.textContent = "Supprimer";
+        deleteBtn.addEventListener("click", async () => {
+          const ok = window.confirm("Supprimer ce message ?");
+          if (!ok) return;
+          await remove(ref(db, "rooms/" + currentRoom + "/messages/" + key));
+        });
+
+        const kickBtn = document.createElement("button");
+        kickBtn.type = "button";
+        kickBtn.className = "mini-btn danger-btn";
+        kickBtn.textContent = "Kick";
+        kickBtn.addEventListener("click", async () => {
+          if (!isAdmin) return;
+          await kickUser(data.uid, data.user || "Utilisateur");
+        });
+
+        const ban10Btn = document.createElement("button");
+        ban10Btn.type = "button";
+        ban10Btn.className = "mini-btn danger-btn";
+        ban10Btn.textContent = "Ban 10m";
+        ban10Btn.addEventListener("click", async () => {
+          if (!isAdmin) return;
+          await banUser(data.uid, data.user || "Utilisateur", 10 * 60 * 1000);
+        });
+
+        const banPermBtn = document.createElement("button");
+        banPermBtn.type = "button";
+        banPermBtn.className = "mini-btn danger-btn";
+        banPermBtn.textContent = "Ban perm";
+        banPermBtn.addEventListener("click", async () => {
+          if (!isAdmin) return;
+          await banUser(data.uid, data.user || "Utilisateur", 0);
+        });
+
+        const grantModBtn = document.createElement("button");
+        grantModBtn.type = "button";
+        grantModBtn.className = "mini-btn";
+        grantModBtn.textContent = "Donner mod";
+        grantModBtn.addEventListener("click", async () => {
+          if (!isAdmin) return;
+          await setRoleForUser(data.uid, "mod");
+        });
+
+        const revokeRightsBtn = document.createElement("button");
+        revokeRightsBtn.type = "button";
+        revokeRightsBtn.className = "mini-btn";
+        revokeRightsBtn.textContent = "Retirer droits";
+        revokeRightsBtn.addEventListener("click", async () => {
+          if (!isAdmin) return;
+          await setRoleForUser(data.uid, "user");
+        });
+
+        actions.appendChild(editBtn);
+        actions.appendChild(deleteBtn);
+        if (isAdmin) {
+          actions.appendChild(kickBtn);
+          actions.appendChild(ban10Btn);
+          actions.appendChild(banPermBtn);
+          actions.appendChild(grantModBtn);
+          actions.appendChild(revokeRightsBtn);
+        }
+        wrapper.appendChild(actions);
+      }
+
+      chatMessages.appendChild(wrapper);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function updateChatMessage(key, data) {
+      const wrapper = chatMessages.querySelector('[data-key="' + key + '"]');
+      if (!wrapper) return;
+      const body = wrapper.querySelector(".message-body");
+      const meta = wrapper.querySelector(".message-meta");
+      if (body) body.textContent = data.text || "";
+      if (meta) {
+        const edited = data.editedAt ? " (modifie)" : "";
+        meta.textContent = (data.user || "user") + " - " + formatTime(data.createdAt || Date.now()) + edited;
+      }
+    }
+
+    function removeChatMessage(key) {
+      const wrapper = chatMessages.querySelector('[data-key="' + key + '"]');
+      if (wrapper) wrapper.remove();
+    }
+
+    function startRoom() {
+      if (started) return;
+      started = true;
+      chatInput.disabled = false;
+      chatInput.focus();
+      addSystemMessage("Connecté au salon #" + currentRoom);
+
+      currentMessagesRef = ref(db, "rooms/" + currentRoom + "/messages");
+      currentRoleRef = ref(db, "rooms/" + currentRoom + "/roles/" + currentAuthUser.uid);
+      currentMemberRef = ref(db, "rooms/" + currentRoom + "/members/" + currentAuthUser.uid);
+
+      onValue(currentRoleRef, (snap) => {
+        const role = snap.val() || "user";
+        isModerator = role === "mod";
+        if (!isAdmin) {
+          adminState.textContent = isModerator ? "Mode modérateur" : "Mode utilisateur";
+          adminState.classList.toggle("admin-mode", isModerator);
+        }
+      });
+
+      onValue(ref(db, "rooms/" + currentRoom + "/kicks/" + currentAuthUser.uid), (snap) => {
+        if (!snap.exists()) return;
+        addSystemMessage("Tu as été expulsé par un admin.");
+        chatInput.disabled = true;
+        joinBtn.disabled = true;
+      });
+
+      onValue(ref(db, "rooms/" + currentRoom + "/bans/" + currentAuthUser.uid), (snap) => {
+        if (!snap.exists()) return;
+        const banData = snap.val();
+        const isPermanent = !banData.bannedUntil || banData.bannedUntil === 0;
+        const stillActive = isPermanent || banData.bannedUntil > Date.now();
+        if (stillActive) {
+          addSystemMessage("Tu es banni de ce salon.");
+          chatInput.disabled = true;
+          joinBtn.disabled = true;
+        }
+      });
+
+      const lastMessagesQuery = query(currentMessagesRef, limitToLast(80));
+      onChildAdded(lastMessagesQuery, (snapshot) => {
+        const data = snapshot.val();
+        if (!data || !data.text || !data.user) return;
+        addChatMessage(snapshot.key, data);
+      });
+
+      onChildChanged(lastMessagesQuery, (snapshot) => {
+        const data = snapshot.val();
+        if (!data) return;
+        updateChatMessage(snapshot.key, data);
+      });
+
+      onChildRemoved(lastMessagesQuery, (snapshot) => {
+        removeChatMessage(snapshot.key);
+      });
+
+      chatForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const value = chatInput.value.trim();
+        if (!value) return;
+        chatInput.value = "";
+
+        await push(currentMessagesRef, {
+          user: currentUser,
+          uid: currentAuthUser.uid,
+          text: value,
+          createdAt: Date.now()
+        });
+      });
+
+      clearBtn.addEventListener("click", async () => {
+        if (!canModerate()) {
+          addSystemMessage("Action reservee a l'admin/mod.");
+          return;
+        }
+        const ok = window.confirm("Supprimer tous les messages du salon #" + currentRoom + " ?");
+        if (!ok) return;
+        await remove(currentMessagesRef);
+        chatMessages.innerHTML = "";
+        addSystemMessage("Salon vidé.");
+      });
+
+      set(currentMemberRef, {
+        uid: currentAuthUser.uid,
+        username: currentUser,
+        email: currentAuthUser.email || "",
+        joinedAt: Date.now()
+      });
+    }
+
+    setupForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!currentAuthUser) {
+        addSystemMessage("Connecte-toi d'abord.");
+        return;
+      }
+      const user = usernameInput.value.trim();
+      const room = roomInput.value.trim().toLowerCase().replace(/\s+/g, "-");
+      if (!user || !room) return;
+      isAdmin = adminCodeInput.value.trim() === ADMIN_PASSCODE;
+
+      currentUser = user.slice(0, 24);
+      currentRoom = room.slice(0, 32);
+      localStorage.setItem(localNameKey, currentUser);
+      localStorage.setItem(localRoomKey, currentRoom);
+
+      usernameInput.disabled = true;
+      roomInput.disabled = true;
+      adminCodeInput.disabled = true;
+      joinBtn.disabled = true;
+      if (isAdmin) {
+        adminState.textContent = "Mode admin active";
+        adminState.classList.add("admin-mode");
+        set(ref(db, "rooms/" + currentRoom + "/roles/" + currentAuthUser.uid), "admin");
+      } else if (ADMIN_UIDS.includes(currentAuthUser.uid)) {
+        isAdmin = true;
+        adminState.textContent = "Mode admin active (UID)";
+        adminState.classList.add("admin-mode");
+        set(ref(db, "rooms/" + currentRoom + "/roles/" + currentAuthUser.uid), "admin");
+      }
+      startRoom();
+    });
+
+    registerBtn.addEventListener("click", async () => {
+      const email = authEmail.value.trim();
+      const password = authPassword.value.trim();
+      const username = authUsername.value.trim();
+      if (!email || !password || !username) return;
+      try {
+        const cred = await createUserWithEmailAndPassword(auth, email, password);
+        await set(ref(db, "users/" + cred.user.uid), {
+          uid: cred.user.uid,
+          email,
+          username: username.slice(0, 24),
+          globalRole: "user",
+          createdAt: Date.now()
+        });
+        usernameInput.value = username.slice(0, 24);
+        addSystemMessage("Compte créé. Tu es connecté.");
+      } catch (error) {
+        addSystemMessage("Erreur création compte: " + (error.message || "inconnue"));
+      }
+    });
+
+    loginBtn.addEventListener("click", async () => {
+      const email = authEmail.value.trim();
+      const password = authPassword.value.trim();
+      if (!email || !password) return;
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        addSystemMessage("Connexion réussie.");
+      } catch (error) {
+        addSystemMessage("Erreur connexion: " + (error.message || "inconnue"));
+      }
+    });
+
+    onAuthStateChanged(auth, async (user) => {
+      currentAuthUser = user;
+      if (!user) {
+        joinBtn.disabled = true;
+        usernameInput.disabled = true;
+        adminState.textContent = "Mode utilisateur";
+        return;
+      }
+
+      const userSnap = await get(ref(db, "users/" + user.uid));
+      if (userSnap.exists()) {
+        const profile = userSnap.val();
+        if (profile.username) usernameInput.value = profile.username;
+        authUsername.value = profile.username || authUsername.value;
+        if (profile.globalRole === "admin") {
+          isAdmin = true;
+          adminState.textContent = "Mode admin global";
+          adminState.classList.add("admin-mode");
+        }
+      }
+
+      if (ADMIN_UIDS.includes(user.uid)) {
+        isAdmin = true;
+        adminState.textContent = "Mode admin global (UID)";
+        adminState.classList.add("admin-mode");
+      }
+
+      joinBtn.disabled = false;
+      usernameInput.disabled = false;
+      authForm.querySelectorAll("input,button").forEach((el) => {
+        el.disabled = true;
+      });
+      addSystemMessage("Connecté en tant que " + (usernameInput.value || user.email));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Suites Numériques - Fiche de révisions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9ff;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .section:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        h2 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: "📚";
+            margin-right: 10px;
+        }
+
+        h3 {
+            color: #667eea;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .definition {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 2px solid #e0e7ff;
+        }
+
+        .definition-title {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .formula {
+            background: #fff5e6;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            font-size: 1.2em;
+            border: 2px dashed #ffb347;
+        }
+
+        .example {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+        }
+
+        .example-title {
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 8px;
+        }
+
+        .important {
+            background: #fff3e0;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #ff9800;
+        }
+
+        .important::before {
+            content: "⚠️ ";
+            font-weight: bold;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .quiz-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            display: block;
+            margin: 30px auto;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .quiz-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .quiz-container {
+            display: none;
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .quiz-question {
+            font-weight: bold;
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .quiz-option {
+            background: white;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background: #e8f0fe;
+            border-color: #667eea;
+        }
+
+        .correct {
+            background: #c8e6c9 !important;
+            border-color: #4caf50 !important;
+        }
+
+        .incorrect {
+            background: #ffcdd2 !important;
+            border-color: #f44336 !important;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Les Suites Numériques</h1>
+        <p class="subtitle">Spécialité Mathématiques - Première</p>
+
+        <div class="section">
+            <h2>Définition d'une suite</h2>
+            <div class="definition">
+                <div class="definition-title">Qu'est-ce qu'une suite ?</div>
+                Une suite numérique est une fonction définie sur les entiers naturels ℕ (ou une partie de ℕ) à valeurs réelles. On la note généralement (u<sub>n</sub>) ou u.
+                <br><br>
+                Pour tout entier naturel n, u<sub>n</sub> est appelé le <strong>terme de rang n</strong> ou le <strong>terme général</strong> de la suite.
+            </div>
+
+            <div class="important">
+                On note u<sub>0</sub> le premier terme, u<sub>1</sub> le deuxième terme, etc.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Modes de définition</h2>
+            
+            <h3>1️⃣ Définition explicite</h3>
+            <div class="definition">
+                La suite est définie par une formule exprimant u<sub>n</sub> en fonction de n.
+            </div>
+            <div class="example">
+                <div class="example-title">Exemple :</div>
+                u<sub>n</sub> = 3n + 5
+                <br>Alors : u<sub>0</sub> = 5, u<sub>1</sub> = 8, u<sub>2</sub> = 11, u<sub>3</sub> = 14...
+            </div>
+
+            <h3>2️⃣ Définition par récurrence</h3>
+            <div class="definition">
+                La suite est définie par :
+                <ul>
+                    <li>Son premier terme (condition initiale)</li>
+                    <li>Une relation de récurrence exprimant u<sub>n+1</sub> en fonction de u<sub>n</sub></li>
+                </ul>
+            </div>
+            <div class="example">
+                <div class="example-title">Exemple :</div>
+                u<sub>0</sub> = 2 et u<sub>n+1</sub> = 2u<sub>n</sub> - 3
+                <br>Alors : u<sub>1</sub> = 2×2 - 3 = 1, u<sub>2</sub> = 2×1 - 3 = -1...
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Suites arithmétiques</h2>
+            <div class="definition">
+                <div class="definition-title">Définition</div>
+                Une suite (u<sub>n</sub>) est arithmétique s'il existe un nombre réel <strong>r</strong> (appelé raison) tel que :
+                <div class="formula">u<sub>n+1</sub> = u<sub>n</sub> + r</div>
+            </div>
+
+            <h3>🔑 Propriétés importantes</h3>
+            <div class="definition">
+                <strong>Terme général :</strong>
+                <div class="formula">u<sub>n</sub> = u<sub>0</sub> + n × r</div>
+                Ou plus généralement :
+                <div class="formula">u<sub>n</sub> = u<sub>p</sub> + (n - p) × r</div>
+            </div>
+
+            <div class="definition">
+                <strong>Somme des n premiers termes :</strong>
+                <div class="formula">S = u<sub>0</sub> + u<sub>1</sub> + ... + u<sub>n</sub> = (n+1) × (u<sub>0</sub> + u<sub>n</sub>) / 2</div>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Exemple concret :</div>
+                Suite u<sub>0</sub> = 7 avec r = 3
+                <ul>
+                    <li>u<sub>5</sub> = 7 + 5×3 = 22</li>
+                    <li>Somme des 6 premiers termes : S = 6 × (7 + 22) / 2 = 87</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Suites géométriques</h2>
+            <div class="definition">
+                <div class="definition-title">Définition</div>
+                Une suite (u<sub>n</sub>) est géométrique s'il existe un nombre réel <strong>q</strong> non nul (appelé raison) tel que :
+                <div class="formula">u<sub>n+1</sub> = u<sub>n</sub> × q</div>
+            </div>
+
+            <h3>🔑 Propriétés importantes</h3>
+            <div class="definition">
+                <strong>Terme général :</strong>
+                <div class="formula">u<sub>n</sub> = u<sub>0</sub> × q<sup>n</sup></div>
+                Ou plus généralement :
+                <div class="formula">u<sub>n</sub> = u<sub>p</sub> × q<sup>n-p</sup></div>
+            </div>
+
+            <div class="definition">
+                <strong>Somme des n premiers termes (si q ≠ 1) :</strong>
+                <div class="formula">S = u<sub>0</sub> × (1 - q<sup>n+1</sup>) / (1 - q)</div>
+            </div>
+
+            <div class="example">
+                <div class="example-title">Exemple concret :</div>
+                Suite u<sub>0</sub> = 5 avec q = 2
+                <ul>
+                    <li>u<sub>4</sub> = 5 × 2<sup>4</sup> = 80</li>
+                    <li>Somme des 5 premiers termes : S = 5 × (1 - 2<sup>5</sup>) / (1 - 2) = 155</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Sens de variation</h2>
+            
+            <div class="definition">
+                <strong>Suite croissante :</strong> u<sub>n+1</sub> ≥ u<sub>n</sub> pour tout n
+                <br><br>
+                <strong>Suite décroissante :</strong> u<sub>n+1</sub> ≤ u<sub>n</sub> pour tout n
+                <br><br>
+                <strong>Suite constante :</strong> u<sub>n+1</sub> = u<sub>n</sub> pour tout n
+            </div>
+
+            <div class="important">
+                Pour étudier les variations, on peut :
+                <ul>
+                    <li>Étudier le signe de u<sub>n+1</sub> - u<sub>n</sub></li>
+                    <li>Comparer u<sub>n+1</sub> / u<sub>n</sub> à 1 (si u<sub>n</sub> > 0)</li>
+                    <li>Étudier la fonction f(x) si u<sub>n</sub> = f(n)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Suites majorées, minorées, bornées</h2>
+            
+            <div class="definition">
+                <strong>Suite majorée :</strong> Il existe M tel que u<sub>n</sub> ≤ M pour tout n
+                <br><br>
+                <strong>Suite minorée :</strong> Il existe m tel que u<sub>n</sub> ≥ m pour tout n
+                <br><br>
+                <strong>Suite bornée :</strong> La suite est à la fois majorée et minorée
+            </div>
+        </div>
+
+        <button class="quiz-btn" onclick="toggleQuiz()">🎲 Teste tes connaissances !</button>
+
+        <div class="quiz-container" id="quizContainer">
+            <div class="quiz-question">1. Quelle est la nature de la suite définie par u<sub>n+1</sub> = u<sub>n</sub> + 7 ?</div>
+            <div class="quiz-option" onclick="checkAnswer(this, true)">Suite arithmétique de raison 7</div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">Suite géométrique de raison 7</div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">Suite constante</div>
+
+            <div class="quiz-question" style="margin-top: 30px;">2. Si u<sub>0</sub> = 3 et u<sub>n+1</sub> = 2u<sub>n</sub>, que vaut u<sub>3</sub> ?</div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">12</div>
+            <div class="quiz-option" onclick="checkAnswer(this, true)">24</div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">9</div>
+
+            <div class="quiz-question" style="margin-top: 30px;">3. Une suite arithmétique a pour premier terme u<sub>0</sub> = 5 et raison r = -2. Que vaut u<sub>4</sub> ?</div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">1</div>
+            <div class="quiz-option" onclick="checkAnswer(this, true)">-3</div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">13</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleQuiz() {
+            const quiz = document.getElementById('quizContainer');
+            quiz.style.display = quiz.style.display === 'none' || quiz.style.display === '' ? 'block' : 'none';
+        }
+
+        function checkAnswer(element, isCorrect) {
+            const options = element.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+
+            if (isCorrect) {
+                element.classList.add('correct');
+                element.innerHTML += ' ✓ Correct !';
+            } else {
+                element.classList.add('incorrect');
+                element.innerHTML += ' ✗ Faux';
+            }
+        }
+    </script>
+</body>
+</html>

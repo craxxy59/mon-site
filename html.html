@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memo complet HTML, CSS et JS</title>
+  <link rel="stylesheet" href="code.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo">Mon Site</a>
+    <nav class="top-nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="Cours.html">Cours</a></li>
+        <li><a href="Musique.html">Musique</a></li>
+        <li><a href="chat.html">Chat</a></li>
+        <li><a href="ip.html">Infos</a></li>
+        <li><a href="crosshair.html">Crosshair</a></li>
+        <li><a href="HTML.html" class="active">HTML, CSS, JS</a></li>
+        <li><a href="PY.html">Python</a></li>
+      </ul>
+    </nav>
+  </header>
+  <button class="nav-toggle" id="navToggle">☰</button>
+
+  <div class="overlay" id="overlay"></div>
+
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h2>Navigation</h2>
+      <p>Mémo de développement web</p>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-section">
+        <h3>HTML</h3>
+        <ul>
+          <li><a href="#structure-base">Structure de base</a></li>
+          <li><a href="#metadonnees">Métadonnées</a></li>
+          <li><a href="#titres-structure">Titres et structure</a></li>
+          <li><a href="#formatage-texte">Formatage de texte</a></li>
+          <li><a href="#listes">Listes</a></li>
+          <li><a href="#liens-navigation">Liens et navigation</a></li>
+          <li><a href="#images-medias">Images et médias</a></li>
+          <li><a href="#tableaux">Tableaux</a></li>
+          <li><a href="#formulaires">Formulaires</a></li>
+          <li><a href="#structure-semantique">Structure sémantique</a></li>
+          <li><a href="#elements-interactifs">Éléments interactifs</a></li>
+          <li><a href="#elements-specialises">Éléments spécialisés</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <h3>CSS</h3>
+        <ul>
+          <li><a href="#disposition">Disposition</a></li>
+          <li><a href="#flexbox">Flexbox</a></li>
+          <li><a href="#grid">Grid Layout</a></li>
+          <li><a href="#dimensionnement">Dimensionnement</a></li>
+          <li><a href="#espacement">Espacement</a></li>
+          <li><a href="#bordures">Bordures</a></li>
+          <li><a href="#couleurs-arriere-plans">Couleurs et arrière-plans</a></li>
+          <li><a href="#typographie">Typographie</a></li>
+          <li><a href="#transformations-animations">Transformations</a></li>
+          <li><a href="#listes-css">Listes CSS</a></li>
+          <li><a href="#tables-css">Tables CSS</a></li>
+          <li><a href="#responsive">Responsive Design</a></li>
+          <li><a href="#proprietes-avancees">Propriétés avancées</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-section">
+        <h3>JavaScript</h3>
+        <ul>
+          <li><a href="#variables-types">Variables et types</a></li>
+          <li><a href="#operateurs">Opérateurs</a></li>
+          <li><a href="#structures-controle">Structures de contrôle</a></li>
+          <li><a href="#fonctions">Fonctions</a></li>
+          <li><a href="#objets">Objets et propriétés</a></li>
+          <li><a href="#tableaux-js">Tableaux</a></li>
+          <li><a href="#chaines">Chaînes de caractères</a></li>
+          <li><a href="#date-heure">Date et heure</a></li>
+          <li><a href="#mathematiques">Mathématiques</a></li>
+          <li><a href="#regex">Expressions régulières</a></li>
+          <li><a href="#gestion-erreurs">Gestion d'erreurs</a></li>
+          <li><a href="#asynchrone">Programmation asynchrone</a></li>
+          <li><a href="#dom">DOM</a></li>
+          <li><a href="#evenements">Événements</a></li>
+          <li><a href="#ajax-fetch">AJAX et Fetch</a></li>
+          <li><a href="#es6">Fonctionnalités ES6+</a></li>
+          <li><a href="#storage">Storage</a></li>
+          <li><a href="#utilitaires">Utilitaires globaux</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="header">
+      <h1>Mémo complet HTML, CSS et JavaScript</h1>
+      <p>Référence complète pour le développement web moderne</p>
+    </header>
+
+    <main class="main-content" id="mainContent">
+      <!-- HTML Section -->
+      <section class="section" id="html">
+        <h2>Balises HTML</h2>
+
+        <div class="subsection" id="structure-base">
+          <h3>Structure de base</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">&lt;!DOCTYPE html&gt;</div>
+              <div class="tag-description">Déclare le type de document HTML5</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;html&gt;</div>
+              <div class="tag-description">Élément racine de la page</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;head&gt;</div>
+              <div class="tag-description">Contient les métadonnées de la page</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;body&gt;</div>
+              <div class="tag-description">Contient le contenu visible de la page</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;title&gt;</div>
+              <div class="tag-description">Définit le titre de la page (affiché dans l'onglet)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="metadonnees">
+          <h3>Métadonnées</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">&lt;meta&gt;</div>
+              <div class="tag-description">Fournit des métadonnées sur le document</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;link&gt;</div>
+              <div class="tag-description">Lie des ressources externes (CSS, favicon, etc.)</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;style&gt;</div>
+              <div class="tag-description">Contient du code CSS interne</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;script&gt;</div>
+              <div class="tag-description">Contient ou lie du code JavaScript</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;base&gt;</div>
+              <div class="tag-description">Définit l'URL de base pour tous les liens relatifs</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="titres-structure">
+          <h3>Titres et structure textuelle</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">&lt;h1&gt; à &lt;h6&gt;</div>
+              <div class="tag-description">Titres hiérarchiques (h1 le plus important)</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;p&gt;</div>
+              <div class="tag-description">Paragraphe de texte</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;br&gt;</div>
+              <div class="tag-description">Saut de ligne</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;hr&gt;</div>
+              <div class="tag-description">Ligne horizontale de séparation</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;pre&gt;</div>
+              <div class="tag-description">Texte préformaté (conserve espaces et sauts de ligne)</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;blockquote&gt;</div>
+              <div class="tag-description">Citation longue</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="formatage-texte">
+          <h3>Formatage de texte</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">&lt;strong&gt;</div>
+              <div class="tag-description">Texte important (généralement en gras)</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;em&gt;</div>
+              <div class="tag-description">Texte accentué (généralement en italique)</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;b&gt;</div>
+              <div class="tag-description">Texte en gras (sans importance sémantique)</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;i&gt;</div>
+              <div class="tag-description">Texte en italique (sans importance sémantique)</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;mark&gt;</div>
+              <div class="tag-description">Texte surligné</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;code&gt;</div>
+              <div class="tag-description">Code informatique en ligne</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="listes">
+          <h3>Listes</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">&lt;ul&gt;</div>
+              <div class="tag-description">Liste non ordonnée (à puces)</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;ol&gt;</div>
+              <div class="tag-description">Liste ordonnée (numérotée)</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;li&gt;</div>
+              <div class="tag-description">Élément de liste</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;dl&gt;</div>
+              <div class="tag-description">Liste de définitions</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;dt&gt;</div>
+              <div class="tag-description">Terme à définir</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;dd&gt;</div>
+              <div class="tag-description">Définition du terme</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="liens-navigation">
+          <h3>Liens et navigation</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">&lt;a&gt;</div>
+              <div class="tag-description">Lien hypertexte</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;nav&gt;</div>
+              <div class="tag-description">Section de navigation</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="images-medias">
+          <h3>Images et médias</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">&lt;img&gt;</div>
+              <div class="tag-description">Image</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;figure&gt;</div>
+              <div class="tag-description">Contenu illustratif avec légende</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;figcaption&gt;</div>
+              <div class="tag-description">Légende d'une figure</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;audio&gt;</div>
+              <div class="tag-description">Contenu audio</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;video&gt;</div>
+              <div class="tag-description">Contenu vidéo</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;source&gt;</div>
+              <div class="tag-description">Source média alternative</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="tableaux">
+          <h3>Tableaux</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">&lt;table&gt;</div>
+              <div class="tag-description">Tableau</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;thead&gt;</div>
+              <div class="tag-description">En-tête de tableau</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;tbody&gt;</div>
+              <div class="tag-description">Corps de tableau</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;tr&gt;</div>
+              <div class="tag-description">Ligne de tableau</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;th&gt;</div>
+              <div class="tag-description">Cellule d'en-tête</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;td&gt;</div>
+              <div class="tag-description">Cellule de données</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="formulaires">
+          <h3>Formulaires</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">&lt;form&gt;</div>
+              <div class="tag-description">Formulaire</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;input&gt;</div>
+              <div class="tag-description">Champ de saisie</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;textarea&gt;</div>
+              <div class="tag-description">Zone de texte multiligne</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;button&gt;</div>
+              <div class="tag-description">Bouton</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;select&gt;</div>
+              <div class="tag-description">Liste déroulante</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;label&gt;</div>
+              <div class="tag-description">Étiquette pour champ de formulaire</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="structure-semantique">
+          <h3>Structure sémantique HTML5</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">&lt;header&gt;</div>
+              <div class="tag-description">En-tête de section ou page</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;footer&gt;</div>
+              <div class="tag-description">Pied de section ou page</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;main&gt;</div>
+              <div class="tag-description">Contenu principal</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;section&gt;</div>
+              <div class="tag-description">Section générique</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;article&gt;</div>
+              <div class="tag-description">Contenu autonome</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;aside&gt;</div>
+              <div class="tag-description">Contenu secondaire</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="elements-interactifs">
+          <h3>Éléments interactifs</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">&lt;details&gt;</div>
+              <div class="tag-description">Widget de détails pliable</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;summary&gt;</div>
+              <div class="tag-description">Résumé pour details</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;dialog&gt;</div>
+              <div class="tag-description">Boîte de dialogue</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;menu&gt;</div>
+              <div class="tag-description">Menu contextuel</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="elements-specialises">
+          <h3>Éléments spécialisés</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">&lt;canvas&gt;</div>
+              <div class="tag-description">Zone de dessin graphique</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;svg&gt;</div>
+              <div class="tag-description">Graphiques vectoriels</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;progress&gt;</div>
+              <div class="tag-description">Barre de progression</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;meter&gt;</div>
+              <div class="tag-description">Jauge de mesure</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&lt;template&gt;</div>
+              <div class="tag-description">Modèle réutilisable</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CSS Section -->
+      <section class="section" id="css">
+        <h2>Propriétés CSS</h2>
+
+        <div class="subsection" id="disposition">
+          <h3>Disposition (Layout)</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">display</div>
+              <div class="tag-description">Type d'affichage (block, inline, flex, grid, etc.)</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">position</div>
+              <div class="tag-description">Type de positionnement (static, relative, absolute, fixed, sticky)</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">top, right, bottom, left</div>
+              <div class="tag-description">Position par rapport aux bords</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">z-index</div>
+              <div class="tag-description">Ordre d'empilement</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">float</div>
+              <div class="tag-description">Flottement des éléments</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">overflow</div>
+              <div class="tag-description">Gestion du débordement de contenu</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="flexbox">
+          <h3>Flexbox</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">flex-direction</div>
+              <div class="tag-description">Direction des éléments flex</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">justify-content</div>
+              <div class="tag-description">Alignement horizontal des éléments</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">align-items</div>
+              <div class="tag-description">Alignement vertical des éléments</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">flex-wrap</div>
+              <div class="tag-description">Retour à la ligne des éléments</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">flex-grow</div>
+              <div class="tag-description">Facteur d'agrandissement</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">flex-shrink</div>
+              <div class="tag-description">Facteur de rétrécissement</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="grid">
+          <h3>Grid Layout</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">grid-template-columns</div>
+              <div class="tag-description">Définition des colonnes</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">grid-template-rows</div>
+              <div class="tag-description">Définition des lignes</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">grid-gap</div>
+              <div class="tag-description">Espacement entre éléments</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">grid-column</div>
+              <div class="tag-description">Position en colonne</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">grid-row</div>
+              <div class="tag-description">Position en ligne</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">grid-area</div>
+              <div class="tag-description">Zone d'occupation</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="dimensionnement">
+          <h3>Dimensionnement</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">width, height</div>
+              <div class="tag-description">Largeur et hauteur</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">min-width, min-height</div>
+              <div class="tag-description">Dimensions minimales</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">max-width, max-height</div>
+              <div class="tag-description">Dimensions maximales</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">box-sizing</div>
+              <div class="tag-description">Calcul des dimensions</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="espacement">
+          <h3>Espacement</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">margin</div>
+              <div class="tag-description">Marge externe</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">padding</div>
+              <div class="tag-description">Marge interne</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">margin-top, margin-right...</div>
+              <div class="tag-description">Marges spécifiques</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">padding-top, padding-right...</div>
+              <div class="tag-description">Paddings spécifiques</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="bordures">
+          <h3>Bordures</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">border</div>
+              <div class="tag-description">Bordure complète</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">border-width</div>
+              <div class="tag-description">Épaisseur de bordure</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">border-style</div>
+              <div class="tag-description">Style de bordure</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">border-color</div>
+              <div class="tag-description">Couleur de bordure</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">border-radius</div>
+              <div class="tag-description">Coins arrondis</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">box-shadow</div>
+              <div class="tag-description">Ombre portée</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="couleurs-arriere-plans">
+          <h3>Couleurs et arrière-plans</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">color</div>
+              <div class="tag-description">Couleur du texte</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">background-color</div>
+              <div class="tag-description">Couleur d'arrière-plan</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">background-image</div>
+              <div class="tag-description">Image d'arrière-plan</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">background-size</div>
+              <div class="tag-description">Taille de l'image</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">background-position</div>
+              <div class="tag-description">Position de l'image</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">linear-gradient</div>
+              <div class="tag-description">Dégradé linéaire</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="typographie">
+          <h3>Typographie</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">font-family</div>
+              <div class="tag-description">Police de caractères</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">font-size</div>
+              <div class="tag-description">Taille de police</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">font-weight</div>
+              <div class="tag-description">Graisse de la police</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">text-align</div>
+              <div class="tag-description">Alignement du texte</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">line-height</div>
+              <div class="tag-description">Hauteur de ligne</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">text-decoration</div>
+              <div class="tag-description">Décoration du texte</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="transformations-animations">
+          <h3>Transformations et animations</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">transform</div>
+              <div class="tag-description">Transformations 2D/3D</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">transition</div>
+              <div class="tag-description">Transitions CSS</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">animation</div>
+              <div class="tag-description">Animations CSS</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">@keyframes</div>
+              <div class="tag-description">Définition d'animation</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">animation-duration</div>
+              <div class="tag-description">Durée d'animation</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">transform-origin</div>
+              <div class="tag-description">Point d'origine des transformations</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="responsive">
+          <h3>Responsive Design</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">@media</div>
+              <div class="tag-description">Requêtes média</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">min-width, max-width</div>
+              <div class="tag-description">Largeurs conditionnelles</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">viewport</div>
+              <div class="tag-description">Configuration du viewport</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">orientation</div>
+              <div class="tag-description">Orientation de l'écran</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- JavaScript Section -->
+      <section class="section" id="javascript">
+        <h2>JavaScript</h2>
+
+        <div class="subsection" id="variables-types">
+          <h3>Variables et types</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">var</div>
+              <div class="tag-description">Déclaration de variable (portée fonction)</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">let</div>
+              <div class="tag-description">Déclaration de variable (portée bloc)</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">const</div>
+              <div class="tag-description">Déclaration de constante</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">typeof</div>
+              <div class="tag-description">Type d'une variable</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">instanceof</div>
+              <div class="tag-description">Test d'instance</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="operateurs">
+          <h3>Opérateurs</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">+, -, *, /, %</div>
+              <div class="tag-description">Opérateurs arithmétiques</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">==, ===, !=, !==</div>
+              <div class="tag-description">Opérateurs de comparaison</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">&&, ||, !</div>
+              <div class="tag-description">Opérateurs logiques</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">++, --</div>
+              <div class="tag-description">Incrémentation/décrémentation</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">?:</div>
+              <div class="tag-description">Opérateur ternaire</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="structures-controle">
+          <h3>Structures de contrôle</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">if...else</div>
+              <div class="tag-description">Condition</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">switch</div>
+              <div class="tag-description">Commutateur</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">for</div>
+              <div class="tag-description">Boucle for</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">while</div>
+              <div class="tag-description">Boucle while</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">for...of</div>
+              <div class="tag-description">Boucle sur valeurs</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">break, continue</div>
+              <div class="tag-description">Contrôle de boucle</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="fonctions">
+          <h3>Fonctions</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">function</div>
+              <div class="tag-description">Déclaration de fonction</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">=></div>
+              <div class="tag-description">Fonction fléchée (arrow function)</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">return</div>
+              <div class="tag-description">Retour de valeur</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">call()</div>
+              <div class="tag-description">Appel avec contexte</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">apply()</div>
+              <div class="tag-description">Appel avec tableau d'arguments</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">bind()</div>
+              <div class="tag-description">Liaison de contexte</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="objets">
+          <h3>Objets et propriétés</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">{}</div>
+              <div class="tag-description">Littéral d'objet</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">Object.keys()</div>
+              <div class="tag-description">Clés d'objet</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">Object.values()</div>
+              <div class="tag-description">Valeurs d'objet</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">hasOwnProperty()</div>
+              <div class="tag-description">Test de propriété propre</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">delete</div>
+              <div class="tag-description">Suppression de propriété</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="tableaux-js">
+          <h3>Tableaux</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">[]</div>
+              <div class="tag-description">Littéral de tableau</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">push(), pop()</div>
+              <div class="tag-description">Ajouter/retirer à la fin</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">map()</div>
+              <div class="tag-description">Transformer les éléments</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">filter()</div>
+              <div class="tag-description">Filtrer les éléments</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">reduce()</div>
+              <div class="tag-description">Réduire à une valeur</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">forEach()</div>
+              <div class="tag-description">Itérer sur chaque élément</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="dom">
+          <h3>DOM (Document Object Model)</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">document</div>
+              <div class="tag-description">Objet document</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">getElementById()</div>
+              <div class="tag-description">Élément par ID</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">querySelector()</div>
+              <div class="tag-description">Sélecteur CSS</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">createElement()</div>
+              <div class="tag-description">Créer un élément</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">appendChild()</div>
+              <div class="tag-description">Ajouter enfant</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">innerHTML</div>
+              <div class="tag-description">Contenu HTML</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="evenements">
+          <h3>Événements</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">addEventListener()</div>
+              <div class="tag-description">Ajouter écouteur</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">onclick</div>
+              <div class="tag-description">Clic de souris</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">onload</div>
+              <div class="tag-description">Chargement complet</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">preventDefault()</div>
+              <div class="tag-description">Empêcher comportement par défaut</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">onchange</div>
+              <div class="tag-description">Changement de valeur</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="asynchrone">
+          <h3>Programmation asynchrone</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">Promise</div>
+              <div class="tag-description">Promesses</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">async/await</div>
+              <div class="tag-description">Fonctions asynchrones</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">setTimeout()</div>
+              <div class="tag-description">Délai d'exécution</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">fetch()</div>
+              <div class="tag-description">API Fetch moderne</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">Promise.all()</div>
+              <div class="tag-description">Attendre toutes les promesses</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection" id="es6">
+          <h3>Fonctionnalités ES6+</h3>
+          <div class="tag-grid">
+            <div class="tag-item">
+              <div class="tag-name">class</div>
+              <div class="tag-description">Classes</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">import/export</div>
+              <div class="tag-description">Modules</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">Template literals</div>
+              <div class="tag-description">Chaînes template (`)</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">Destructuring</div>
+              <div class="tag-description">Déstructuration</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">Spread operator (...)</div>
+              <div class="tag-description">Opérateur de propagation</div>
+            </div>
+            <div class="tag-item">
+              <div class="tag-name">Map, Set</div>
+              <div class="tag-description">Nouvelles structures de données</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <button class="back-to-top" id="backToTop">↑</button>
+
+  <script src="code.js"></script>
+</body>
+
+</html>

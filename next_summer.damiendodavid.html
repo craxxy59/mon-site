@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Summer - Damiano David</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .artist {
+            font-size: 1.3em;
+            color: #764ba2;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .tab {
+            padding: 15px 30px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 10px 10px 0 0;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            background: #e0e0e0;
+        }
+
+        .tab.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .chord-diagram {
+            background: #f8f9ff;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .chord-diagram h3 {
+            color: #764ba2;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.3em;
+        }
+
+        .chord-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .chord-item {
+            text-align: center;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .chord-name {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .chord-fingers {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(to right, #f8f9ff, #fff);
+            border-left: 5px solid #667eea;
+            border-radius: 10px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #764ba2;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .verse {
+            margin: 15px 0;
+        }
+
+        .chord {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .lyrics-fr {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .lyrics-en {
+            font-size: 0.95em;
+            color: #666;
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .bridge {
+            background: linear-gradient(to right, #fff5f8, #fff);
+            border-left-color: #764ba2;
+        }
+
+        .chorus {
+            background: linear-gradient(to right, #f0f4ff, #fff);
+            border-left-color: #667eea;
+        }
+
+        .rhythm-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .pattern {
+            font-family: 'Courier New', monospace;
+            font-size: 1.8em;
+            letter-spacing: 8px;
+            color: #667eea;
+            margin: 15px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #764ba2;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .section {
+                padding: 15px;
+            }
+
+            .chord-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                border-radius: 10px;
+            }
+        }
+
+        .fixed-audio {
+            position: fixed;
+            bottom: 20px;
+            right: 340px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .sticky-chords {
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .sticky-rhythm {
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .content-with-sidebar {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        @media (min-width: 1201px) {
+            .sticky-chords {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                width: 300px;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .sticky-rhythm {
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                width: 400px;
+                max-height: 90vh;
+                overflow-y: auto;
+            }
+
+            .content-with-sidebar {
+                margin-right: 320px;
+                margin-left: 320px;
+            }
+
+            .fixed-audio {
+                right: 515px;
+            }
+        }
+    </style>
+    <script>
+        function switchTab(tabName) {
+            // Masquer tous les contenus
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Désactiver tous les onglets
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Activer l'onglet et le contenu sélectionnés
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Next Summer</h1>
+            <div class="artist">Damiano David</div>
+            <audio class="fixed-audio" controls>
+                <source src="Next summer.m4a" type="audio/mpeg">
+                Votre navigateur ne prend pas en charge l'élément audio HTML5.
+                <a href="Next summer.m4a">Télécharger le fichier audio</a>
+            </audio>
+            <div class="info">Tonalité: B Major | Tempo: 135 BPM</div>
+        </header>
+
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('complete')">
+                Version Complète <span class="badge">Originale</span>
+            </button>
+            <button class="tab" onclick="switchTab('simplified')">
+                Version Simplifiée <span class="badge">Facile</span>
+            </button>
+        </div>
+
+        <!-- VERSION COMPLÈTE -->
+        <div id="complete" class="tab-content active">
+            <div class="chord-diagram sticky-chords">
+                <h3>🎸 Diagrammes des Accords - Version Complète</h3>
+                <div class="chord-grid">
+                    <div class="chord-item">
+                        <div class="chord-name">B</div>
+                        <div class="chord-fingers">
+                            e |---2---<br>
+                            B |---4---<br>
+                            G |---4---<br>
+                            D |---4---<br>
+                            A |---2---<br>
+                            E |---x---<br>
+                            <small>Barré case 2</small>
+                        </div>
+                    </div>
+                    <div class="chord-item">
+                        <div class="chord-name">B/A#</div>
+                        <div class="chord-fingers">
+                            e |---2---<br>
+                            B |---4---<br>
+                            G |---4---<br>
+                            D |---4---<br>
+                            A |---1---<br>
+                            E |---x---<br>
+                            <small>Variante B</small>
+                        </div>
+                    </div>
+                    <div class="chord-item">
+                        <div class="chord-name">G#m</div>
+                        <div class="chord-fingers">
+                            e |---4---<br>
+                            B |---4---<br>
+                            G |---4---<br>
+                            D |---6---<br>
+                            A |---6---<br>
+                            E |---4---<br>
+                            <small>Barré case 4</small>
+                        </div>
+                    </div>
+                    <div class="chord-item">
+                        <div class="chord-name">C#m</div>
+                        <div class="chord-fingers">
+                            e |---4---<br>
+                            B |---5---<br>
+                            G |---6---<br>
+                            D |---6---<br>
+                            A |---4---<br>
+                            E |---x---<br>
+                            <small>Barré case 4</small>
+                        </div>
+                    </div>
+                    <div class="chord-item">
+                        <div class="chord-name">F#</div>
+                        <div class="chord-fingers">
+                            e |---2---<br>
+                            B |---2---<br>
+                            G |---3---<br>
+                            D |---4---<br>
+                            A |---4---<br>
+                            E |---2---<br>
+                            <small>Barré case 2</small>
+                        </div>
+                    </div>
+                    <div class="chord-item">
+                        <div class="chord-name">E</div>
+                        <div class="chord-fingers">
+                            e |---0---<br>
+                            B |---0---<br>
+                            G |---1---<br>
+                            D |---2---<br>
+                            A |---2---<br>
+                            E |---0---<br>
+                            <small>Ouvert</small>
+                        </div>
+                    </div>
+                    <div class="chord-item">
+                        <div class="chord-name">D#m</div>
+                        <div class="chord-fingers">
+                            e |---6---<br>
+                            B |---7---<br>
+                            G |---8---<br>
+                            D |---8---<br>
+                            A |---6---<br>
+                            E |---x---<br>
+                            <small>Barré case 6</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chord-diagram sticky-rhythm">
+                <h3>🎵 Rythmiques</h3>
+
+                <div
+                    style="background: #e3f2fd; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #2196F3;">
+                    <strong>🎸 DreamsLinesMusic - Rythmiques avec Capo 4</strong><br>
+                    <small>Ces patterns sont pour jouer avec un capo en case 4 (accords en G, D, Em, etc.)</small>
+                </div>
+
+                <div class="rhythm-box" style="margin-bottom: 20px;">
+                    <div style="font-size: 1.2em; color: #764ba2; font-weight: bold; margin-bottom: 10px;">
+                        DLM Pattern 1 - Débutant
+                    </div>
+                    <div class="pattern">
+                        ↓ ↓ ↓ ↓
+                    </div>
+                    <div style="font-size: 0.9em; color: #666; margin-top: 10px;">
+                        (1 & 2 & 3 & 4 &) - Un coup par temps
+                    </div>
+                    <div
+                        style="font-size: 0.85em; color: #333; margin-top: 10px; background: #f0f0f0; padding: 10px; border-radius: 5px;">
+                        Le plus simple | Parfait pour commencer
+                    </div>
+                </div>
+
+                <div class="rhythm-box" style="margin-bottom: 20px;">
+                    <div style="font-size: 1.2em; color: #764ba2; font-weight: bold; margin-bottom: 10px;">
+                        DLM Pattern 2 - Standard
+                    </div>
+                    <div class="pattern">
+                        ↓ ↓ ↓ ↑ ↓ ↑
+                    </div>
+                    <div style="font-size: 0.9em; color: #666; margin-top: 10px;">
+                        (1 & 2 & 3 & 4 &) - Dynamique
+                    </div>
+                    <div
+                        style="font-size: 0.85em; color: #333; margin-top: 10px; background: #f0f0f0; padding: 10px; border-radius: 5px;">
+                        Recommandé | Groove naturel
+                    </div>
+                </div>
+
+                <div class="rhythm-box" style="margin-bottom: 20px;">
+                    <div style="font-size: 1.2em; color: #764ba2; font-weight: bold; margin-bottom: 10px;">
+                        DLM Pattern 3 - Varié
+                    </div>
+                    <div class="pattern">
+                        ↓ ↓ ↓ ↓ ↑
+                    </div>
+                    <div style="font-size: 0.9em; color: #666; margin-top: 10px;">
+                        (1 & 2 & 3 & 4 &) - Léger accent en fin
+                    </div>
+                    <div
+                        style="font-size: 0.85em; color: #333; margin-top: 10px; background: #f0f0f0; padding: 10px; border-radius: 5px;">
+                        Entre débutant et standard
+                    </div>
+                </div>
+
+                <div
+                    style="background: #fff3cd; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #ffc107;">
+                    <strong>⚠️ Note importante :</strong> Les patterns DreamsLinesMusic sont conçus pour jouer avec un
+                    <strong>capo en case 4</strong>, ce qui simplifie les accords (G, D, Em, Am au lieu de B, F#, G#m,
+                    C#m).
+                </div>
+
+                <div
+                    style="background: #f3e5f5; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #9c27b0;">
+                    <strong>🎵 Patterns sans Capo (Tonalité originale B)</strong>
+                </div>
+
+                <div class="rhythm-box" style="margin-bottom: 20px;">
+                    <div style="font-size: 1.2em; color: #764ba2; font-weight: bold; margin-bottom: 10px;">
+                        Pattern 1 - ChordZone (Officiel)
+                    </div>
+                    <div class="pattern">
+                        ↓↑ ↓↑ ↓↑ ↓↑
+                    </div>
+                    <div style="font-size: 0.9em; color: #666; margin-top: 10px;">
+                        (Bas-Haut Bas-Haut Bas-Haut Bas-Haut)
+                    </div>
+                    <div
+                        style="font-size: 0.85em; color: #333; margin-top: 10px; background: #f0f0f0; padding: 10px; border-radius: 5px;">
+                        Tempo: 135 BPM | Simple et régulier
+                    </div>
+                </div>
+
+                <div class="rhythm-box" style="margin-bottom: 20px;">
+                    <div style="font-size: 1.2em; color: #764ba2; font-weight: bold; margin-bottom: 10px;">
+                        Pattern 2 - Version Accentuée
+                    </div>
+                    <div class="pattern">
+                        ↓ ↓ ↑ ↑ ↓ ↑
+                    </div>
+                    <div style="font-size: 0.9em; color: #666; margin-top: 10px;">
+                        (Bas Bas Haut-Haut Bas Haut)
+                    </div>
+                    <div
+                        style="font-size: 0.85em; color: #333; margin-top: 10px; background: #f0f0f0; padding: 10px; border-radius: 5px;">
+                        Plus dynamique | Accentue les temps 1 et 3
+                    </div>
+                </div>
+
+                <div class="rhythm-box" style="margin-bottom: 20px;">
+                    <div style="font-size: 1.2em; color: #764ba2; font-weight: bold; margin-bottom: 10px;">
+                        Pattern 3 - Version Simplifiée
+                    </div>
+                    <div class="pattern">
+                        ↓ ↓ ↓ ↓
+                    </div>
+                    <div style="font-size: 0.9em; color: #666; margin-top: 10px;">
+                        (Bas Bas Bas Bas) - 4 temps
+                    </div>
+                    <div
+                        style="font-size: 0.85em; color: #333; margin-top: 10px; background: #f0f0f0; padding: 10px; border-radius: 5px;">
+                        Idéal pour débuter | Un coup par temps
+                    </div>
+                </div>
+
+                <div class="rhythm-box">
+                    <div style="font-size: 1.2em; color: #764ba2; font-weight: bold; margin-bottom: 10px;">
+                        Pattern 4 - Version Folk
+                    </div>
+                    <div class="pattern">
+                        ↓ ↓ ↑ ↑ ↓ ↑
+                    </div>
+                    <div style="font-size: 0.9em; color: #666; margin-top: 10px;">
+                        (Bas _ Bas-Haut _ Haut Bas-Haut)
+                    </div>
+                    <div
+                        style="font-size: 0.85em; color: #333; margin-top: 10px; background: #f0f0f0; padding: 10px; border-radius: 5px;">
+                        Style plus léger | Laisse respirer la mélodie
+                    </div>
+                </div>
+
+                <div
+                    style="margin-top: 20px; padding: 15px; background: #c8e6c9; border-radius: 8px; border-left: 4px solid #4caf50;">
+                    <strong>💡 Recommandations :</strong><br>
+                    • <strong>Avec capo case 4</strong> : Utilise le DLM Pattern 2 (↓ ↓ ↓↑ ↓↑)<br>
+                    • <strong>Sans capo (tonalité B)</strong> : Utilise le Pattern 1 ChordZone (↓↑ ↓↑ ↓↑ ↓↑) à 135 BPM
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Couplet 1</div>
+
+                <div class="verse">
+                    <span class="chord">B - B/A#</span>
+                    <div class="lyrics-en">I thought that we had something good in our hands</div>
+                    <div class="lyrics-fr">Je pensais que nous avions quelque chose de bien entre nos mains</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">G#m</span>
+                    <div class="lyrics-en">In a minute, it just slipped away</div>
+                    <div class="lyrics-fr">En une minute, cela nous a échappé</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">C#m</span>
+                    <div class="lyrics-en">So many things I didn't say</div>
+                    <div class="lyrics-fr">Tant de choses que je n'ai pas dites</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">F#</span>
+                    <div class="lyrics-en">Before you threw it all away</div>
+                    <div class="lyrics-fr">Avant que tu n'envoies tout en l'air</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">B - B/A#</span>
+                    <div class="lyrics-en">I pretend I'm okay, but I'm lost and afraid</div>
+                    <div class="lyrics-fr">Je fais semblant d'aller bien, mais je suis perdu et effrayé</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">G#m</span>
+                    <div class="lyrics-en">And nobody really understands</div>
+                    <div class="lyrics-fr">Et personne ne comprend vraiment</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">C#m</span>
+                    <div class="lyrics-en">But now I'm dancing to a band</div>
+                    <div class="lyrics-fr">Mais maintenant je danse sur un groupe</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">F#</span>
+                    <div class="lyrics-en">With all the demons in my head</div>
+                    <div class="lyrics-fr">Avec tous les démons dans ma tête</div>
+                </div>
+            </div>
+
+            <div class="section chorus">
+                <div class="section-title">Refrain</div>
+
+                <div class="verse">
+                    <span class="chord">E - F#</span>
+                    <div class="lyrics-en">Call me when he breaks your heart next summer</div>
+                    <div class="lyrics-fr">Appelle-moi quand il brisera ton cœur l'été prochain</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">B - E</span>
+                    <div class="lyrics-en">Baby, I'll be waiting here</div>
+                    <div class="lyrics-fr">Bébé, je t'attendrai là</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">E - F#</span>
+                    <div class="lyrics-en">Call me when you're all messed up, my lover</div>
+                    <div class="lyrics-fr">Appelle-moi quand tu seras paumée, mon amour</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">B - E</span>
+                    <div class="lyrics-en">And I'll be there to dry your tears</div>
+                    <div class="lyrics-fr">Et je serai là pour sécher tes larmes</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">E - F#</span>
+                    <div class="lyrics-en">You had to throw away our love</div>
+                    <div class="lyrics-fr">Il a fallu que tu envoies valser notre amour</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">D#m - E</span>
+                    <div class="lyrics-en">To find out nothing's as good as us</div>
+                    <div class="lyrics-fr">Pour découvrir que rien n'est aussi bon que nous</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">E - F# - B</span>
+                    <div class="lyrics-en">So call me when he breaks your heart next summer</div>
+                    <div class="lyrics-fr">Alors appelle-moi quand il te brisera le cœur l'été prochain</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Couplet 2</div>
+
+                <div class="verse">
+                    <span class="chord">B - B/A#</span>
+                    <div class="lyrics-en">"If you love, let it go", it's a saying that I heard</div>
+                    <div class="lyrics-fr">Si tu aimes, laisse partir, c'est un dicton que j'ai entendu</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">G#m</span>
+                    <div class="lyrics-en">But I don't know if it works for me</div>
+                    <div class="lyrics-fr">Mais je ne sais pas si cela marche pour moi</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">C#m</span>
+                    <div class="lyrics-en">So if I see you on my street</div>
+                    <div class="lyrics-fr">Donc si je te vois dans ma rue</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">F#</span>
+                    <div class="lyrics-en">I know that it was meant to be</div>
+                    <div class="lyrics-fr">Je sais que c'était destiné</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">B - B/A#</span>
+                    <div class="lyrics-en">Do you still think of me when you're under the sheets?</div>
+                    <div class="lyrics-fr">Est-ce que tu penses encore à moi quand vous êtes sous les draps ?</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">G#m</span>
+                    <div class="lyrics-en">Or does he give you everything?</div>
+                    <div class="lyrics-fr">Ou te donne-t-il tout ?</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">C#m</span>
+                    <div class="lyrics-en">And I can see it on your face</div>
+                    <div class="lyrics-fr">Et je peux voir sur ton visage</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">F#</span>
+                    <div class="lyrics-en">That you were happier with me</div>
+                    <div class="lyrics-fr">Que tu étais plus heureuse avec moi</div>
+                </div>
+            </div>
+
+            <div class="section chorus">
+                <div class="section-title">Refrain 2</div>
+                <p style="font-style: italic; color: #666;">
+                    (Répéter le refrain avec les mêmes accords)
+                </p>
+            </div>
+
+            <div class="section bridge">
+                <div class="section-title">Bridge</div>
+
+                <div class="verse">
+                    <span class="chord">C#m</span>
+                    <div class="lyrics-en">For everything under the sun</div>
+                    <div class="lyrics-fr">Quoi qu'il advienne</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">G#m</span>
+                    <div class="lyrics-en">Every girl and every drug</div>
+                    <div class="lyrics-fr">Chaque fille et chaque drogue</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">F#</span>
+                    <div class="lyrics-en">It's never gonna be enough</div>
+                    <div class="lyrics-fr">Ce ne sera jamais assez</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">C#m</span>
+                    <div class="lyrics-en">'Cause you were the one</div>
+                    <div class="lyrics-fr">Parce que tu étais la bonne</div>
+                </div>
+            </div>
+
+            <div class="section chorus">
+                <div class="section-title">Refrain Final</div>
+                <p style="font-style: italic; color: #666;">
+                    (Répéter le refrain avec les mêmes accords)
+                </p>
+            </div>
+        </div>
+
+        <!-- VERSION SIMPLIFIÉE -->
+        <div id="simplified" class="tab-content">
+            <div
+                style="background: #fffacd; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #f39c12;">
+                <strong>📝 Version manuscrite simplifiée</strong> - Basée sur ta photo
+            </div>
+
+            <div class="chord-diagram">
+                <h3>🎸 Diagrammes des Accords - Version Simplifiée</h3>
+                <div class="chord-grid">
+                    <div class="chord-item">
+                        <div class="chord-name">B</div>
+                        <div class="chord-fingers">
+                            e |---2---<br>
+                            B |---4---<br>
+                            G |---4---<br>
+                            D |---4---<br>
+                            A |---2---<br>
+                            E |---x---<br>
+                            <small>Barré case 2</small>
+                        </div>
+                    </div>
+                    <div class="chord-item">
+                        <div class="chord-name">G#m</div>
+                        <div class="chord-fingers">
+                            e |---4---<br>
+                            B |---4---<br>
+                            G |---4---<br>
+                            D |---6---<br>
+                            A |---6---<br>
+                            E |---4---<br>
+                            <small>Barré case 4</small>
+                        </div>
+                    </div>
+                    <div class="chord-item">
+                        <div class="chord-name">C#m</div>
+                        <div class="chord-fingers">
+                            e |---4---<br>
+                            B |---5---<br>
+                            G |---6---<br>
+                            D |---6---<br>
+                            A |---4---<br>
+                            E |---x---<br>
+                            <small>Barré case 4</small>
+                        </div>
+                    </div>
+                    <div class="chord-item">
+                        <div class="chord-name">F#</div>
+                        <div class="chord-fingers">
+                            e |---2---<br>
+                            B |---2---<br>
+                            G |---3---<br>
+                            D |---4---<br>
+                            A |---4---<br>
+                            E |---2---<br>
+                            <small>Barré case 2</small>
+                        </div>
+                    </div>
+                    <div class="chord-item">
+                        <div class="chord-name">E</div>
+                        <div class="chord-fingers">
+                            e |---0---<br>
+                            B |---0---<br>
+                            G |---1---<br>
+                            D |---2---<br>
+                            A |---2---<br>
+                            E |---0---<br>
+                            <small>Ouvert</small>
+                        </div>
+                    </div>
+                    <div class="chord-item">
+                        <div class="chord-name">D#m</div>
+                        <div class="chord-fingers">
+                            e |---6---<br>
+                            B |---7---<br>
+                            G |---8---<br>
+                            D |---8---<br>
+                            A |---6---<br>
+                            E |---x---<br>
+                            <small>Barré case 6</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chord-diagram">
+                <h3>🎵 Rythmique</h3>
+                <div class="rhythm-box">
+                    <div style="font-size: 1.2em; color: #764ba2; font-weight: bold; margin-bottom: 10px;">
+                        Pattern de base
+                    </div>
+                    <div class="pattern">
+                        ↓ ↓ ↑ ↑ ↓ ↑
+                    </div>
+                    <div style="font-size: 0.9em; color: #666; margin-top: 10px;">
+                        (Bas - Bas - Haut - Haut - Bas - Haut)
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Couplet</div>
+                <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                    <strong style="color: #667eea;">Progression :</strong> B - G#m - C#m - F#
+                </div>
+
+                <div class="verse">
+                    <span class="chord">B</span>
+                    <div class="lyrics-en">I thought that we had something good in our hands</div>
+                    <div class="lyrics-fr">Je pensais que nous avions quelque chose de bien entre nos mains</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">G#m</span>
+                    <div class="lyrics-en">In a minute, it just slipped away</div>
+                    <div class="lyrics-fr">En une minute, cela nous a échappé</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">C#m</span>
+                    <div class="lyrics-en">So many things I didn't say before you threw it all away</div>
+                    <div class="lyrics-fr">Tant de choses que je n'ai pas dites avant que tu n'envoies tout en l'air
+                    </div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">F#</span>
+                    <div class="lyrics-en">I pretend I'm okay, but I'm lost and afraid</div>
+                    <div class="lyrics-fr">Je fais semblant d'aller bien, mais je suis perdu et effrayé</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">B</span>
+                    <div class="lyrics-en">And nobody really understands</div>
+                    <div class="lyrics-fr">Et personne ne comprend vraiment</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">G#m</span>
+                    <div class="lyrics-en">But now I'm dancing to a band with all the demons in my head</div>
+                    <div class="lyrics-fr">Mais maintenant je danse sur un groupe avec tous les démons dans ma tête
+                    </div>
+                </div>
+            </div>
+
+            <div class="section chorus">
+                <div class="section-title">Refrain</div>
+                <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                    <strong style="color: #667eea;">Progression :</strong><br>
+                    E - F# - B - E (×2)<br>
+                    E - F# - D#m - E<br>
+                    E - F# - B
+                </div>
+
+                <div class="verse">
+                    <span class="chord">E - F#</span>
+                    <div class="lyrics-en">Call me when he breaks your heart next summer</div>
+                    <div class="lyrics-fr">Appelle-moi quand il brisera ton cœur l'été prochain</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">B - E</span>
+                    <div class="lyrics-en">Baby, I'll be waiting here</div>
+                    <div class="lyrics-fr">Bébé, je t'attendrai là</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">E - F#</span>
+                    <div class="lyrics-en">Call me when you're all messed up, my lover</div>
+                    <div class="lyrics-fr">Appelle-moi quand tu seras paumée, mon amour</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">B - E</span>
+                    <div class="lyrics-en">And I'll be there to dry your tears</div>
+                    <div class="lyrics-fr">Et je serai là pour sécher tes larmes</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">E - F#</span>
+                    <div class="lyrics-en">You had to throw away our love</div>
+                    <div class="lyrics-fr">Il a fallu que tu envoies valser notre amour</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">D#m - E</span>
+                    <div class="lyrics-en">To find out nothing's as good as us</div>
+                    <div class="lyrics-fr">Pour découvrir que rien n'est aussi bon que nous</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">E - F# - B</span>
+                    <div class="lyrics-en">So call me when he breaks your heart next summer</div>
+                    <div class="lyrics-fr">Alors appelle-moi quand il te brisera le cœur l'été prochain</div>
+                </div>
+            </div>
+
+            <div class="section bridge">
+                <div class="section-title">Bridge</div>
+                <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                    <strong style="color: #667eea;">Progression :</strong><br>
+                    C#m (×2) - G#m - F# - F# - A
+                </div>
+
+                <div class="verse">
+                    <span class="chord">C#m</span>
+                    <div class="lyrics-en">For everything under the sun</div>
+                    <div class="lyrics-fr">Quoi qu'il advienne</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">G#m</span>
+                    <div class="lyrics-en">Every girl and every drug</div>
+                    <div class="lyrics-fr">Chaque fille et chaque drogue</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">F#</span>
+                    <div class="lyrics-en">It's never gonna be enough</div>
+                    <div class="lyrics-fr">Ce ne sera jamais assez</div>
+                </div>
+
+                <div class="verse">
+                    <span class="chord">F# - A</span>
+                    <div class="lyrics-en">'Cause you were the one</div>
+                    <div class="lyrics-fr">Parce que tu étais la bonne</div>
+                </div>
+            </div>
+
+            <div class="section chorus">
+                <div class="section-title">Refrain Final</div>
+                <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                    <strong style="color: #667eea;">Progression :</strong><br>
+                    E - F# - B - E (×2)<br>
+                    E - F# - D#m - E<br>
+                    E - F# - B
+                </div>
+                <p style="font-style: italic; color: #666;">
+                    (Répéter le refrain avec les mêmes accords)
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

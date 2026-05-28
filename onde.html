@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>AirDrop Sonore Pro</title>
+<style>
+body { font-family: Arial; text-align: center; margin: 40px; }
+button { padding: 10px 20px; margin: 10px; }
+#log { margin-top: 20px; font-weight: bold; }
+#guide { margin-top: 30px; background: #f4f4f4; padding: 20px; border-radius: 10px; }
+</style>
+</head>
+<body>
+
+<h2>🔊 AirDrop Sonore Pro</h2>
+
+<input type="file" id="fileInput"><br>
+<textarea id="textInput" placeholder="Ou écris un message..."></textarea><br>
+
+<button onclick="startHost()">Créer une session</button>
+<button onclick="joinSession()">Rejoindre</button>
+
+<div id="log"></div>
+
+<div id="guide">
+<h3>📖 Mode d'emploi</h3>
+<p>
+1️⃣ Appareil 1 : clique sur <b>Créer une session</b><br>
+2️⃣ Appareil 2 : clique sur <b>Rejoindre</b><br>
+3️⃣ Approche les appareils (moins d'1 mètre)<br>
+4️⃣ Le son ultrasonique détecte la session<br>
+5️⃣ Le transfert se fait automatiquement<br><br>
+⚠️ Les deux appareils doivent être sur le même Wi-Fi.
+</p>
+</div>
+
+<script>
+let pc;
+let channel;
+let sessionId;
+
+function playUltrasound(){
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const osc = ctx.createOscillator();
+  osc.frequency.value = 19000;
+  osc.connect(ctx.destination);
+  osc.start();
+  osc.stop(ctx.currentTime + 0.5);
+}
+
+async function startHost(){
+  sessionId = Math.random().toString(36).substring(2,8);
+  playUltrasound();
+
+  pc = new RTCPeerConnection();
+  channel = pc.createDataChannel("data");
+
+  channel.onopen = () => {
+    document.getElementById("log").innerText="Connecté !";
+  };
+
+  channel.onmessage = e => {
+    document.getElementById("log").innerText="Reçu : "+e.data;
+  };
+
+  const offer = await pc.createOffer();
+  await pc.setLocalDescription(offer);
+
+  localStorage.setItem("offer", JSON.stringify(offer));
+  document.getElementById("log").innerText="Session créée. ID: "+sessionId;
+}
+
+async function joinSession(){
+  const offer = JSON.parse(localStorage.getItem("offer"));
+  pc = new RTCPeerConnection();
+
+  pc.ondatachannel = e => {
+    channel = e.channel;
+    channel.onmessage = ev => {
+      document.getElementById("log").innerText="Reçu : "+ev.data;
+    };
+  };
+
+  await pc.setRemoteDescription(offer);
+  const answer = await pc.createAnswer();
+  await pc.setLocalDescription(answer);
+
+  localStorage.setItem("answer", JSON.stringify(answer));
+  document.getElementById("log").innerText="Session rejointe";
+}
+</script>
+
+</body>
+</html>

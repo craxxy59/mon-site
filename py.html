@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mémo complet Python</title>
+    <link rel="stylesheet" href="code.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo">Mon Site</a>
+        <nav class="top-nav" aria-label="Navigation principale">
+            <ul>
+                <li><a href="Cours.html">Cours</a></li>
+                <li><a href="Musique.html">Musique</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><a href="ip.html">Infos</a></li>
+                <li><a href="crosshair.html">Crosshair</a></li>
+                <li><a href="HTML.html">HTML, CSS, JS</a></li>
+                <li><a href="PY.html" class="active">Python</a></li>
+            </ul>
+        </nav>
+    </header>
+    <button class="nav-toggle" id="navToggle">☰</button>
+    <div class="overlay" id="overlay"></div>
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Navigation</h2>
+            <p>Mémo Python</p>
+        </div>
+        <div class="sidebar-nav">
+            <div class="nav-section">
+                <h3>Base</h3>
+                <ul>
+                    <li><a href="#variables">Variables</a></li>
+                    <li><a href="#types">Types de données</a></li>
+                    <li><a href="#operateurs">Opérateurs</a></li>
+                    <li><a href="#conditions">Conditions</a></li>
+                    <li><a href="#boucles">Boucles</a></li>
+                    <li><a href="#fonctions">Fonctions</a></li>
+                </ul>
+            </div>
+            <div class="nav-section">
+                <h3>Avancé</h3>
+                <ul>
+                    <li><a href="#listes">Listes</a></li>
+                    <li><a href="#dictionnaires">Dictionnaires</a></li>
+                    <li><a href="#fichiers">Fichiers</a></li>
+                    <li><a href="#classes">Classes</a></li>
+                    <li><a href="#modules">Modules</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="header">
+            <h1>Mémo Python</h1>
+            <p>Référence rapide pour le langage Python</p>
+        </header>
+
+        <main class="main-content" id="mainContent">
+            <section class="section" id="variables">
+                <h2>Variables</h2>
+                <div class="tag-grid">
+                    <div class="tag-item">
+                        <div class="tag-name">x = 10</div>
+                        <div class="tag-description">Affectation d'une variable</div>
+                    </div>
+                    <div class="tag-item">
+                        <div class="tag-name">x, y = 1, 2</div>
+                        <div class="tag-description">Affectation multiple</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="types">
+                <h2>Types de données</h2>
+                <div class="tag-grid">
+                    <div class="tag-item">
+                        <div class="tag-name">int, float, str, bool</div>
+                        <div class="tag-description">Types de base</div>
+                    </div>
+                    <div class="tag-item">
+                        <div class="tag-name">list, tuple, dict, set</div>
+                        <div class="tag-description">Structures de données</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="operateurs">
+                <h2>Opérateurs</h2>
+                <div class="tag-grid">
+                    <div class="tag-item">
+                        <div class="tag-name">+, -, *, /, //, %</div>
+                        <div class="tag-description">Arithmétiques</div>
+                    </div>
+                    <div class="tag-item">
+                        <div class="tag-name">==, !=, &lt;, &gt;, &lt;=, &gt;=</div>
+                        <div class="tag-description">Comparaison</div>
+                    </div>
+                    <div class="tag-item">
+                        <div class="tag-name">and, or, not</div>
+                        <div class="tag-description">Logiques</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="conditions">
+                <h2>Conditions</h2>
+                <div class="tag-grid">
+                    <div class="tag-item">
+                        <div class="tag-name">if, elif, else</div>
+                        <div class="tag-description">Structures conditionnelles</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="boucles">
+                <h2>Boucles</h2>
+                <div class="tag-grid">
+                    <div class="tag-item">
+                        <div class="tag-name">for i in range(5)</div>
+                        <div class="tag-description">Boucle for</div>
+                    </div>
+                    <div class="tag-item">
+                        <div class="tag-name">while condition</div>
+                        <div class="tag-description">Boucle while</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="fonctions">
+                <h2>Fonctions</h2>
+                <div class="tag-grid">
+                    <div class="tag-item">
+                        <div class="tag-name">def ma_fonction():</div>
+                        <div class="tag-description">Déclaration de fonction</div>
+                    </div>
+                    <div class="tag-item">
+                        <div class="tag-name">return</div>
+                        <div class="tag-description">Retourner une valeur</div>
+                    </div>
+                    <div class="tag-item">
+                        <div class="tag-name">lambda</div>
+                        <div class="tag-description">Fonction anonyme</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="listes">
+                <h2>Listes</h2>
+                <div class="tag-grid">
+                    <div class="tag-item">
+                        <div class="tag-name">[].append()</div>
+                        <div class="tag-description">Ajouter un élément</div>
+                    </div>
+                    <div class="tag-item">
+                        <div class="tag-name">[].pop()</div>
+                        <div class="tag-description">Retirer un élément</div>
+                    </div>
+                    <div class="tag-item">
+                        <div class="tag-name">len()</div>
+                        <div class="tag-description">Taille de la liste</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="dictionnaires">
+                <h2>Dictionnaires</h2>
+                <div class="tag-grid">
+                    <div class="tag-item">
+                        <div class="tag-name">{}</div>
+                        <div class="tag-description">Création</div>
+                    </div>
+                    <div class="tag-item">
+                        <div class="tag-name">.keys(), .values()</div>
+                        <div class="tag-description">Accès aux clés et valeurs</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="fichiers">
+                <h2>Fichiers</h2>
+                <div class="tag-grid">
+                    <div class="tag-item">
+                        <div class="tag-name">open(), read(), write()</div>
+                        <div class="tag-description">Lire/écrire dans un fichier</div>
+                    </div>
+                    <div class="tag-item">
+                        <div class="tag-name">with open()</div>
+                        <div class="tag-description">Gestion automatique</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="classes">
+                <h2>Classes</h2>
+                <div class="tag-grid">
+                    <div class="tag-item">
+                        <div class="tag-name">class</div>
+                        <div class="tag-description">Définition d'une classe</div>
+                    </div>
+                    <div class="tag-item">
+                        <div class="tag-name">__init__</div>
+                        <div class="tag-description">Constructeur</div>
+                    </div>
+                    <div class="tag-item">
+                        <div class="tag-name">self</div>
+                        <div class="tag-description">Instance de classe</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="modules">
+                <h2>Modules</h2>
+                <div class="tag-grid">
+                    <div class="tag-item">
+                        <div class="tag-name">import, from ... import</div>
+                        <div class="tag-description">Importation de modules</div>
+                    </div>
+                    <div class="tag-item">
+                        <div class="tag-name">math, random, os</div>
+                        <div class="tag-description">Exemples de modules standards</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <button class="back-to-top" id="backToTop">↑</button>
+    <script src="code.js"></script>
+</body>
+
+</html>

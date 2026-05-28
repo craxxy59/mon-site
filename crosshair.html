@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Crosshair</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="IMG/crosshair.ico" type="image/x-icon">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYP52P3GC8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-JYP52P3GC8');
+  </script>
+  <style>
+    /* Style pour le bouton */
+    .button {
+      background-color: #ff0000;
+      /* Couleur de fond verte */
+      border: none;
+      /* Pas de bordure */
+      color: white;
+      /* Texte en blanc */
+      padding: 15px 32px;
+      /* Espacement interne */
+      text-align: center;
+      /* Centrer le texte */
+      text-decoration: none;
+      /* Enlever le soulignement */
+      display: inline-block;
+      /* Permet d'ajuster le bouton */
+      font-size: 50px;
+      /* Taille du texte */
+      border-radius: 12px;
+      /* Coins arrondis */
+      transition: background-color 0.3s;
+      /* Transition de couleur */
+    }
+
+    /* Effet au survol */
+    .button:hover {
+      background-color: #880000;
+      /* Couleur verte plus foncée au survol */
+    }
+  </style>
+  <style>
+    @media screen and (max-width: 900px) {
+      .explications p {
+        margin-top: 500px;
+      }
+    }
+  </style>
+</head>
+<script src="script.js"></script>
+
+<body>
+  <script src="script.js"></script>
+  <header>
+    <a href="index.html" class="logo">Accueil</a>
+    <div class="nav-link">
+      <ul>
+        <li class="nav"><a href="Cours.html">Cours</a></li>
+        <li class="nav"><a href="Musique.html">Musique</a></li>
+        <li class="nav"><a href="chat.html">Chat</a></li>
+        <li class="nav"><a href="ip.html">Infos</a></li>
+        <li class="nav">
+          <p href="crosshair.html">Crosshair</p>
+        </li>
+        <li class="nav"><a href="HTML.html">HTML,CSS,JS</a></li>
+        <li class="nav"><a href="PY.html">Python</a></li>
+        <li class="nav"><a href="film.html"><img src=IMG/noir.png></a></li>
+      </ul>
+    </div>
+    <img src="IMG/menu-btn.png" alt="menu-btn" class="menu-btn">
+  </header>
+  <div class="container-crosshair"></div>
+  <div class="container2">
+    <p style="font-size: 25px; display: flex; margin-top: 375px;" class="explications">
+      1. Pour avoir un crosshair gratuitement sur beaucoup de jeux et aute. Il faut télécharger le fichier zip
+      si-dessous, puis l'extraire. <br>2. Après cela il vous faut executer le fichier Install #1.bat et installer python
+      via la redirection. <br>3. Maintenent vous devais, après la fin de l'installation de python, executer le fichier
+      Install #2.bat. <br>4. Il vous faudra attendre la fin des installetion des dépendances. <br>5. Puis un racourcis
+      apparaitra sur votre bureau. Ne le supprimez surtout pas. <br>6. Maintenent que tout est installer vous pouvez
+      executez le racourcis. Et choisir votre crosshair et la taille. (Le crosshair par default et celui de Teeqzy.).
+      <br>7. Si vous voulez d'autres crosshair, telecharger un image du crosshair que vous voulez et verifiez qu'il n'y
+      ai pas d'arrière plant. <br>8. Il faut maintenentant que renomiez l'image en crosshair7.png ou crosshair8.png.
+    </p>
+    <p style="font-size: 25px; color: #4b7bff;">Si vous avez une quetion ou un problème appuillez sur la bulle bleu en
+      bas a droite !!!</p>
+    <a href="https://www.mediafire.com/file/ithbqo2a418xpjp/Crosshair.zip/file" class="button" target="_blank">
+      Télécharger Crosshair.zip
+    </a>
+    <img src="" alt="">
+  </div>
+  <script type="text/javascript">
+    window.addEventListener("scroll", function () {
+      var header = document.querySelector("header");
+      header.classList.toggle("header-js", window.scrollY > 100);
+    })
+  </script>
+  <script src=script.js></script>
+</body>
+</script>
+<script>const menuBtn = document.querySelector(".menu-btn")
+  const navLink = document.querySelector(".nav-link")
+
+  menuBtn.addEventListener('click', () => {
+    navLink.classList.toggle('mobile-menu')
+  })
+</script>
+<!-- Brevo Conversations {literal} -->
+<script>
+    (function (d, w, c) {
+      w.BrevoConversationsID = '6638f96315299c4930164136';
+      w[c] = w[c] || function () {
+        (w[c].q = w[c].q || []).push(arguments);
+      };
+      var s = d.createElement('script');
+      s.async = true;
+      s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+      if (d.head) d.head.appendChild(s);
+    })(document, window, 'BrevoConversations');
+</script>
+<!-- /Brevo Conversations {/literal} -->
+
+</html>

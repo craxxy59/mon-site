@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fond d'écran panoramique futuriste</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .panoramic-container {
+            display: flex;
+            gap: 2px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 100, 255, 0.3);
+            position: relative;
+        }
+
+        .screen-left {
+            width: 240px;
+            height: 320px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screen-right {
+            width: 400px;
+            height: 225px;
+            position: relative;
+            overflow: hidden;
+            align-self: flex-end;
+            margin-bottom: 47.5px;
+        }
+
+        .panoramic-bg {
+            position: absolute;
+            width: 642px;
+            height: 320px;
+            background: linear-gradient(120deg, 
+                #0a0a0a 0%, 
+                #1a1a2e 15%, 
+                #16213e 30%, 
+                #1e3a8a 50%, 
+                #312e81 70%, 
+                #4c1d95 85%, 
+                #1e1b4b 100%);
+            top: 0;
+            left: 0;
+        }
+
+        .screen-left .panoramic-bg {
+            left: 0;
+        }
+
+        .screen-right .panoramic-bg {
+            left: -242px;
+            top: -47.5px;
+        }
+
+        .cyber-city {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(transparent 60%, rgba(0, 255, 255, 0.01) 61%, rgba(0, 255, 255, 0.01) 62%, transparent 63%),
+                linear-gradient(transparent 70%, rgba(138, 43, 226, 0.01) 71%, rgba(138, 43, 226, 0.01) 72%, transparent 73%),
+                linear-gradient(transparent 80%, rgba(0, 191, 255, 0.01) 81%, rgba(0, 191, 255, 0.01) 82%, transparent 83%);
+            background-size: 100% 20px, 100% 25px, 100% 30px;
+            animation: scanlines 3s linear infinite;
+        }
+
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(0, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float-particle 8s linear infinite;
+        }
+
+        .particle:nth-child(2) {
+            background: rgba(255, 0, 255, 0.6);
+            animation-delay: -2s;
+            animation-duration: 6s;
+        }
+
+        .particle:nth-child(3) {
+            background: rgba(138, 43, 226, 0.6);
+            animation-delay: -4s;
+            animation-duration: 10s;
+        }
+
+        .particle:nth-child(4) {
+            background: rgba(0, 191, 255, 0.6);
+            animation-delay: -1s;
+            animation-duration: 7s;
+        }
+
+        .particle:nth-child(5) {
+            background: rgba(255, 255, 255, 0.8);
+            animation-delay: -3s;
+            animation-duration: 9s;
+        }
+
+        .hologram-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: grid-pulse 4s ease-in-out infinite alternate;
+        }
+
+        .energy-wave {
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(0, 255, 255, 0.8) 25%, 
+                rgba(255, 0, 255, 0.8) 50%, 
+                rgba(138, 43, 226, 0.8) 75%, 
+                transparent 100%);
+            top: 50%;
+            transform: translateY(-50%);
+            animation: energy-flow 3s ease-in-out infinite;
+            filter: blur(1px);
+        }
+
+        .screen-left .energy-wave {
+            animation-delay: 0s;
+        }
+
+        .screen-right .energy-wave {
+            animation-delay: -1.5s;
+        }
+
+        .neon-accent {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(2px);
+        }
+
+        .accent-1 {
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.4) 0%, transparent 70%);
+            top: 20%;
+            left: 15%;
+            animation: pulse-glow 3s ease-in-out infinite alternate;
+        }
+
+        .accent-2 {
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, rgba(255, 0, 255, 0.4) 0%, transparent 70%);
+            bottom: 30%;
+            right: 20%;
+            animation: pulse-glow 3s ease-in-out infinite alternate;
+            animation-delay: -1s;
+        }
+
+        .accent-3 {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
+            top: 40%;
+            left: 60%;
+            animation: pulse-glow 4s ease-in-out infinite alternate;
+            animation-delay: -2s;
+        }
+
+        .download-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .download-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 5px;
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(138, 43, 226, 0.5);
+        }
+
+        .info {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            font-size: 12px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes scanlines {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(10px); }
+        }
+
+        @keyframes float-particle {
+            0% { 
+                transform: translateY(100vh) translateX(0px) rotate(0deg); 
+                opacity: 0; 
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { 
+                transform: translateY(-10px) translateX(50px) rotate(360deg); 
+                opacity: 0; 
+            }
+        }
+
+        @keyframes grid-pulse {
+            0% { opacity: 0.1; }
+            100% { opacity: 0.3; }
+        }
+
+        @keyframes energy-flow {
+            0% { transform: translateY(-50%) scaleX(0.5); opacity: 0.5; }
+            50% { transform: translateY(-50%) scaleX(1.2); opacity: 1; }
+            100% { transform: translateY(-50%) scaleX(0.8); opacity: 0.7; }
+        }
+
+        @keyframes pulse-glow {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .screen-label {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 10px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="download-container">
+        <button class="download-btn" onclick="downloadPanoramicWallpaper()">
+            🌌 Télécharger Fond Panoramique
+        </button>
+    </div>
+
+    <div class="panoramic-container">
+        <div class="screen-left">
+            <div class="panoramic-bg"></div>
+            <div class="cyber-city"></div>
+            <div class="hologram-grid"></div>
+            <div class="floating-particles">
+                <div class="particle" style="left: 20%; animation-delay: 0s;"></div>
+                <div class="particle" style="left: 60%; animation-delay: -2s;"></div>
+                <div class="particle" style="left: 80%; animation-delay: -4s;"></div>
+                <div class="particle" style="left: 40%; animation-delay: -1s;"></div>
+                <div class="particle" style="left: 10%; animation-delay: -3s;"></div>
+            </div>
+            <div class="energy-wave"></div>
+            <div class="neon-accent accent-1"></div>
+            <div class="screen-label">ÉCRAN 2</div>
+        </div>
+
+        <div class="screen-right">
+            <div class="panoramic-bg"></div>
+            <div class="cyber-city"></div>
+            <div class="hologram-grid"></div>
+            <div class="floating-particles">
+                <div class="particle" style="left: 25%; animation-delay: -0.5s;"></div>
+                <div class="particle" style="left: 45%; animation-delay: -2.5s;"></div>
+                <div class="particle" style="left: 75%; animation-delay: -1.5s;"></div>
+                <div class="particle" style="left: 15%; animation-delay: -3.5s;"></div>
+                <div class="particle" style="left: 90%; animation-delay: -0.8s;"></div>
+            </div>
+            <div class="energy-wave"></div>
+            <div class="neon-accent accent-2"></div>
+            <div class="neon-accent accent-3"></div>
+            <div class="screen-label">ÉCRAN 1</div>
+        </div>
+    </div>
+
+    <div class="info">
+        Fond d'écran panoramique futuriste - Continuité parfaite entre les deux écrans
+    </div>
+
+    <script>
+        function downloadPanoramicWallpaper() {
+            // Créer les deux parties du fond d'écran panoramique
+            createWallpaperPart('left', 1080, 1920, 'Wallpaper_Ecran2_1080x1920.png');
+            
+            // Délai pour éviter les conflits de téléchargement
+            setTimeout(() => {
+                createWallpaperPart('right', 1920, 1080, 'Wallpaper_Ecran1_1920x1080.png');
+            }, 500);
+        }
+        
+        function createWallpaperPart(side, width, height, filename) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = width;
+            canvas.height = height;
+            
+            // Créer le fond panoramique
+            const totalWidth = 3000; // Largeur totale du panorama
+            const totalHeight = 1920;
+            
+            // Position de départ selon l'écran
+            const startX = side === 'left' ? 0 : 1080;
+            
+            // Fond dégradé panoramique
+            const gradient = ctx.createLinearGradient(0, 0, width, height);
+            if (side === 'left') {
+                gradient.addColorStop(0, '#0a0a0a');
+                gradient.addColorStop(0.3, '#1a1a2e');
+                gradient.addColorStop(0.6, '#16213e');
+                gradient.addColorStop(1, '#1e3a8a');
+            } else {
+                gradient.addColorStop(0, '#1e3a8a');
+                gradient.addColorStop(0.4, '#312e81');
+                gradient.addColorStop(0.7, '#4c1d95');
+                gradient.addColorStop(1, '#1e1b4b');
+            }
+            
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+            
+            // Ajouter les éléments futuristes
+            drawPanoramicElements(ctx, width, height, side);
+            
+            // Télécharger
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        function drawPanoramicElements(ctx, width, height, side) {
+            // Grille holographique
+            ctx.strokeStyle = 'rgba(0, 255, 255, 0.05)';
+            ctx.lineWidth = 1;
+            
+            const gridSize = 60;
+            for (let x = 0; x < width; x += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, height);
+                ctx.stroke();
+            }
+            
+            for (let y = 0; y < height; y += gridSize) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+            }
+            
+            // Lignes de scan
+            ctx.strokeStyle = 'rgba(0, 255, 255, 0.03)';
+            ctx.lineWidth = 2;
+            for (let i = 0; i < 10; i++) {
+                const y = (height / 10) * i;
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(width, y);
+                ctx.stroke();
+            }
+            
+            // Orbes lumineux
+            const orbs = side === 'left' ? 
+                [
+                    {x: width * 0.3, y: height * 0.2, r: 80, color: 'rgba(0, 255, 255, 0.4)'},
+                    {x: width * 0.7, y: height * 0.7, r: 60, color: 'rgba(138, 43, 226, 0.4)'}
+                ] :
+                [
+                    {x: width * 0.2, y: height * 0.4, r: 100, color: 'rgba(255, 0, 255, 0.4)'},
+                    {x: width * 0.8, y: height * 0.6, r: 70, color: 'rgba(0, 191, 255, 0.4)'}
+                ];
+            
+            orbs.forEach(orb => {
+                const radGradient = ctx.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.r);
+                radGradient.addColorStop(0, orb.color);
+                radGradient.addColorStop(1, 'transparent');
+                
+                ctx.fillStyle = radGradient;
+                ctx.beginPath();
+                ctx.arc(orb.x, orb.y, orb.r, 0, Math.PI * 2);
+                ctx.fill();
+            });
+            
+            // Onde d'énergie horizontale
+            const waveGradient = ctx.createLinearGradient(0, height/2, width, height/2);
+            waveGradient.addColorStop(0, 'transparent');
+            waveGradient.addColorStop(0.3, 'rgba(0, 255, 255, 0.8)');
+            waveGradient.addColorStop(0.7, 'rgba(255, 0, 255, 0.8)');
+            waveGradient.addColorStop(1, 'transparent');
+            
+            ctx.fillStyle = waveGradient;
+            ctx.fillRect(0, height/2 - 3, width, 6);
+            
+            // Particules flottantes
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            for (let i = 0; i < 50; i++) {
+                const x = Math.random() * width;
+                const y = Math.random() * height;
+                const size = Math.random() * 3 + 1;
+                
+                ctx.beginPath();
+                ctx.arc(x, y, size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        // Animation continue des particules
+        function animateParticles() {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach(particle => {
+                const randomLeft = Math.random() * 100;
+                particle.style.left = randomLeft + '%';
+            });
+        }
+        
+        // Animer les particules toutes les 8 secondes
+        setInterval(animateParticles, 8000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>Jeu du Plus ou Moins</title>
+<link rel="shortcut icon" href="https://tse1.mm.bing.net/th/id/OIP.z5ZCQgCooWWvE1pZ3B91IgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" type="image/x-icon">
+</head>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    background-image: url(https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmczaWVoeWI5OTdmZ2MzNHdlNWJ0YTVzcWxhbHM3OXhrY3F0MDdpMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/doXBzUFJRxpaUbuaqz/giphy.gif);
+    background-size: 125%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.jeu{
+    width: 350px;
+    margin: 100px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+h2{
+    color: #2c3e50;
+}
+
+#boutonValider{
+    padding: 10px 18px;
+    margin: 5px;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+#boutonValider:hover{
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+#restart{
+    padding: 10px 18px;
+    margin: 5px;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#restart:hover{
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+#entree{
+    padding: 8px;
+    width: 120px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+</style>
+
+<body>
+
+<div class="jeu">
+
+<h2>Jeu du Plus ou Moins</h2>
+<h4>Le nombre a trouver est un nombre entier compris entre 36 et 48 non inclus</h4>
+<p>
+Proposition :
+<input id="entree" type="number">
+</p>
+
+<p>
+<input id="boutonValider" type="button" value="Valider">
+<input id="restart" type="button" value="Restart">
+</p>
+
+<p>
+Message : <span id="message"></span>
+</p>
+
+</div>
+
+<script>
+
+var entree = document.getElementById("entree");
+var boutonValider = document.getElementById("boutonValider");
+var boutonRestart = document.getElementById("restart");
+var resultat = document.getElementById("message");
+
+var essais = 0;
+var maxEssais = 3;
+
+var hasard = Math.floor(Math.random() * (47 - 37 + 1)) + 37;
+
+function compare(valeur){
+    if(valeur == 9){
+        console.log(hasard)
+    }else if(valeur < 37 || valeur > 47){
+        return 2;
+    }else if(valeur > hasard){
+        return -1;
+    }else if(valeur < hasard){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
+function afficheMessage(){
+
+    if(essais >= maxEssais){
+        resultat.innerHTML = "Plus d'essais ! Clique sur Restart.";
+        return;
+    }
+
+    var proposition = parseInt(entree.value);
+    var message = "";
+
+    if(isNaN(proposition)){
+        message = "Erreur de saisie";
+    }
+    else{
+
+        essais++;
+
+        var rep = compare(proposition);
+
+        if(rep == -1){
+            message = "C'est moins 🤞";
+            /*console.log(essais)*/
+        }else if(rep == 2){
+            message = "Veillez entre un nombre entre 36 et 48 exclus 😾";
+            essais--
+            /*console.log(essais)*/
+        }else if(rep == 1){
+            message = "C'est plus 🤞";
+            /*console.log(essais)*/
+        }else{
+            message = "Bravo ! 🥳";
+            boutonValider.disabled = true;
+            /*console.log(essais)*/
+        }
+
+        if(essais == maxEssais && rep != 0){
+            message += " | Perdu !😭 Le nombre était " + hasard;
+            boutonValider.disabled = true;
+        }
+    }
+
+    resultat.innerHTML = message;
+    entree.value = "";
+}
+
+function restartJeu(){
+    hasard = Math.floor(Math.random() * (47 - 37 + 1)) + 37;
+    essais = 0;
+    resultat.innerHTML = "";
+    entree.value = "";
+    boutonValider.disabled = false;
+    entree.focus();
+}
+
+boutonValider.onclick = afficheMessage;
+boutonRestart.onclick = restartJeu;
+
+entree.focus();
+
+</script>
+
+</body>
+</html>
