@@ -1,3 +1,13 @@
+/manifest.webmanifest
+  Content-Type: application/manifest+json
+
+/sw.js
+  Content-Type: application/javascript
+  Cache-Control: no-cache
+
+/pwa.js
+  Cache-Control: no-cache
+
 /mc.exe
   Content-Type: application/octet-stream
   Content-Disposition: attachment
