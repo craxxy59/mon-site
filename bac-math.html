@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maths Spé Première — Fiche de Révision</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #13161d;
+    --surface2: #1a1e28;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.13);
+    --text: #e8eaf0;
+    --muted: #7a8099;
+    --accent: #c8f07a;
+    --accent2: #7af0c8;
+    --accent3: #f0c87a;
+    --accent4: #f07a9a;
+    --accent5: #7a9af0;
+    --accent6: #c07af0;
+    --mono: 'DM Mono', monospace;
+    --head: 'Syne', sans-serif;
+    --body: 'Lora', serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,15,20,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; gap: 0; height: 56px;
+    overflow-x: auto;
+  }
+  .nav-logo {
+    font-family: var(--head); font-size: 14px; font-weight: 700;
+    color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase;
+    white-space: nowrap; margin-right: 2rem; flex-shrink: 0;
+  }
+  .nav-links { display: flex; gap: 0; flex-shrink: 0; }
+  .nav-links a {
+    font-family: var(--head); font-size: 12px; font-weight: 600;
+    color: var(--muted); text-decoration: none; padding: 0 14px; height: 56px;
+    display: flex; align-items: center; white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    padding: 140px 2rem 80px;
+    max-width: 900px; margin: 0 auto;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono); font-size: 12px; font-weight: 400;
+    color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase;
+    margin-bottom: 1.5rem; display: block;
+  }
+  .hero h1 {
+    font-family: var(--head); font-size: clamp(2.4rem, 6vw, 4.5rem);
+    font-weight: 800; line-height: 1.05;
+    background: linear-gradient(135deg, #fff 30%, #7af0c8 70%, #c8f07a 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; margin-bottom: 1.5rem;
+  }
+  .hero p {
+    color: var(--muted); font-size: 17px; max-width: 560px; margin: 0 auto 2.5rem;
+  }
+  .hero-tags { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .tag {
+    font-family: var(--mono); font-size: 11px; padding: 5px 14px;
+    border: 1px solid var(--border2); border-radius: 100px;
+    color: var(--muted); letter-spacing: 0.05em;
+  }
+  .tag.hi { border-color: rgba(200,240,122,0.3); color: var(--accent); }
+
+  /* MAIN */
+  main { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 6rem; }
+
+  /* SECTION TITLE */
+  .section-head {
+    padding: 3.5rem 0 2rem;
+    display: flex; align-items: flex-end; gap: 1.5rem;
+  }
+  .section-num {
+    font-family: var(--mono); font-size: 11px; color: var(--muted);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    padding-bottom: 6px;
+  }
+  .section-info { flex: 1; border-top: 1px solid var(--border2); padding-top: 1rem; }
+  .section-info h2 {
+    font-family: var(--head); font-size: 1.8rem; font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .section-info p { color: var(--muted); font-size: 14px; font-style: italic; }
+
+  /* CARD GRID */
+  .grid { display: grid; gap: 14px; }
+  .grid-2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+  /* CARD */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .card:hover { border-color: var(--border2); transform: translateY(-2px); }
+  .card-top {
+    padding: 14px 18px 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .card-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 14px; font-weight: 500;
+    flex-shrink: 0;
+  }
+  .card-top h3 {
+    font-family: var(--head); font-size: 14px; font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .card-top .sub { font-size: 11px; color: var(--muted); margin-top: 1px; }
+  .card-body { padding: 14px 18px 16px; }
+
+  /* BLOCKS */
+  .block { margin-bottom: 14px; }
+  .block:last-child { margin-bottom: 0; }
+  .block-title {
+    font-family: var(--mono); font-size: 10px; color: var(--muted);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 7px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .block-title::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+
+  /* FORMULA ITEMS */
+  .f-item {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 12px;
+    margin-bottom: 5px;
+  }
+  .f-item:last-child { margin-bottom: 0; }
+  .f-label {
+    font-size: 10px; color: var(--muted); margin-bottom: 3px;
+    font-family: var(--mono); letter-spacing: 0.04em;
+  }
+  .f-expr {
+    font-family: var(--mono); font-size: 13px; color: var(--text);
+    font-weight: 500; line-height: 1.5;
+  }
+  .f-note {
+    font-size: 10px; color: var(--muted); margin-top: 2px;
+    font-style: italic; font-family: var(--body);
+  }
+
+  /* VOCAB ITEMS */
+  .v-item {
+    display: flex; gap: 10px; padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .v-item:last-child { border-bottom: none; }
+  .v-term {
+    font-family: var(--mono); font-size: 12px; font-weight: 500;
+    color: var(--accent2); min-width: 130px; flex-shrink: 0; padding-top: 1px;
+  }
+  .v-def { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+  /* COLOR ACCENTS PER SECTION */
+  .c1 { background: rgba(200,240,122,0.12); color: var(--accent); }
+  .c2 { background: rgba(122,240,200,0.12); color: var(--accent2); }
+  .c3 { background: rgba(240,200,122,0.12); color: var(--accent3); }
+  .c4 { background: rgba(240,122,154,0.12); color: var(--accent4); }
+  .c5 { background: rgba(122,154,240,0.12); color: var(--accent5); }
+  .c6 { background: rgba(192,122,240,0.12); color: var(--accent6); }
+
+  .s1 h2 { color: var(--accent); }
+  .s1 .section-num { color: var(--accent); }
+  .s2 h2 { color: var(--accent2); }
+  .s2 .section-num { color: var(--accent2); }
+  .s3 h2 { color: var(--accent3); }
+  .s3 .section-num { color: var(--accent3); }
+  .s4 h2 { color: var(--accent4); }
+  .s4 .section-num { color: var(--accent4); }
+  .s5 h2 { color: var(--accent5); }
+  .s5 .section-num { color: var(--accent5); }
+  .s6 h2 { color: var(--accent6); }
+  .s6 .section-num { color: var(--accent6); }
+
+  /* WIDE CARD */
+  .card-wide { grid-column: 1 / -1; }
+
+  /* VOCAB TABLE */
+  .vtable { width: 100%; }
+
+  /* ALERT */
+  .alert {
+    background: rgba(200,240,122,0.06);
+    border: 1px solid rgba(200,240,122,0.2);
+    border-radius: 10px; padding: 10px 14px;
+    font-size: 12px; color: rgba(200,240,122,0.8);
+    font-family: var(--mono); margin-top: 10px;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 3rem 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 12px; font-family: var(--mono);
+  }
+  footer span { color: var(--accent); }
+
+  /* ACTIVE NAV on scroll */
+  section { scroll-margin-top: 70px; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 120px 1.2rem 60px; }
+    .section-head { padding: 2.5rem 0 1.5rem; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    nav { padding: 0 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Maths Spé 1ère</div>
+  <div class="nav-links">
+    <a href="#algebre">Algèbre</a>
+    <a href="#analyse">Analyse</a>
+    <a href="#geometrie">Géométrie</a>
+    <a href="#probas">Probas</a>
+    <a href="#algo">Algo</a>
+    <a href="#vocab">Logique</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="hero-eyebrow">Programme officiel BO · Spécialité Mathématiques</span>
+  <h1>Fiche de révision<br>Première Générale</h1>
+  <p>Toutes les formules, définitions et vocabulaire du programme officiel, chapitre par chapitre.</p>
+  <div class="hero-tags">
+    <span class="tag hi">Algèbre</span>
+    <span class="tag hi">Analyse</span>
+    <span class="tag hi">Géométrie</span>
+    <span class="tag hi">Probabilités</span>
+    <span class="tag hi">Algorithmique</span>
+    <span class="tag">Sans logarithmes ✓</span>
+    <span class="tag">Programme complet ✓</span>
+  </div>
+</div>
+
+<main>
+
+  <!-- ═══════════════════════════════════════
+       ALGÈBRE
+  ════════════════════════════════════════ -->
+  <section id="algebre">
+    <div class="section-head s1">
+      <span class="section-num">01</span>
+      <div class="section-info">
+        <h2>Algèbre</h2>
+        <p>Suites numériques · Polynômes du second degré</p>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+
+      <!-- Suites : vocabulaire -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c1">∑</div>
+          <div><h3>Suites — Vocabulaire</h3><div class="sub">Modes de génération, notations</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Notations</div>
+            <div class="v-item"><span class="v-term">u(n) ou uₙ</span><span class="v-def">n-ième terme de la suite (u(n))</span></div>
+            <div class="v-item"><span class="v-term">(uₙ) ou (u(n))</span><span class="v-def">La suite toute entière</span></div>
+            <div class="v-item"><span class="v-term">uₙ = f(n)</span><span class="v-def">Formule explicite : le terme dépend directement du rang n</span></div>
+            <div class="v-item"><span class="v-term">uₙ₊₁ = f(uₙ)</span><span class="v-def">Relation de récurrence : chaque terme dépend du précédent</span></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Sens de variation</div>
+            <div class="f-item"><div class="f-label">Croissante</div><div class="f-expr">∀n, uₙ₊₁ ≥ uₙ</div></div>
+            <div class="f-item"><div class="f-label">Décroissante</div><div class="f-expr">∀n, uₙ₊₁ ≤ uₙ</div></div>
+            <div class="f-item"><div class="f-label">Minorée / Majorée</div><div class="f-expr">∃m, ∀n : m ≤ uₙ &nbsp;/&nbsp; uₙ ≤ M</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Limite (intuition)</div>
+            <div class="f-item"><div class="f-expr">lim uₙ = L &nbsp;: uₙ se rapproche de L quand n → +∞</div></div>
+            <div class="f-item"><div class="f-expr">lim uₙ = +∞ &nbsp;: uₙ devient arbitrairement grand</div></div>
+            <div class="alert">⚠ Aucune formalisation de la limite n'est au programme — intuition uniquement.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Suites arithmétiques -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c1">+r</div>
+          <div><h3>Suite arithmétique</h3><div class="sub">Raison r constante</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Définition</div>
+            <div class="f-item"><div class="f-expr">uₙ₊₁ = uₙ + r</div><div class="f-note">r = raison (constante) ; accroissements constants</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Terme général</div>
+            <div class="f-item"><div class="f-label">Depuis u₀</div><div class="f-expr">uₙ = u₀ + n·r</div></div>
+            <div class="f-item"><div class="f-label">Depuis uₚ (rang p quelconque)</div><div class="f-expr">uₙ = uₚ + (n − p)·r</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Sommes</div>
+            <div class="f-item"><div class="f-label">Somme de p à n (nb termes = n−p+1)</div><div class="f-expr">S = (n−p+1) × (uₚ + uₙ) / 2</div><div class="f-note">premier terme + dernier terme, divisé par 2, × nb de termes</div></div>
+            <div class="f-item"><div class="f-label">Entiers de 1 à n</div><div class="f-expr">1 + 2 + 3 + … + n = n(n+1)/2</div></div>
+            <div class="f-item"><div class="f-label">Entiers de 0 à n</div><div class="f-expr">0 + 1 + … + n = n(n+1)/2</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Variations</div>
+            <div class="f-item"><div class="f-expr">r &gt; 0 ⟹ suite croissante &nbsp;|&nbsp; r &lt; 0 ⟹ décroissante</div></div>
+            <div class="f-item"><div class="f-label">Lien avec fonctions affines</div><div class="f-expr">f(n) = rn + u₀ &nbsp;: droite de pente r</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Suites géométriques -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c1">×q</div>
+          <div><h3>Suite géométrique</h3><div class="sub">Raison q constante</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Définition</div>
+            <div class="f-item"><div class="f-expr">uₙ₊₁ = q·uₙ</div><div class="f-note">q = raison, q ≠ 0 ; évolutions à taux constant</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Terme général</div>
+            <div class="f-item"><div class="f-label">Depuis u₀</div><div class="f-expr">uₙ = u₀ · qⁿ</div></div>
+            <div class="f-item"><div class="f-label">Depuis uₚ</div><div class="f-expr">uₙ = uₚ · qⁿ⁻ᵖ</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Somme géométrique</div>
+            <div class="f-item"><div class="f-label">q ≠ 1</div><div class="f-expr">1 + q + q² + … + qⁿ = (1 − qⁿ⁺¹) / (1 − q)</div></div>
+            <div class="f-item"><div class="f-label">Suite générale, q ≠ 1</div><div class="f-expr">u₀ + u₁ + … + uₙ = u₀ · (1 − qⁿ⁺¹) / (1 − q)</div></div>
+            <div class="f-item"><div class="f-label">q = 1</div><div class="f-expr">Somme = (n+1) · u₀</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Limites</div>
+            <div class="f-item"><div class="f-expr">|q| &lt; 1 ⟹ qⁿ → 0</div></div>
+            <div class="f-item"><div class="f-expr">q &gt; 1 ⟹ qⁿ → +∞</div></div>
+            <div class="f-item"><div class="f-expr">q &lt; −1 ⟹ (qⁿ) diverge (oscille)</div></div>
+            <div class="f-item"><div class="f-label">Lien avec exponentielle</div><div class="f-expr">Pour tout réel a, (e^(na)) est géométrique de raison eᵃ</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Polynômes du second degré -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c1">Δ</div>
+          <div><h3>Polynômes du 2nd degré</h3><div class="sub">ax² + bx + c, formes, racines</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Trois formes</div>
+            <div class="f-item"><div class="f-label">Développée réduite</div><div class="f-expr">f(x) = ax² + bx + c</div></div>
+            <div class="f-item"><div class="f-label">Canonique</div><div class="f-expr">f(x) = a(x − α)² + β</div><div class="f-note">α = −b/(2a) &nbsp;·&nbsp; β = f(α) = c − b²/(4a) = −Δ/(4a)</div></div>
+            <div class="f-item"><div class="f-label">Factorisée (si Δ ≥ 0)</div><div class="f-expr">f(x) = a(x − x₁)(x − x₂)</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Discriminant & racines</div>
+            <div class="f-item"><div class="f-label">Discriminant</div><div class="f-expr">Δ = b² − 4ac</div></div>
+            <div class="f-item"><div class="f-label">Δ &gt; 0 — deux racines réelles distinctes</div><div class="f-expr">x₁ = (−b − √Δ)/(2a) &nbsp;&nbsp; x₂ = (−b + √Δ)/(2a)</div></div>
+            <div class="f-item"><div class="f-label">Δ = 0 — racine double</div><div class="f-expr">x₀ = −b/(2a)</div></div>
+            <div class="f-item"><div class="f-label">Δ &lt; 0 — aucune racine réelle</div><div class="f-expr">f(x) &gt; 0 si a &gt; 0, &nbsp; f(x) &lt; 0 si a &lt; 0</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Relations de Viète</div>
+            <div class="f-item"><div class="f-expr">x₁ + x₂ = −b/a</div></div>
+            <div class="f-item"><div class="f-expr">x₁ · x₂ = c/a</div></div>
+            <div class="f-note" style="padding: 4px 2px; color: var(--muted);">Utile pour trouver des racines entières mentalement</div>
+          </div>
+          <div class="block">
+            <div class="block-title">Identité de complétion du carré</div>
+            <div class="f-item"><div class="f-expr">x² + 2ax = (x + a)² − a²</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Parabole (axe de sym., sommet)</div>
+            <div class="f-item"><div class="f-expr">Axe de symétrie : x = α = −b/(2a)</div></div>
+            <div class="f-item"><div class="f-expr">Sommet : S(α, β)</div><div class="f-note">minimum si a &gt; 0, maximum si a &lt; 0</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ANALYSE
+  ════════════════════════════════════════ -->
+  <section id="analyse">
+    <div class="section-head s2">
+      <span class="section-num">02</span>
+      <div class="section-info">
+        <h2>Analyse</h2>
+        <p>Dérivation · Variations · Exponentielle · Trigonométrie</p>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+
+      <!-- Dérivation locale -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c2">f'</div>
+          <div><h3>Dérivation — Point de vue local</h3><div class="sub">Taux de variation, tangente</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Taux de variation</div>
+            <div class="f-item"><div class="f-label">Taux de variation de f entre a et a+h</div><div class="f-expr">τ = [f(a+h) − f(a)] / h</div><div class="f-note">= pente de la sécante passant par (a, f(a)) et (a+h, f(a+h))</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Nombre dérivé</div>
+            <div class="f-item"><div class="f-label">Définition intuitive</div><div class="f-expr">f'(a) = limite du taux de variation quand h→0</div></div>
+            <div class="f-item"><div class="f-label">Interprétations</div><div class="f-expr">Pente de la tangente en a</div></div>
+            <div class="f-item"><div class="f-expr">Vitesse instantanée (cinématique)</div></div>
+            <div class="f-item"><div class="f-expr">Coût marginal (économie)</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Équation de la tangente en x = a</div>
+            <div class="f-item"><div class="f-expr">y = f(a) + f'(a)·(x − a)</div><div class="f-note">droite de pente f'(a) passant par (a, f(a))</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Fonction valeur absolue</div>
+            <div class="f-item"><div class="f-expr">x ↦ |x| : non dérivable en 0</div><div class="f-note">taux de variation → +1 ou −1 selon le signe de h → limite inexistante</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dérivées usuelles -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c2">dx</div>
+          <div><h3>Dérivées usuelles</h3><div class="sub">Fonctions de base + règles</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Fonctions de base</div>
+            <div class="f-item"><div class="f-label">Constante</div><div class="f-expr">(a)' = 0</div></div>
+            <div class="f-item"><div class="f-label">Puissance (n ∈ ℤ)</div><div class="f-expr">(xⁿ)' = n·xⁿ⁻¹</div></div>
+            <div class="f-item"><div class="f-label">Carré</div><div class="f-expr">(x²)' = 2x</div></div>
+            <div class="f-item"><div class="f-label">Cube</div><div class="f-expr">(x³)' = 3x²</div></div>
+            <div class="f-item"><div class="f-label">Inverse</div><div class="f-expr">(1/x)' = −1/x²</div></div>
+            <div class="f-item"><div class="f-label">Racine carrée</div><div class="f-expr">(√x)' = 1/(2√x)</div></div>
+            <div class="f-item"><div class="f-label">Exponentielle</div><div class="f-expr">(eˣ)' = eˣ</div></div>
+            <div class="f-item"><div class="f-label">Sinus</div><div class="f-expr">(sin x)' = cos x</div></div>
+            <div class="f-item"><div class="f-label">Cosinus</div><div class="f-expr">(cos x)' = −sin x</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Règles de calcul</div>
+            <div class="f-item"><div class="f-label">Somme</div><div class="f-expr">(u + v)' = u' + v'</div></div>
+            <div class="f-item"><div class="f-label">Produit par un scalaire</div><div class="f-expr">(λu)' = λu'</div></div>
+            <div class="f-item"><div class="f-label">Produit</div><div class="f-expr">(u·v)' = u'v + uv'</div></div>
+            <div class="f-item"><div class="f-label">Inverse</div><div class="f-expr">(1/u)' = −u'/u²</div></div>
+            <div class="f-item"><div class="f-label">Quotient</div><div class="f-expr">(u/v)' = (u'v − uv') / v²</div></div>
+            <div class="f-item"><div class="f-label">Composée g(ax+b)</div><div class="f-expr">[g(ax+b)]' = a·g'(ax+b)</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Dérivées composées utiles</div>
+            <div class="f-item"><div class="f-expr">(eᵘ)' = u'·eᵘ</div></div>
+            <div class="f-item"><div class="f-expr">(uⁿ)' = n·u'·uⁿ⁻¹</div></div>
+            <div class="f-item"><div class="f-expr">(√u)' = u'/(2√u)</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variations & extrema -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c2">↗↘</div>
+          <div><h3>Variations & Extrema</h3><div class="sub">Signe de f', optimisation</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Lien f' et variations</div>
+            <div class="f-item"><div class="f-expr">f'(x) &gt; 0 sur I ⟹ f croissante sur I</div></div>
+            <div class="f-item"><div class="f-expr">f'(x) &lt; 0 sur I ⟹ f décroissante sur I</div></div>
+            <div class="f-item"><div class="f-expr">f'(x) = 0 sur I ⟹ f constante sur I</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Extremum local en a</div>
+            <div class="f-item"><div class="f-expr">f'(a) = 0 ET f' change de signe en a</div><div class="f-note">Condition nécessaire mais pas suffisante : f'(a) = 0 ne suffit pas (ex. x³ en 0)</div></div>
+            <div class="f-item"><div class="f-label">Maximum local</div><div class="f-expr">f' passe de + à − en a</div></div>
+            <div class="f-item"><div class="f-label">Minimum local</div><div class="f-expr">f' passe de − à + en a</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Tangente à un extremum</div>
+            <div class="f-item"><div class="f-expr">Si f admet un extremum en a ⟹ tangente horizontale : y = f(a)</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Inégalités & position relative</div>
+            <div class="f-item"><div class="f-expr">f ≥ g sur I ⟺ f − g ≥ 0 sur I</div><div class="f-note">Étudier le signe de f − g via sa dérivée</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fonction exponentielle -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c2">eˣ</div>
+          <div><h3>Fonction exponentielle</h3><div class="sub">Définition, propriétés, modèles</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Définition (admise)</div>
+            <div class="f-item"><div class="f-expr">exp est l'unique fonction dérivable sur ℝ telle que :</div></div>
+            <div class="f-item"><div class="f-expr">f' = f &nbsp;&nbsp; ET &nbsp;&nbsp; f(0) = 1</div></div>
+            <div class="f-item"><div class="f-label">Notation</div><div class="f-expr">exp(x) = eˣ &nbsp;&nbsp; où e ≈ 2,718…</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Propriétés algébriques</div>
+            <div class="f-item"><div class="f-expr">eˣ⁺ʸ = eˣ · eʸ</div></div>
+            <div class="f-item"><div class="f-expr">eˣ⁻ʸ = eˣ / eʸ</div></div>
+            <div class="f-item"><div class="f-expr">(eˣ)ⁿ = eⁿˣ</div></div>
+            <div class="f-item"><div class="f-expr">e⁻ˣ = 1/eˣ</div></div>
+            <div class="f-item"><div class="f-expr">e⁰ = 1 &nbsp;&nbsp; e¹ = e</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Signe & variations</div>
+            <div class="f-item"><div class="f-expr">eˣ &gt; 0 pour tout x ∈ ℝ</div></div>
+            <div class="f-item"><div class="f-expr">x ↦ eˣ est strictement croissante sur ℝ</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Limites & croissances comparées</div>
+            <div class="f-item"><div class="f-expr">lim(x→+∞) eˣ = +∞</div></div>
+            <div class="f-item"><div class="f-expr">lim(x→−∞) eˣ = 0</div></div>
+            <div class="f-item"><div class="f-expr">lim(x→+∞) eˣ/xⁿ = +∞ &nbsp; (l'exponentielle l'emporte)</div></div>
+            <div class="f-item"><div class="f-expr">lim(x→+∞) xⁿ·e⁻ˣ = 0</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Équation différentielle</div>
+            <div class="f-item"><div class="f-label">Solution générale de y' = ay</div><div class="f-expr">y = C·eᵃˣ &nbsp; avec C ∈ ℝ</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Suites géométriques & exponentielle</div>
+            <div class="f-item"><div class="f-expr">Pour tout a ∈ ℝ, la suite (e^(na)) est géométrique de raison eᵃ</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trigonométrie -->
+      <div class="card card-wide">
+        <div class="card-top">
+          <div class="card-icon c2">π</div>
+          <div><h3>Fonctions trigonométriques</h3><div class="sub">Cercle, valeurs remarquables, formules</div></div>
+        </div>
+        <div class="card-body">
+          <div class="grid grid-3" style="gap:12px">
+            <div>
+              <div class="block-title">Cercle trigonométrique</div>
+              <div class="f-item"><div class="f-label">Radian</div><div class="f-expr">1 rad = arc de longueur 1 sur le cercle unité</div></div>
+              <div class="f-item"><div class="f-label">Tour complet</div><div class="f-expr">2π rad = 360°</div></div>
+              <div class="f-item"><div class="f-label">Cosinus / Sinus d'un réel x</div><div class="f-expr">M = (cos x, sin x) sur le cercle unité</div></div>
+              <div class="f-item"><div class="f-expr">cos²x + sin²x = 1</div></div>
+              <div class="f-item"><div class="f-expr">tan x = sin x / cos x</div></div>
+              <div class="f-item" style="margin-top:8px"><div class="f-label">Périodicité</div><div class="f-expr">cos(x+2π) = cos x &nbsp;&nbsp; sin(x+2π) = sin x</div></div>
+              <div class="f-item"><div class="f-label">Parité</div><div class="f-expr">cos paire : cos(−x) = cos x</div></div>
+              <div class="f-item"><div class="f-expr">sin impaire : sin(−x) = −sin x</div></div>
+            </div>
+            <div>
+              <div class="block-title">Valeurs remarquables</div>
+              <div class="f-item"><div class="f-expr">cos 0 = 1 &nbsp;&nbsp; sin 0 = 0</div></div>
+              <div class="f-item"><div class="f-expr">cos(π/6) = √3/2 &nbsp;&nbsp; sin(π/6) = 1/2</div></div>
+              <div class="f-item"><div class="f-expr">cos(π/4) = √2/2 &nbsp;&nbsp; sin(π/4) = √2/2</div></div>
+              <div class="f-item"><div class="f-expr">cos(π/3) = 1/2 &nbsp;&nbsp; sin(π/3) = √3/2</div></div>
+              <div class="f-item"><div class="f-expr">cos(π/2) = 0 &nbsp;&nbsp; sin(π/2) = 1</div></div>
+              <div class="f-item"><div class="f-expr">cos π = −1 &nbsp;&nbsp; sin π = 0</div></div>
+              <div class="f-item"><div class="f-expr">cos(3π/2) = 0 &nbsp;&nbsp; sin(3π/2) = −1</div></div>
+              <div class="f-item"><div class="f-expr">cos(2π) = 1 &nbsp;&nbsp; sin(2π) = 0</div></div>
+            </div>
+            <div>
+              <div class="block-title">Symétries & formules associées</div>
+              <div class="f-item"><div class="f-label">Supplémentaires (π − x)</div><div class="f-expr">cos(π−x) = −cos x &nbsp;&nbsp; sin(π−x) = sin x</div></div>
+              <div class="f-item"><div class="f-label">Opposés (π + x)</div><div class="f-expr">cos(π+x) = −cos x &nbsp;&nbsp; sin(π+x) = −sin x</div></div>
+              <div class="f-item"><div class="f-label">Complémentaires (π/2 − x)</div><div class="f-expr">cos(π/2−x) = sin x &nbsp;&nbsp; sin(π/2−x) = cos x</div></div>
+              <div class="f-item"><div class="f-label">Formules d'addition</div><div class="f-expr">cos(a+b) = cos a·cos b − sin a·sin b</div></div>
+              <div class="f-item"><div class="f-expr">sin(a+b) = sin a·cos b + cos a·sin b</div></div>
+              <div class="f-item"><div class="f-label">Duplication</div><div class="f-expr">cos(2a) = cos²a − sin²a = 1−2sin²a = 2cos²a−1</div></div>
+              <div class="f-item"><div class="f-expr">sin(2a) = 2·sin a·cos a</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       GÉOMÉTRIE
+  ════════════════════════════════════════ -->
+  <section id="geometrie">
+    <div class="section-head s3">
+      <span class="section-num">03</span>
+      <div class="section-info">
+        <h2>Géométrie</h2>
+        <p>Produit scalaire · Géométrie repérée</p>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+
+      <!-- Produit scalaire -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c3">u·v</div>
+          <div><h3>Produit scalaire</h3><div class="sub">Définitions, bilinéarité, orthogonalité</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Définitions</div>
+            <div class="f-item"><div class="f-label">Via cosinus</div><div class="f-expr">u⃗·v⃗ = ‖u⃗‖·‖v⃗‖·cos θ</div><div class="f-note">θ = angle entre u⃗ et v⃗</div></div>
+            <div class="f-item"><div class="f-label">Via projection orthogonale</div><div class="f-expr">u⃗·v⃗ = ‖u⃗‖·‖v⃗‖·cos θ = ‖u⃗‖ × (proj. de v⃗ sur u⃗)</div></div>
+            <div class="f-item"><div class="f-label">En base orthonormée</div><div class="f-expr">u⃗(x₁,y₁)·v⃗(x₂,y₂) = x₁x₂ + y₁y₂</div></div>
+            <div class="f-item"><div class="f-label">Via normes</div><div class="f-expr">u⃗·v⃗ = (‖u⃗+v⃗‖² − ‖u⃗‖² − ‖v⃗‖²) / 2</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Propriétés (bilinéarité, symétrie)</div>
+            <div class="f-item"><div class="f-expr">u⃗·v⃗ = v⃗·u⃗ &nbsp; (symétrie)</div></div>
+            <div class="f-item"><div class="f-expr">(u⃗+v⃗)·w⃗ = u⃗·w⃗ + v⃗·w⃗ &nbsp; (distributivité)</div></div>
+            <div class="f-item"><div class="f-expr">(λu⃗)·v⃗ = λ(u⃗·v⃗)</div></div>
+            <div class="f-item"><div class="f-label">Norme au carré</div><div class="f-expr">‖u⃗‖² = u⃗·u⃗ = x² + y²</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Développements utiles</div>
+            <div class="f-item"><div class="f-expr">‖u⃗+v⃗‖² = ‖u⃗‖² + 2u⃗·v⃗ + ‖v⃗‖²</div></div>
+            <div class="f-item"><div class="f-expr">‖u⃗−v⃗‖² = ‖u⃗‖² − 2u⃗·v⃗ + ‖v⃗‖²</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Orthogonalité & collinéarité</div>
+            <div class="f-item"><div class="f-expr">u⃗ ⊥ v⃗ &nbsp;⟺&nbsp; u⃗·v⃗ = 0 &nbsp;⟺&nbsp; x₁x₂+y₁y₂ = 0</div></div>
+            <div class="f-item"><div class="f-expr">u⃗ ∥ v⃗ &nbsp;⟺&nbsp; x₁y₂ − y₁x₂ = 0</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Formule d'Al-Kashi (généralisation de Pythagore)</div>
+            <div class="f-item"><div class="f-expr">BC² = AB² + AC² − 2·AB·AC·cos(Â)</div><div class="f-note">Se démontre avec le produit scalaire : BC⃗ = AC⃗ − AB⃗</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Ensemble des M tels que MA⃗·MB⃗ = 0</div>
+            <div class="f-item"><div class="f-expr">Cercle de diamètre [AB]</div><div class="f-note">M voit AB sous un angle droit ⟺ MA⃗·MB⃗ = 0 ⟺ M est sur le cercle de diam. AB</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Géométrie repérée -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c3">xy</div>
+          <div><h3>Géométrie repérée</h3><div class="sub">Repère orthonormé, droites, cercles</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Vecteurs & droites</div>
+            <div class="f-item"><div class="f-label">Vecteur normal à ax+by+c=0</div><div class="f-expr">n⃗(a, b)</div></div>
+            <div class="f-item"><div class="f-label">Vecteur directeur de ax+by+c=0</div><div class="f-expr">v⃗(−b, a)</div></div>
+            <div class="f-item"><div class="f-label">Équation depuis point A et n⃗(a,b)</div><div class="f-expr">a(x−xA) + b(y−yA) = 0</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Distances</div>
+            <div class="f-item"><div class="f-label">Distance de M(x₀,y₀) à la droite ax+by+c=0</div><div class="f-expr">d = |ax₀ + by₀ + c| / √(a² + b²)</div></div>
+            <div class="f-item"><div class="f-label">Distance entre A(xA,yA) et B(xB,yB)</div><div class="f-expr">AB = √((xB−xA)² + (yB−yA)²)</div></div>
+            <div class="f-item"><div class="f-label">Milieu de [AB]</div><div class="f-expr">I = ((xA+xB)/2 , (yA+yB)/2)</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Cercle</div>
+            <div class="f-item"><div class="f-label">Équation (centre Ω(a,b), rayon r)</div><div class="f-expr">(x−a)² + (y−b)² = r²</div></div>
+            <div class="f-item"><div class="f-label">Développée x²+y²+dx+ey+f=0</div><div class="f-expr">Centre : (−d/2, −e/2) &nbsp;&nbsp; r = √(d²/4+e²/4−f)</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Parabole y = ax²+bx+c</div>
+            <div class="f-item"><div class="f-label">Axe de symétrie</div><div class="f-expr">x = −b/(2a)</div></div>
+            <div class="f-item"><div class="f-label">Sommet</div><div class="f-expr">S(−b/(2a), f(−b/(2a)))</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Projeté orthogonal de M sur une droite</div>
+            <div class="f-item"><div class="f-expr">H = pied de la perpendiculaire depuis M à la droite</div><div class="f-note">Utiliser n⃗ et la droite paramétrique pour calculer H</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PROBABILITÉS
+  ════════════════════════════════════════ -->
+  <section id="probas">
+    <div class="section-head s4">
+      <span class="section-num">04</span>
+      <div class="section-info">
+        <h2>Probabilités & Statistiques</h2>
+        <p>Probabilités conditionnelles · Variables aléatoires · Loi binomiale</p>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+
+      <!-- Probabilités conditionnelles -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c4">P(A|B)</div>
+          <div><h3>Probabilités conditionnelles</h3><div class="sub">Arbres, indépendance, Bayes</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Vocabulaire fondamental</div>
+            <div class="v-item"><span class="v-term">Événement</span><span class="v-def">Sous-ensemble de l'univers Ω</span></div>
+            <div class="v-item"><span class="v-term">Univers Ω</span><span class="v-def">Ensemble de toutes les issues possibles</span></div>
+            <div class="v-item"><span class="v-term">Complémentaire Ā</span><span class="v-def">Événement contraire : P(Ā) = 1 − P(A)</span></div>
+            <div class="v-item"><span class="v-term">Événements incompatibles</span><span class="v-def">A∩B = ∅ ⟹ P(A∪B) = P(A)+P(B)</span></div>
+            <div class="v-item"><span class="v-term">Partition de Ω</span><span class="v-def">Système complet d'événements B₁,…,Bₙ disjoints dont l'union = Ω</span></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Probabilité conditionnelle</div>
+            <div class="f-item"><div class="f-label">Notation : PA(B) ou P(B|A)</div><div class="f-expr">P(B|A) = P(A∩B) / P(A) &nbsp; (P(A) ≠ 0)</div></div>
+            <div class="f-item"><div class="f-label">Règle du produit (arbre)</div><div class="f-expr">P(A∩B) = P(A) · P(B|A)</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Formule des probabilités totales</div>
+            <div class="f-item"><div class="f-expr">P(A) = P(A|B)·P(B) + P(A|B̄)·P(B̄)</div></div>
+            <div class="f-item"><div class="f-label">Cas général (partition B₁,…,Bₙ)</div><div class="f-expr">P(A) = Σ P(A|Bᵢ)·P(Bᵢ)</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Formule de Bayes</div>
+            <div class="f-item"><div class="f-expr">P(B|A) = P(A|B)·P(B) / P(A)</div><div class="f-note">Attention : P(A|B) ≠ P(B|A) ! (erreur fréquente des faux positifs)</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Indépendance</div>
+            <div class="f-item"><div class="f-expr">A et B indépendants ⟺ P(A∩B) = P(A)·P(B)</div></div>
+            <div class="f-item"><div class="f-expr">A⊥B ⟺ P(B|A) = P(B)</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variables aléatoires -->
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c4">X</div>
+          <div><h3>Variables aléatoires réelles</h3><div class="sub">Loi, espérance, variance, écart-type</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Définitions</div>
+            <div class="v-item"><span class="v-term">Variable aléatoire X</span><span class="v-def">Fonction de l'univers Ω vers ℝ associant un nombre à chaque issue</span></div>
+            <div class="v-item"><span class="v-term">Loi de X</span><span class="v-def">Tableau donnant toutes les valeurs xᵢ et leurs probabilités P(X=xᵢ)</span></div>
+            <div class="v-item"><span class="v-term">{X = a}</span><span class="v-def">Événement : «X prend la valeur a»</span></div>
+            <div class="v-item"><span class="v-term">{X ≤ a}</span><span class="v-def">Événement : «X est inférieur ou égal à a»</span></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Espérance (moyenne théorique)</div>
+            <div class="f-item"><div class="f-expr">E(X) = Σ xᵢ · P(X = xᵢ)</div><div class="f-note">Valeur moyenne à long terme · Mise pour un jeu équitable</div></div>
+            <div class="f-item"><div class="f-label">Linéarité</div><div class="f-expr">E(aX + b) = a·E(X) + b</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Variance & écart-type</div>
+            <div class="f-item"><div class="f-label">Variance</div><div class="f-expr">V(X) = Σ (xᵢ − E(X))² · P(X = xᵢ)</div></div>
+            <div class="f-item"><div class="f-label">Formule de König-Huygens</div><div class="f-expr">V(X) = E(X²) − [E(X)]²</div></div>
+            <div class="f-item"><div class="f-label">Écart-type</div><div class="f-expr">σ(X) = √V(X)</div><div class="f-note">Mesure la dispersion autour de la moyenne</div></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Propriétés</div>
+            <div class="f-item"><div class="f-expr">V(aX+b) = a²·V(X)</div></div>
+            <div class="f-item"><div class="f-expr">Σ P(X = xᵢ) = 1 &nbsp; (somme des prob. = 1)</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loi binomiale -->
+      <div class="card card-wide">
+        <div class="card-top">
+          <div class="card-icon c4">B(n,p)</div>
+          <div><h3>Loi binomiale</h3><div class="sub">Schéma de Bernoulli, coefficients binomiaux</div></div>
+        </div>
+        <div class="card-body">
+          <div class="grid grid-3" style="gap:12px">
+            <div>
+              <div class="block-title">Contexte</div>
+              <div class="v-item"><span class="v-term">Épreuve de Bernoulli</span><span class="v-def">Expérience à deux issues : Succès (prob. p) ou Échec (prob. 1−p)</span></div>
+              <div class="v-item"><span class="v-term">Schéma de Bernoulli</span><span class="v-def">n épreuves de Bernoulli identiques et indépendantes</span></div>
+              <div class="v-item"><span class="v-term">X ~ B(n, p)</span><span class="v-def">X = nombre de succès parmi n épreuves (0 ≤ X ≤ n)</span></div>
+            </div>
+            <div>
+              <div class="block-title">Probabilité & formules</div>
+              <div class="f-item"><div class="f-label">P(X = k), pour k ∈ {0,…,n}</div><div class="f-expr">P(X=k) = C(n,k) · pᵏ · (1−p)ⁿ⁻ᵏ</div></div>
+              <div class="f-item"><div class="f-label">Espérance</div><div class="f-expr">E(X) = np</div></div>
+              <div class="f-item"><div class="f-label">Variance</div><div class="f-expr">V(X) = np(1−p)</div></div>
+              <div class="f-item"><div class="f-label">Écart-type</div><div class="f-expr">σ(X) = √(np(1−p))</div></div>
+            </div>
+            <div>
+              <div class="block-title">Coefficients binomiaux</div>
+              <div class="f-item"><div class="f-label">Définition</div><div class="f-expr">C(n,k) = n! / (k!·(n−k)!)</div><div class="f-note">= nombre de façons de choisir k éléments parmi n</div></div>
+              <div class="f-item"><div class="f-expr">C(n,0) = C(n,n) = 1</div></div>
+              <div class="f-item"><div class="f-expr">C(n,1) = n</div></div>
+              <div class="f-item"><div class="f-expr">C(n,k) = C(n, n−k)</div></div>
+              <div class="f-item"><div class="f-label">Relation de Pascal (triangle)</div><div class="f-expr">C(n,k) + C(n,k+1) = C(n+1, k+1)</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ALGORITHMIQUE
+  ════════════════════════════════════════ -->
+  <section id="algo">
+    <div class="section-head s5">
+      <span class="section-num">05</span>
+      <div class="section-info">
+        <h2>Algorithmique & Programmation</h2>
+        <p>Python · Listes · Fonctions · Notions clés</p>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c5">[ ]</div>
+          <div><h3>Notion de liste (Python)</h3><div class="sub">Manipulation, parcours, compréhension</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Vocabulaire</div>
+            <div class="v-item"><span class="v-term">Liste</span><span class="v-def">Suite ordonnée d'éléments (de types éventuellement différents)</span></div>
+            <div class="v-item"><span class="v-term">Indice</span><span class="v-def">Position d'un élément, commence à 0</span></div>
+            <div class="v-item"><span class="v-term">En extension</span><span class="v-def">L = [1, 4, 9, 16] — liste explicite</span></div>
+            <div class="v-item"><span class="v-term">En compréhension</span><span class="v-def">L = [f(i) for i in range(n)] — génération automatique</span></div>
+            <div class="v-item"><span class="v-term">Ajout successif</span><span class="v-def">L = [] puis L.append(valeur)</span></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Opérations essentielles</div>
+            <div class="f-item"><div class="f-label">Accès</div><div class="f-expr">L[i] — élément d'indice i</div></div>
+            <div class="f-item"><div class="f-label">Longueur</div><div class="f-expr">len(L)</div></div>
+            <div class="f-item"><div class="f-label">Ajout en fin</div><div class="f-expr">L.append(x)</div></div>
+            <div class="f-item"><div class="f-label">Suppression</div><div class="f-expr">L.remove(x) ou del L[i]</div></div>
+            <div class="f-item"><div class="f-label">Parcours</div><div class="f-expr">for x in L: &nbsp;ou&nbsp; for i in range(len(L)):</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c5">def</div>
+          <div><h3>Structures algorithmiques</h3><div class="sub">Variables, boucles, fonctions, conditions</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Vocabulaire & structures</div>
+            <div class="v-item"><span class="v-term">Variable</span><span class="v-def">Nom associé à une valeur en mémoire ; affectation : ← (algo) ou = (Python)</span></div>
+            <div class="v-item"><span class="v-term">Boucle for</span><span class="v-def">Répétition un nombre fixé de fois</span></div>
+            <div class="v-item"><span class="v-term">Boucle while</span><span class="v-def">Répétition tant qu'une condition est vraie (recherche de seuil)</span></div>
+            <div class="v-item"><span class="v-term">Instruction conditionnelle</span><span class="v-def">if … elif … else : exécution selon une condition</span></div>
+            <div class="v-item"><span class="v-term">Fonction Python</span><span class="v-def">def f(paramètres): … return valeur — programmation modulaire</span></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Algorithmes types du programme</div>
+            <div class="f-item"><div class="f-expr">Calcul de termes d'une suite (boucle)</div></div>
+            <div class="f-item"><div class="f-expr">Somme de termes (accumulateur)</div></div>
+            <div class="f-item"><div class="f-expr">Recherche de seuil (while)</div></div>
+            <div class="f-item"><div class="f-expr">Calcul de n! (factorielle)</div></div>
+            <div class="f-item"><div class="f-expr">Simulation d'une variable aléatoire (random)</div></div>
+            <div class="f-item"><div class="f-expr">Méthode de Newton (cas favorables)</div></div>
+            <div class="f-item"><div class="f-expr">Construction de l'exponentielle (méthode d'Euler)</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       LOGIQUE & VOCABULAIRE
+  ════════════════════════════════════════ -->
+  <section id="vocab">
+    <div class="section-head s6">
+      <span class="section-num">06</span>
+      <div class="section-info">
+        <h2>Vocabulaire ensembliste & Logique</h2>
+        <p>Ensembles · Connecteurs · Raisonnement · Quantificateurs</p>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c6">∈</div>
+          <div><h3>Vocabulaire ensembliste</h3><div class="sub">Symboles et notations officiels</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Notations à maîtriser</div>
+            <div class="v-item"><span class="v-term">∈</span><span class="v-def">Appartenance : x ∈ E signifie «x est élément de E»</span></div>
+            <div class="v-item"><span class="v-term">⊂</span><span class="v-def">Inclusion : A ⊂ B signifie «tout élément de A est dans B»</span></div>
+            <div class="v-item"><span class="v-term">∩</span><span class="v-def">Intersection : A∩B = {x | x∈A ET x∈B}</span></div>
+            <div class="v-item"><span class="v-term">∪</span><span class="v-def">Réunion : A∪B = {x | x∈A OU x∈B}</span></div>
+            <div class="v-item"><span class="v-term">Ā ou E\A</span><span class="v-def">Complémentaire de A dans E : tout ce qui n'est pas dans A</span></div>
+            <div class="v-item"><span class="v-term">∅</span><span class="v-def">Ensemble vide</span></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Ensembles de nombres</div>
+            <div class="v-item"><span class="v-term">ℕ</span><span class="v-def">Entiers naturels {0, 1, 2, 3, …}</span></div>
+            <div class="v-item"><span class="v-term">ℤ</span><span class="v-def">Entiers relatifs {…, −2, −1, 0, 1, 2, …}</span></div>
+            <div class="v-item"><span class="v-term">ℚ</span><span class="v-def">Rationnels (fractions p/q)</span></div>
+            <div class="v-item"><span class="v-term">ℝ</span><span class="v-def">Réels (droite numérique complète)</span></div>
+            <div class="v-item"><span class="v-term">[a,b] / ]a,b[</span><span class="v-def">Intervalle fermé / ouvert</span></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Couples et produit cartésien</div>
+            <div class="v-item"><span class="v-term">(a,b)</span><span class="v-def">Couple ordonné de deux éléments</span></div>
+            <div class="v-item"><span class="v-term">A × B</span><span class="v-def">Produit cartésien : {(a,b) | a∈A, b∈B}</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-top">
+          <div class="card-icon c6">⟹</div>
+          <div><h3>Logique & Raisonnement</h3><div class="sub">Connecteurs, implications, méthodes</div></div>
+        </div>
+        <div class="card-body">
+          <div class="block">
+            <div class="block-title">Connecteurs logiques</div>
+            <div class="v-item"><span class="v-term">ET (∧)</span><span class="v-def">P ET Q : vraie si P et Q sont vraies toutes les deux</span></div>
+            <div class="v-item"><span class="v-term">OU (∨)</span><span class="v-def">P OU Q : vraie si au moins l'une est vraie</span></div>
+            <div class="v-item"><span class="v-term">NON (¬)</span><span class="v-def">Négation : NON P est vraie si P est fausse</span></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Implication & équivalence</div>
+            <div class="v-item"><span class="v-term">P ⟹ Q</span><span class="v-def">Implication : «Si P alors Q» — P est condition suffisante pour Q</span></div>
+            <div class="v-item"><span class="v-term">P ⟺ Q</span><span class="v-def">Équivalence : P ⟹ Q ET Q ⟹ P</span></div>
+            <div class="v-item"><span class="v-term">Réciproque</span><span class="v-def">Si «P⟹Q» alors la réciproque est «Q⟹P» (pas forcément vraie !)</span></div>
+            <div class="v-item"><span class="v-term">Contraposée</span><span class="v-def">«P⟹Q» est équivalent à «non Q ⟹ non P»</span></div>
+            <div class="v-item"><span class="v-term">Cond. nécessaire</span><span class="v-def">P ⟹ Q : Q est nécessaire pour P</span></div>
+            <div class="v-item"><span class="v-term">Cond. suffisante</span><span class="v-def">P ⟹ Q : P est suffisante pour Q</span></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Quantificateurs</div>
+            <div class="v-item"><span class="v-term">∀ (pour tout)</span><span class="v-def">∀x∈E, P(x) : P est vraie pour tout x de E</span></div>
+            <div class="v-item"><span class="v-term">∃ (il existe)</span><span class="v-def">∃x∈E, P(x) : il existe au moins un x dans E tel que P(x) est vraie</span></div>
+            <div class="v-item"><span class="v-term">Négation de ∀</span><span class="v-def">NON(∀x, P(x)) ⟺ ∃x, NON P(x)</span></div>
+            <div class="v-item"><span class="v-term">Négation de ∃</span><span class="v-def">NON(∃x, P(x)) ⟺ ∀x, NON P(x)</span></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Types de raisonnements</div>
+            <div class="v-item"><span class="v-term">Par contraposée</span><span class="v-def">Prouver «P⟹Q» en montrant «non Q ⟹ non P»</span></div>
+            <div class="v-item"><span class="v-term">Par l'absurde</span><span class="v-def">Supposer NON Q et aboutir à une contradiction</span></div>
+            <div class="v-item"><span class="v-term">Par disjonction</span><span class="v-def">Traiter séparément plusieurs cas exhaustifs</span></div>
+            <div class="v-item"><span class="v-term">Contre-exemple</span><span class="v-def">Un seul cas où P est fausse suffit à infirmer «∀x, P(x)»</span></div>
+          </div>
+          <div class="block">
+            <div class="block-title">Statut des lettres & égalités</div>
+            <div class="v-item"><span class="v-term">Identité</span><span class="v-def">Égalité vraie pour toutes valeurs des variables</span></div>
+            <div class="v-item"><span class="v-term">Équation</span><span class="v-def">Égalité où x est une inconnue à déterminer</span></div>
+            <div class="v-item"><span class="v-term">Paramètre</span><span class="v-def">Lettre fixée dont dépend la situation</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Mathématiques Spécialité · Première Générale · Programme officiel BO<br>
+  <span>Algèbre · Analyse · Géométrie · Probabilités · Algorithmique · Logique</span></p>
+</footer>
+
+<script>
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
