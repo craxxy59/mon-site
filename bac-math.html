@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maths Spé Première — Fiche de Révision</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <style>
   :root {
     --bg: #0d0f14;
@@ -328,23 +330,23 @@
         <div class="card-body">
           <div class="block">
             <div class="block-title">Définition</div>
-            <div class="f-item"><div class="f-expr">uₙ₊₁ = uₙ + r</div><div class="f-note">r = raison (constante) ; accroissements constants</div></div>
+            <div class="f-item"><div class="f-expr">$$u_{n+1} = u_n + r$$</div><div class="f-note">$r$ = raison (constante) ; accroissements constants</div></div>
           </div>
           <div class="block">
             <div class="block-title">Terme général</div>
-            <div class="f-item"><div class="f-label">Depuis u₀</div><div class="f-expr">uₙ = u₀ + n·r</div></div>
-            <div class="f-item"><div class="f-label">Depuis uₚ (rang p quelconque)</div><div class="f-expr">uₙ = uₚ + (n − p)·r</div></div>
+            <div class="f-item"><div class="f-label">Depuis u₀</div><div class="f-expr">$$u_n = u_0 + n \cdot r$$</div></div>
+            <div class="f-item"><div class="f-label">Depuis uₚ (rang p quelconque)</div><div class="f-expr">$$u_n = u_p + (n - p) \cdot r$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Sommes</div>
-            <div class="f-item"><div class="f-label">Somme de p à n (nb termes = n−p+1)</div><div class="f-expr">S = (n−p+1) × (uₚ + uₙ) / 2</div><div class="f-note">premier terme + dernier terme, divisé par 2, × nb de termes</div></div>
-            <div class="f-item"><div class="f-label">Entiers de 1 à n</div><div class="f-expr">1 + 2 + 3 + … + n = n(n+1)/2</div></div>
-            <div class="f-item"><div class="f-label">Entiers de 0 à n</div><div class="f-expr">0 + 1 + … + n = n(n+1)/2</div></div>
+            <div class="f-item"><div class="f-label">Somme de p à n (nb termes = n−p+1)</div><div class="f-expr">$$S = (n-p+1) \times \frac{u_p + u_n}{2}$$</div><div class="f-note">premier terme + dernier terme, divisé par 2, × nb de termes</div></div>
+            <div class="f-item"><div class="f-label">Entiers de 1 à n</div><div class="f-expr">$$1 + 2 + 3 + \cdots + n = \frac{n(n+1)}{2}$$</div></div>
+            <div class="f-item"><div class="f-label">Entiers de 0 à n</div><div class="f-expr">$$0 + 1 + \cdots + n = \frac{n(n+1)}{2}$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Variations</div>
-            <div class="f-item"><div class="f-expr">r &gt; 0 ⟹ suite croissante &nbsp;|&nbsp; r &lt; 0 ⟹ décroissante</div></div>
-            <div class="f-item"><div class="f-label">Lien avec fonctions affines</div><div class="f-expr">f(n) = rn + u₀ &nbsp;: droite de pente r</div></div>
+            <div class="f-item"><div class="f-expr">$$r > 0 \Rightarrow \text{suite croissante} \quad | \quad r < 0 \Rightarrow \text{décroissante}$$</div></div>
+            <div class="f-item"><div class="f-label">Lien avec fonctions affines</div><div class="f-expr">$$f(n) = rn + u_0 \text{ : droite de pente } r$$</div></div>
           </div>
         </div>
       </div>
@@ -358,25 +360,25 @@
         <div class="card-body">
           <div class="block">
             <div class="block-title">Définition</div>
-            <div class="f-item"><div class="f-expr">uₙ₊₁ = q·uₙ</div><div class="f-note">q = raison, q ≠ 0 ; évolutions à taux constant</div></div>
+            <div class="f-item"><div class="f-expr">$$u_{n+1} = q \cdot u_n$$</div><div class="f-note">$q$ = raison, $q \neq 0$ ; évolutions à taux constant</div></div>
           </div>
           <div class="block">
             <div class="block-title">Terme général</div>
-            <div class="f-item"><div class="f-label">Depuis u₀</div><div class="f-expr">uₙ = u₀ · qⁿ</div></div>
-            <div class="f-item"><div class="f-label">Depuis uₚ</div><div class="f-expr">uₙ = uₚ · qⁿ⁻ᵖ</div></div>
+            <div class="f-item"><div class="f-label">Depuis u₀</div><div class="f-expr">$$u_n = u_0 \cdot q^n$$</div></div>
+            <div class="f-item"><div class="f-label">Depuis uₚ</div><div class="f-expr">$$u_n = u_p \cdot q^{n-p}$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Somme géométrique</div>
-            <div class="f-item"><div class="f-label">q ≠ 1</div><div class="f-expr">1 + q + q² + … + qⁿ = (1 − qⁿ⁺¹) / (1 − q)</div></div>
-            <div class="f-item"><div class="f-label">Suite générale, q ≠ 1</div><div class="f-expr">u₀ + u₁ + … + uₙ = u₀ · (1 − qⁿ⁺¹) / (1 − q)</div></div>
-            <div class="f-item"><div class="f-label">q = 1</div><div class="f-expr">Somme = (n+1) · u₀</div></div>
+            <div class="f-item"><div class="f-label">q ≠ 1</div><div class="f-expr">$$1 + q + q^2 + \cdots + q^n = \frac{1 - q^{n+1}}{1 - q}$$</div></div>
+            <div class="f-item"><div class="f-label">Suite générale, q ≠ 1</div><div class="f-expr">$$u_0 + u_1 + \cdots + u_n = u_0 \cdot \frac{1 - q^{n+1}}{1 - q}$$</div></div>
+            <div class="f-item"><div class="f-label">q = 1</div><div class="f-expr">$$\text{Somme} = (n+1) \cdot u_0$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Limites</div>
-            <div class="f-item"><div class="f-expr">|q| &lt; 1 ⟹ qⁿ → 0</div></div>
-            <div class="f-item"><div class="f-expr">q &gt; 1 ⟹ qⁿ → +∞</div></div>
-            <div class="f-item"><div class="f-expr">q &lt; −1 ⟹ (qⁿ) diverge (oscille)</div></div>
-            <div class="f-item"><div class="f-label">Lien avec exponentielle</div><div class="f-expr">Pour tout réel a, (e^(na)) est géométrique de raison eᵃ</div></div>
+            <div class="f-item"><div class="f-expr">$$|q| < 1 \Rightarrow q^n \to 0$$</div></div>
+            <div class="f-item"><div class="f-expr">$$q > 1 \Rightarrow q^n \to +\infty$$</div></div>
+            <div class="f-item"><div class="f-expr">$$q < -1 \Rightarrow (q^n) \text{ diverge (oscille)}$$</div></div>
+            <div class="f-item"><div class="f-label">Lien avec exponentielle</div><div class="f-expr">$$\text{Pour tout réel } a, \quad (e^{na}) \text{ est géométrique de raison } e^a$$</div></div>
           </div>
         </div>
       </div>
@@ -390,44 +392,44 @@
         <div class="card-body">
           <div class="block">
             <div class="block-title">Trois formes</div>
-            <div class="f-item"><div class="f-label">Développée réduite</div><div class="f-expr">f(x) = ax² + bx + c</div></div>
-            <div class="f-item"><div class="f-label">Canonique</div><div class="f-expr">f(x) = a(x − α)² + β</div><div class="f-note">α = −b/(2a) &nbsp;·&nbsp; β = f(α) = c − b²/(4a) = −Δ/(4a)</div></div>
-            <div class="f-item"><div class="f-label">Factorisée (si Δ ≥ 0)</div><div class="f-expr">f(x) = a(x − x₁)(x − x₂)</div></div>
+            <div class="f-item"><div class="f-label">Développée réduite</div><div class="f-expr">$$f(x) = ax^2 + bx + c$$</div></div>
+            <div class="f-item"><div class="f-label">Canonique</div><div class="f-expr">$$f(x) = a(x - \alpha)^2 + \beta$$</div><div class="f-note">$$\alpha = -\frac{b}{2a}, \quad \beta = f(\alpha) = c - \frac{b^2}{4a} = -\frac{\Delta}{4a}$$</div></div>
+            <div class="f-item"><div class="f-label">Factorisée (si Δ ≥ 0)</div><div class="f-expr">$$f(x) = a(x - x_1)(x - x_2)$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Discriminant & racines</div>
-            <div class="f-item"><div class="f-label">Discriminant</div><div class="f-expr">Δ = b² − 4ac</div></div>
-            <div class="f-item"><div class="f-label">Δ &gt; 0 — deux racines réelles distinctes</div><div class="f-expr">x₁ = (−b − √Δ)/(2a) &nbsp;&nbsp; x₂ = (−b + √Δ)/(2a)</div></div>
-            <div class="f-item"><div class="f-label">Δ = 0 — racine double</div><div class="f-expr">x₀ = −b/(2a)</div></div>
-            <div class="f-item"><div class="f-label">Δ &lt; 0 — aucune racine réelle</div><div class="f-expr">f(x) &gt; 0 si a &gt; 0, &nbsp; f(x) &lt; 0 si a &lt; 0</div></div>
+            <div class="f-item"><div class="f-label">Discriminant</div><div class="f-expr">$$\Delta = b^2 - 4ac$$</div></div>
+            <div class="f-item"><div class="f-label">Δ > 0 — deux racines réelles distinctes</div><div class="f-expr">$$x_1 = \frac{-b - \sqrt{\Delta}}{2a}, \quad x_2 = \frac{-b + \sqrt{\Delta}}{2a}$$</div></div>
+            <div class="f-item"><div class="f-label">Δ = 0 — racine double</div><div class="f-expr">$$x_0 = -\frac{b}{2a}$$</div></div>
+            <div class="f-item"><div class="f-label">Δ < 0 — aucune racine réelle</div><div class="f-expr">$$f(x) > 0 \text{ si } a > 0, \quad f(x) < 0 \text{ si } a < 0$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Relations de Viète</div>
-            <div class="f-item"><div class="f-expr">x₁ + x₂ = −b/a</div></div>
-            <div class="f-item"><div class="f-expr">x₁ · x₂ = c/a</div></div>
+            <div class="f-item"><div class="f-expr">$$x_1 + x_2 = -\frac{b}{a}$$</div></div>
+            <div class="f-item"><div class="f-expr">$$x_1 \cdot x_2 = \frac{c}{a}$$</div></div>
             <div class="f-note" style="padding: 4px 2px; color: var(--muted);">Utile pour trouver des racines entières mentalement</div>
           </div>
           <div class="block">
             <div class="block-title">Identité de complétion du carré</div>
-            <div class="f-item"><div class="f-expr">x² + 2ax = (x + a)² − a²</div></div>
+            <div class="f-item"><div class="f-expr">$$x^2 + 2ax = (x + a)^2 - a^2$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Parabole (axe de sym., sommet)</div>
-            <div class="f-item"><div class="f-expr">Axe de symétrie : x = α = −b/(2a)</div></div>
-            <div class="f-item"><div class="f-expr">Sommet : S(α, β)</div><div class="f-note">minimum si a &gt; 0, maximum si a &lt; 0</div></div>
+            <div class="f-item"><div class="f-expr">$$\text{Axe de symétrie : } x = \alpha = -\frac{b}{2a}$$</div></div>
+            <div class="f-item"><div class="f-expr">$$\text{Sommet : } S(\alpha, \beta)$$</div><div class="f-note">minimum si $a > 0$, maximum si $a < 0$</div></div>
           </div>
           <div class="block">
             <div class="block-title">À quoi sert α (alpha) ?</div>
-            <div class="f-item"><div class="f-expr">α = −b/(2a) : abscisse du sommet</div><div class="f-note">C'est le centre de symétrie de la parabole ; toute parabole est symétrique par rapport à cette droite verticale</div></div>
+            <div class="f-item"><div class="f-expr">$$\alpha = -\frac{b}{2a} \text{ : abscisse du sommet}$$</div><div class="f-note">C'est le centre de symétrie de la parabole ; toute parabole est symétrique par rapport à cette droite verticale</div></div>
             <div class="f-item"><div class="f-label">Utilité pratique</div><div class="f-note">• Trouver rapidement le sommet sans calcul de dérivée<br>• Déterminer l'axe de symétrie pour esquisser la courbe<br>• Localiser l'extremum (minimum ou maximum) de la fonction</div></div>
-            <div class="f-item"><div class="f-label">Lien avec la forme canonique</div><div class="f-expr">f(x) = a(x − α)² + β permet de lire directement α en facteur</div><div class="f-note">La forme canonique rend évident où se situe le sommet et où est l'axe de symétrie</div></div>
+            <div class="f-item"><div class="f-label">Lien avec la forme canonique</div><div class="f-expr">$$f(x) = a(x - \alpha)^2 + \beta \text{ permet de lire directement } \alpha$$</div><div class="f-note">La forme canonique rend évident où se situe le sommet et où est l'axe de symétrie</div></div>
           </div>
           <div class="block">
             <div class="block-title">Comment trouver les solutions ?</div>
-            <div class="f-item"><div class="f-label">Méthode 1 : Discriminant Δ (formule générale)</div><div class="f-expr">Calculer Δ = b² − 4ac, puis appliquer la formule des racines</div><div class="f-note">Fonctionne toujours ; utiliser si les racines ne sont pas apparentes</div></div>
-            <div class="f-item"><div class="f-label">Méthode 2 : Relations de Viète (racines entières)</div><div class="f-expr">Si x₁ + x₂ = −b/a et x₁ · x₂ = c/a, chercher deux entiers satisfaisant ces conditions</div><div class="f-note">Beaucoup plus rapide mentalement quand les racines sont des nombres simples</div></div>
-            <div class="f-item"><div class="f-label">Méthode 3 : Complétion du carré</div><div class="f-expr">Factoriser ou réécrire en forme canonique a(x − α)² + β = 0</div><div class="f-note">Utile pour comprendre géométriquement ; conduit directement à la forme factorisée</div></div>
-            <div class="f-item"><div class="f-label">Méthode 4 : Formes factorisées visibles</div><div class="f-expr">Remarquer si f(x) = (x − r)(x − s) ou utiliser factorisation d'un produit remarquable</div><div class="f-note">Ex : x² − 4 = (x−2)(x+2) sans calcul</div></div>
+            <div class="f-item"><div class="f-label">Méthode 1 : Discriminant Δ</div><div class="f-expr">$$\Delta = b^2 - 4ac \text{, puis } x = \frac{-b \pm \sqrt{\Delta}}{2a}$$</div><div class="f-note">Fonctionne toujours ; utiliser si les racines ne sont pas apparentes</div></div>
+            <div class="f-item"><div class="f-label">Méthode 2 : Relations de Viète</div><div class="f-expr">$$x_1 + x_2 = -\frac{b}{a} \text{ et } x_1 \cdot x_2 = \frac{c}{a}$$</div><div class="f-note">Chercher deux entiers satisfaisant ces conditions ; plus rapide mentalement</div></div>
+            <div class="f-item"><div class="f-label">Méthode 3 : Complétion du carré</div><div class="f-expr">$$a(x - \alpha)^2 + \beta = 0 \Rightarrow (x - \alpha)^2 = -\frac{\beta}{a}$$</div><div class="f-note">Utile pour comprendre géométriquement ; conduit directement à la forme factorisée</div></div>
+            <div class="f-item"><div class="f-label">Méthode 4 : Produits remarquables</div><div class="f-expr">$$x^2 - 4 = (x-2)(x+2), \quad x^2 - 6x + 9 = (x-3)^2$$</div><div class="f-note">Reconnaître $(a \pm b)^2$ ou $a^2 - b^2$ pour factoriser directement</div></div>
           </div>
         </div>
       </div>
