@@ -262,7 +262,7 @@
 </nav>
 
 <div class="hero">
-  <span class="hero-eyebrow">Programme officiel BO \cdot Spécialité Mathématiques</span>
+  <span class="hero-eyebrow">Programme officiel BO · Spécialité Mathématiques</span>
   <h1>Fiche de révision<br>Première Générale</h1>
   <p>Toutes les formules, définitions et vocabulaire du programme officiel, chapitre par chapitre.</p>
   <div class="hero-tags">
@@ -286,7 +286,7 @@
       <span class="section-num">01</span>
       <div class="section-info">
         <h2>Algèbre</h2>
-        <p>Suites numériques \cdot Polynômes du second degré</p>
+        <p>Suites numériques · Polynômes du second degré</p>
       </div>
     </div>
 
@@ -301,10 +301,10 @@
         <div class="card-body">
           <div class="block">
             <div class="block-title">Notations</div>
-            <div class="v-item"><span class="v-term">u(n) ou u_n</span><span class="v-def">n-ième terme de la suite (u(n))</span></div>
-            <div class="v-item"><span class="v-term">(u_n) ou (u(n))</span><span class="v-def">La suite toute entière</span></div>
-            <div class="v-item"><span class="v-term">u_n = f(n)</span><span class="v-def">Formule explicite : le terme dépend directement du rang n</span></div>
-            <div class="v-item"><span class="v-term">u_{n+1} = f(u_n)</span><span class="v-def">Relation de récurrence : chaque terme dépend du précédent</span></div>
+            <div class="v-item"><span class="v-term">u(n) ou uₙ</span><span class="v-def">n-ième terme de la suite (u(n))</span></div>
+            <div class="v-item"><span class="v-term">(uₙ) ou (u(n))</span><span class="v-def">La suite toute entière</span></div>
+            <div class="v-item"><span class="v-term">uₙ = f(n)</span><span class="v-def">Formule explicite : le terme dépend directement du rang n</span></div>
+            <div class="v-item"><span class="v-term">uₙ₊₁ = f(uₙ)</span><span class="v-def">Relation de récurrence : chaque terme dépend du précédent</span></div>
           </div>
           <div class="block">
             <div class="block-title">Sens de variation</div>
@@ -334,19 +334,19 @@
           </div>
           <div class="block">
             <div class="block-title">Terme général</div>
-            <div class="f-item"><div class="f-label">Depuis u_0</div><div class="f-expr">$$u_n = u_0 + n \cdot r$$</div></div>
-            <div class="f-item"><div class="f-label">Depuis u_p (rang p quelconque)</div><div class="f-expr">$$u_n = u_p + (n - p) \cdot r$$</div></div>
+            <div class="f-item"><div class="f-label">Depuis u₀</div><div class="f-expr">$$u_n = u_0 + n \cdot r$$</div></div>
+            <div class="f-item"><div class="f-label">Depuis uₚ (rang p quelconque)</div><div class="f-expr">$$u_n = u_p + (n - p) \cdot r$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Sommes</div>
-            <div class="f-item"><div class="f-label">Somme de p à n (nb termes = n-p+1)</div><div class="f-expr">$$S = (n-p+1) \times \frac{u_p + u_n}{2}$$</div><div class="f-note">premier terme + dernier terme, divisé par 2, \times nb de termes</div></div>
-            <div class="f-item"><div class="f-label">Entiers de 1 à n</div><div class="f-expr">$$1 + 2 + 3 + \cdot s + n = \frac{n(n+1)}{2}$$</div></div>
-            <div class="f-item"><div class="f-label">Entiers de 0 à n</div><div class="f-expr">$$0 + 1 + \cdot s + n = \frac{n(n+1)}{2}$$</div></div>
+            <div class="f-item"><div class="f-label">Somme de p à n (nb termes = n−p+1)</div><div class="f-expr">$$S = (n-p+1) \times \frac_{u_p + u_n}{2}$$</div><div class="f-note">premier terme + dernier terme, divisé par 2, × nb de termes</div></div>
+            <div class="f-item"><div class="f-label">Entiers de 1 à n</div><div class="f-expr">$$1 + 2 + 3 + \cdots + n = \frac_{n(n+1)}{2}$$</div></div>
+            <div class="f-item"><div class="f-label">Entiers de 0 à n</div><div class="f-expr">$$0 + 1 + \cdots + n = \frac_{n(n+1)}{2}$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Variations</div>
             <div class="f-item"><div class="f-expr">$$r > 0 \Rightarrow \text{suite croissante} \quad | \quad r < 0 \Rightarrow \text{décroissante}$$</div></div>
-            <div class="f-item"><div class="f-label">Lien avec fonctions affines</div><div class="f-expr">$$f(n) = rn + u_0 \text{ : droite de pente } r$$</div></div>
+            <div class="f-item"><div class="f-label">Lien avec fonctions affines</div><div class="f-expr">$$f(n) = rn + u_0 \text_{ : droite de pente } r$$</div></div>
           </div>
         </div>
       </div>
@@ -354,7 +354,7 @@
       <!-- Suites géométriques -->
       <div class="card">
         <div class="card-top">
-          <div class="card-icon c1">\timesq</div>
+          <div class="card-icon c1">×q</div>
           <div><h3>Suite géométrique</h3><div class="sub">Raison q constante</div></div>
         </div>
         <div class="card-body">
@@ -364,21 +364,21 @@
           </div>
           <div class="block">
             <div class="block-title">Terme général</div>
-            <div class="f-item"><div class="f-label">Depuis u_0</div><div class="f-expr">$$u_n = u_0 \cdot q^n$$</div></div>
-            <div class="f-item"><div class="f-label">Depuis u_p</div><div class="f-expr">$$u_n = u_p \cdot q^{n-p}$$</div></div>
+            <div class="f-item"><div class="f-label">Depuis u₀</div><div class="f-expr">$$u_n = u_0 \cdot q^n$$</div></div>
+            <div class="f-item"><div class="f-label">Depuis uₚ</div><div class="f-expr">$$u_n = u_p \cdot q^{n-p}$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Somme géométrique</div>
-            <div class="f-item"><div class="f-label">q \neq 1</div><div class="f-expr">$$1 + q + q^2 + \cdot s + q^n = \frac{1 - q^{n+1}}{1 - q}$$</div></div>
-            <div class="f-item"><div class="f-label">Suite générale, q \neq 1</div><div class="f-expr">$$u_0 + u_1 + \cdot s + u_n = u_0 \cdot \frac{1 - q^{n+1}}{1 - q}$$</div></div>
-            <div class="f-item"><div class="f-label">q = 1</div><div class="f-expr">$$\text{Somme} = (n+1) \cdot u_0$$</div></div>
+            <div class="f-item"><div class="f-label">q ≠ 1</div><div class="f-expr">$$1 + q + q^2 + \cdots + q^n = \frac_{1 - q^{n+1}}{1 - q}$$</div></div>
+            <div class="f-item"><div class="f-label">Suite générale, q ≠ 1</div><div class="f-expr">$$u_0 + u_1 + \cdots + u_n = u_0 \cdot \frac_{1 - q^{n+1}}{1 - q}$$</div></div>
+            <div class="f-item"><div class="f-label">q = 1</div><div class="f-expr">$$\text_{Somme} = (n+1) \cdot u_0$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Limites</div>
             <div class="f-item"><div class="f-expr">$$|q| < 1 \Rightarrow q^n \to 0$$</div></div>
             <div class="f-item"><div class="f-expr">$$q > 1 \Rightarrow q^n \to +\infty$$</div></div>
             <div class="f-item"><div class="f-expr">$$q < -1 \Rightarrow (q^n) \text{ diverge (oscille)}$$</div></div>
-            <div class="f-item"><div class="f-label">Lien avec exponentielle</div><div class="f-expr">$$\text{Pour tout réel } a, \quad (e^{na}) \text{ est géométrique de raison } e^a$$</div></div>
+            <div class="f-item"><div class="f-label">Lien avec exponentielle</div><div class="f-expr">$$\text_{Pour tout réel } a, \quad (e^{na}) \text_{ est géométrique de raison } e^a$$</div></div>
           </div>
         </div>
       </div>
@@ -387,26 +387,26 @@
       <div class="card">
         <div class="card-top">
           <div class="card-icon c1">Δ</div>
-          <div><h3>Polynômes du 2nd degré</h3><div class="sub">ax^2 + bx + c, formes, racines</div></div>
+          <div><h3>Polynômes du 2nd degré</h3><div class="sub">ax² + bx + c, formes, racines</div></div>
         </div>
         <div class="card-body">
           <div class="block">
             <div class="block-title">Trois formes</div>
             <div class="f-item"><div class="f-label">Développée réduite</div><div class="f-expr">$$f(x) = ax^2 + bx + c$$</div></div>
-            <div class="f-item"><div class="f-label">Canonique</div><div class="f-expr">$$f(x) = a(x - \alpha)^2 + \beta$$</div><div class="f-note">$\alpha = -\frac{b}{2a}, \quad \beta = f(\alpha) = c - \frac{b^2}{4a} = -\frac{\Delta}{4a}$</div></div>
-            <div class="f-item"><div class="f-label">Factorisée (si Δ \geq 0)</div><div class="f-expr">$$f(x) = a(x - x_1)(x - x_2)$$</div></div>
+            <div class="f-item"><div class="f-label">Canonique</div><div class="f-expr">$$f(x) = a(x - \alpha)^2 + \beta$$</div><div class="f-note">$$\alpha = -\frac{b}{2a}, \quad \beta = f(\alpha) = c - \frac{b^2}{4a} = -\frac{\Delta}{4a}$$</div></div>
+            <div class="f-item"><div class="f-label">Factorisée (si Δ ≥ 0)</div><div class="f-expr">$$f(x) = a(x - x_1)(x - x_2)$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Discriminant & racines</div>
             <div class="f-item"><div class="f-label">Discriminant</div><div class="f-expr">$$\Delta = b^2 - 4ac$$</div></div>
-            <div class="f-item"><div class="f-label">Δ > 0 — deux racines réelles distinctes</div><div class="f-expr">$$x_1 = \frac{-b - \sqrt{\Delta}}{2a}, \quad x_2 = \frac{-b + \sqrt{\Delta}}{2a}$$</div></div>
-            <div class="f-item"><div class="f-label">Δ = 0 — racine double</div><div class="f-expr">$$x_0 = -\frac{b}{2a}$$</div></div>
+            <div class="f-item"><div class="f-label">Δ > 0 — deux racines réelles distinctes</div><div class="f-expr">$$x_1 = \frac_{-b - \sqrt_{\Delta}}{2a}, \quad x_2 = \frac_{-b + \sqrt_{\Delta}}{2a}$$</div></div>
+            <div class="f-item"><div class="f-label">Δ = 0 — racine double</div><div class="f-expr">$$x_0 = -\frac_{b}{2a}$$</div></div>
             <div class="f-item"><div class="f-label">Δ < 0 — aucune racine réelle</div><div class="f-expr">$$f(x) > 0 \text{ si } a > 0, \quad f(x) < 0 \text{ si } a < 0$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Relations de Viète</div>
-            <div class="f-item"><div class="f-expr">$$x_1 + x_2 = -\frac{b}{a}$$</div></div>
-            <div class="f-item"><div class="f-expr">$$x_1 \cdot x_2 = \frac{c}{a}$$</div></div>
+            <div class="f-item"><div class="f-expr">$$x_1 + x_2 = -\frac_{b}{a}$$</div></div>
+            <div class="f-item"><div class="f-expr">$$x_1 \cdot x_2 = \frac_{c}{a}$$</div></div>
             <div class="f-note" style="padding: 4px 2px; color: var(--muted);">Utile pour trouver des racines entières mentalement</div>
           </div>
           <div class="block">
@@ -415,20 +415,20 @@
           </div>
           <div class="block">
             <div class="block-title">Parabole (axe de sym., sommet)</div>
-            <div class="f-item"><div class="f-expr">$$\text{Axe de symétrie : } x = \alpha = -\frac{b}{2a}$$</div></div>
-            <div class="f-item"><div class="f-expr">$$\text{Sommet : } S(\alpha, \beta)$$</div><div class="f-note">minimum si $a > 0$, maximum si $a < 0$</div></div>
+            <div class="f-item"><div class="f-expr">$$\text_{Axe de symétrie : } x = \alpha = -\frac_{b}{2a}$$</div></div>
+            <div class="f-item"><div class="f-expr">$$\text_{Sommet : } S(\alpha, \beta)$$</div><div class="f-note">minimum si $a > 0$, maximum si $a < 0$</div></div>
           </div>
           <div class="block">
-            <div class="block-title">À quoi sert \alpha (alpha) ?</div>
-            <div class="f-item"><div class="f-expr">$$\alpha = -\frac{b}{2a} \text{ : abscisse du sommet}$$</div><div class="f-note">C'est le centre de symétrie de la parabole ; toute parabole est symétrique par rapport à cette droite verticale</div></div>
+            <div class="block-title">À quoi sert α (alpha) ?</div>
+            <div class="f-item"><div class="f-expr">$$\alpha = -\frac_{b}{2a} \text_{ : abscisse du sommet}$$</div><div class="f-note">C'est le centre de symétrie de la parabole ; toute parabole est symétrique par rapport à cette droite verticale</div></div>
             <div class="f-item"><div class="f-label">Utilité pratique</div><div class="f-note">• Trouver rapidement le sommet sans calcul de dérivée<br>• Déterminer l'axe de symétrie pour esquisser la courbe<br>• Localiser l'extremum (minimum ou maximum) de la fonction</div></div>
-            <div class="f-item"><div class="f-label">Lien avec la forme canonique</div><div class="f-expr">$$f(x) = a(x - \alpha)^2 + \beta \text{ permet de lire directement } \alpha$$</div><div class="f-note">La forme canonique rend évident où se situe le sommet et où est l'axe de symétrie</div></div>
+            <div class="f-item"><div class="f-label">Lien avec la forme canonique</div><div class="f-expr">$$f(x) = a(x - \alpha)^2 + \beta \text_{ permet de lire directement } \alpha$$</div><div class="f-note">La forme canonique rend évident où se situe le sommet et où est l'axe de symétrie</div></div>
           </div>
           <div class="block">
             <div class="block-title">Comment trouver les solutions ?</div>
-            <div class="f-item"><div class="f-label">Méthode 1 : Discriminant Δ</div><div class="f-expr">$$\Delta = b^2 - 4ac \text{, puis } x = \frac{-b \pm \sqrt{\Delta}}{2a}$$</div><div class="f-note">Fonctionne toujours ; utiliser si les racines ne sont pas apparentes</div></div>
-            <div class="f-item"><div class="f-label">Méthode 2 : Relations de Viète</div><div class="f-expr">$$x_1 + x_2 = -\frac{b}{a} \text{ et } x_1 \cdot x_2 = \frac{c}{a}$$</div><div class="f-note">Chercher deux entiers satisfaisant ces conditions ; plus rapide mentalement</div></div>
-            <div class="f-item"><div class="f-label">Méthode 3 : Complétion du carré</div><div class="f-expr">$$a(x - \alpha)^2 + \beta = 0 \Rightarrow (x - \alpha)^2 = -\frac{\beta}{a}$$</div><div class="f-note">Utile pour comprendre géométriquement ; conduit directement à la forme factorisée</div></div>
+            <div class="f-item"><div class="f-label">Méthode 1 : Discriminant Δ</div><div class="f-expr">$$\Delta = b^2 - 4ac \text_{, puis } x = \frac_{-b \pm \sqrt_{\Delta}}{2a}$$</div><div class="f-note">Fonctionne toujours ; utiliser si les racines ne sont pas apparentes</div></div>
+            <div class="f-item"><div class="f-label">Méthode 2 : Relations de Viète</div><div class="f-expr">$$x_1 + x_2 = -\frac_{b}{a} \text_{ et } x_1 \cdot x_2 = \frac_{c}{a}$$</div><div class="f-note">Chercher deux entiers satisfaisant ces conditions ; plus rapide mentalement</div></div>
+            <div class="f-item"><div class="f-label">Méthode 3 : Complétion du carré</div><div class="f-expr">$$a(x - \alpha)^2 + \beta = 0 \Rightarrow (x - \alpha)^2 = -\frac_{\beta}{a}$$</div><div class="f-note">Utile pour comprendre géométriquement ; conduit directement à la forme factorisée</div></div>
             <div class="f-item"><div class="f-label">Méthode 4 : Produits remarquables</div><div class="f-expr">$$x^2 - 4 = (x-2)(x+2), \quad x^2 - 6x + 9 = (x-3)^2$$</div><div class="f-note">Reconnaître $(a \pm b)^2$ ou $a^2 - b^2$ pour factoriser directement</div></div>
           </div>
         </div>
@@ -460,7 +460,7 @@
         <div class="card-body">
           <div class="block">
             <div class="block-title">Taux de variation</div>
-            <div class="f-item"><div class="f-label">Taux de variation de f entre a et a+h</div><div class="f-expr">$$\tau = \frac{f(a+h) - f(a)}{h}$$</div><div class="f-note">= pente de la sécante passant par (a, f(a)) et (a+h, f(a+h))</div></div>
+            <div class="f-item"><div class="f-label">Taux de variation de f entre a et a+h</div><div class="f-expr">$$\tau = [f(a+h) - f(a)] / h$$</div><div class="f-note">= pente de la sécante passant par (a, f(a)) et (a+h, f(a+h))</div></div>
           </div>
           <div class="block">
             <div class="block-title">Nombre dérivé</div>
@@ -475,7 +475,7 @@
           </div>
           <div class="block">
             <div class="block-title">Fonction valeur absolue</div>
-            <div class="f-item"><div class="f-expr">$$x \mapsto |x| : non dérivable en 0$$</div><div class="f-note">taux de variation \to +1 ou -1 selon le signe de h \to limite inexistante</div></div>
+            <div class="f-item"><div class="f-expr">$$x ↦ |x| : non dérivable en 0$$</div><div class="f-note">taux de variation → +1 ou −1 selon le signe de h → limite inexistante</div></div>
           </div>
         </div>
       </div>
@@ -490,29 +490,29 @@
           <div class="block">
             <div class="block-title">Fonctions de base</div>
             <div class="f-item"><div class="f-label">Constante</div><div class="f-expr">$$(a)' = 0$$</div></div>
-            <div class="f-item"><div class="f-label">Puissance (n \in \mathbb{Z})</div><div class="f-expr">$$(x^n)' = n\cdot x^{n-1}$$</div></div>
+            <div class="f-item"><div class="f-label">Puissance (n ∈ ℤ)</div><div class="f-expr">$$(x^n)' = n\cdotx^n⁻^1$$</div></div>
             <div class="f-item"><div class="f-label">Carré</div><div class="f-expr">$$(x^2)' = 2x$$</div></div>
             <div class="f-item"><div class="f-label">Cube</div><div class="f-expr">$$(x^3)' = 3x^2$$</div></div>
-            <div class="f-item"><div class="f-label">Inverse</div><div class="f-expr">$$(\frac{1}{x})' = -\frac{1}{x^2}$$</div></div>
-            <div class="f-item"><div class="f-label">Racine carrée</div><div class="f-expr">$$(\sqrt{x})' = \frac{1}{2\sqrt{x}}$$</div></div>
+            <div class="f-item"><div class="f-label">Inverse</div><div class="f-expr">$$(1/x)' = -1/x^2$$</div></div>
+            <div class="f-item"><div class="f-label">Racine carrée</div><div class="f-expr">$$(\sqrt{x})' = 1/(2\sqrt{x})$$</div></div>
             <div class="f-item"><div class="f-label">Exponentielle</div><div class="f-expr">$$(e^x)' = e^x$$</div></div>
-            <div class="f-item"><div class="f-label">Sinus</div><div class="f-expr">$$(\sin x)' = \cos x$$</div></div>
-            <div class="f-item"><div class="f-label">Cosinus</div><div class="f-expr">$$(\cos x)' = -\sin x$$</div></div>
+            <div class="f-item"><div class="f-label">Sinus</div><div class="f-expr">$$(sin x)' = cos x$$</div></div>
+            <div class="f-item"><div class="f-label">Cosinus</div><div class="f-expr">$$(cos x)' = -sin x$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Règles de calcul</div>
             <div class="f-item"><div class="f-label">Somme</div><div class="f-expr">$$(u + v)' = u' + v'$$</div></div>
-            <div class="f-item"><div class="f-label">Produit par un scalaire</div><div class="f-expr">$$(\lambda u)' = \lambda u'$$</div></div>
-            <div class="f-item"><div class="f-label">Produit</div><div class="f-expr">$$(u\cdot v)' = u'v + uv'$$</div></div>
-            <div class="f-item"><div class="f-label">Inverse</div><div class="f-expr">$$(\frac{1}{u})' = -\frac{u'}{u^2}$$</div></div>
-            <div class="f-item"><div class="f-label">Quotient</div><div class="f-expr">$$(\frac{u}{v})' = \frac{u'v - uv'}{v^2}$$</div></div>
-            <div class="f-item"><div class="f-label">Composée g(ax+b)</div><div class="f-expr">$$[g(ax+b)]' = a\cdot g'(ax+b)$$</div></div>
+            <div class="f-item"><div class="f-label">Produit par un scalaire</div><div class="f-expr">$$(\lambdau)' = \lambdau'$$</div></div>
+            <div class="f-item"><div class="f-label">Produit</div><div class="f-expr">$$(u\cdotv)' = u'v + uv'$$</div></div>
+            <div class="f-item"><div class="f-label">Inverse</div><div class="f-expr">$$(1/u)' = -u'/u^2$$</div></div>
+            <div class="f-item"><div class="f-label">Quotient</div><div class="f-expr">$$(u/v)' = (u'v - uv') / v^2$$</div></div>
+            <div class="f-item"><div class="f-label">Composée g(ax+b)</div><div class="f-expr">$$[g(ax+b)]' = a\cdotg'(ax+b)$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Dérivées composées utiles</div>
-            <div class="f-item"><div class="f-expr">$$(e^u)' = u'\cdot e^u$$</div></div>
-            <div class="f-item"><div class="f-expr">$$(u^n)' = n\cdot u'\cdot u^{n-1}$$</div></div>
-            <div class="f-item"><div class="f-expr">$$(\sqrt{u})' = \frac{u'}{2\sqrt{u}}$$</div></div>
+            <div class="f-item"><div class="f-expr">$$(eᵘ)' = u'\cdoteᵘ$$</div></div>
+            <div class="f-item"><div class="f-expr">$$(u^n)' = n\cdotu'\cdotu^n⁻^1$$</div></div>
+            <div class="f-item"><div class="f-expr">$$(\sqrt{u})' = u'/(2\sqrt{u})$$</div></div>
           </div>
         </div>
       </div>
@@ -526,23 +526,23 @@
         <div class="card-body">
           <div class="block">
             <div class="block-title">Lien f' et variations</div>
-            <div class="f-item"><div class="f-expr">$$f'(x) > 0 sur I \Rightarrow f croissante sur I$$</div></div>
-            <div class="f-item"><div class="f-expr">$$f'(x) < 0 sur I \Rightarrow f décroissante sur I$$</div></div>
-            <div class="f-item"><div class="f-expr">$$f'(x) = 0 sur I \Rightarrow f constante sur I$$</div></div>
+            <div class="f-item"><div class="f-expr">$$f'(x) &gt; 0 sur I \implies f croissante sur I$$</div></div>
+            <div class="f-item"><div class="f-expr">$$f'(x) &lt; 0 sur I \implies f décroissante sur I$$</div></div>
+            <div class="f-item"><div class="f-expr">$$f'(x) = 0 sur I \implies f constante sur I$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Extremum local en a</div>
-            <div class="f-item"><div class="f-expr">$$f'(a) = 0 ET f' change de signe en a$$</div><div class="f-note">Condition nécessaire mais pas suffisante : f'(a) = 0 ne suffit pas (ex. x^3 en 0)</div></div>
+            <div class="f-item"><div class="f-expr">$$f'(a) = 0 ET f' change de signe en a$$</div><div class="f-note">Condition nécessaire mais pas suffisante : f'(a) = 0 ne suffit pas (ex. x³ en 0)</div></div>
             <div class="f-item"><div class="f-label">Maximum local</div><div class="f-expr">$$f' passe de + à - en a$$</div></div>
             <div class="f-item"><div class="f-label">Minimum local</div><div class="f-expr">$$f' passe de - à + en a$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Tangente à un extremum</div>
-            <div class="f-item"><div class="f-expr">$$Si f admet un extremum en a \Rightarrow tangente horizontale : y = f(a)$$</div></div>
+            <div class="f-item"><div class="f-expr">$$Si f admet un extremum en a \implies tangente horizontale : y = f(a)$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Inégalités & position relative</div>
-            <div class="f-item"><div class="f-expr">$$f \geq g sur I ⟺ f - g \geq 0 sur I$$</div><div class="f-note">Étudier le signe de f - g via sa dérivée</div></div>
+            <div class="f-item"><div class="f-expr">$$f \geq g sur I ⟺ f - g \geq 0 sur I$$</div><div class="f-note">Étudier le signe de f − g via sa dérivée</div></div>
           </div>
         </div>
       </div>
@@ -550,7 +550,7 @@
       <!-- Fonction exponentielle -->
       <div class="card">
         <div class="card-top">
-          <div class="card-icon c2">e^x</div>
+          <div class="card-icon c2">eˣ</div>
           <div><h3>Fonction exponentielle</h3><div class="sub">Définition, propriétés, modèles</div></div>
         </div>
         <div class="card-body">
@@ -562,27 +562,27 @@
           </div>
           <div class="block">
             <div class="block-title">Propriétés algébriques</div>
-            <div class="f-item"><div class="f-expr">$$e^{x+y} = e^x \cdot e^y$$</div></div>
-            <div class="f-item"><div class="f-expr">$$e^{x-y} = e^x / e^y$$</div></div>
+            <div class="f-item"><div class="f-expr">$$e^x⁺ʸ = e^x \cdot eʸ$$</div></div>
+            <div class="f-item"><div class="f-expr">$$e^x⁻ʸ = e^x / eʸ$$</div></div>
             <div class="f-item"><div class="f-expr">$$(e^x)^n = e^n^x$$</div></div>
-            <div class="f-item"><div class="f-expr">$$e^{-x} = \frac{1}{e^x}$$</div></div>
+            <div class="f-item"><div class="f-expr">$$e⁻^x = 1/e^x$$</div></div>
             <div class="f-item"><div class="f-expr">$$e^0 = 1 &nbsp;&nbsp; e^1 = e$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Signe & variations</div>
-            <div class="f-item"><div class="f-expr">$$e^x > 0 pour tout x \in \mathbb{R}$$</div></div>
-            <div class="f-item"><div class="f-expr">$$x \mapsto e^x est strictement croissante sur \mathbb{R}$$</div></div>
+            <div class="f-item"><div class="f-expr">$$e^x &gt; 0 pour tout x \in \mathbb{R}$$</div></div>
+            <div class="f-item"><div class="f-expr">$$x ↦ e^x est strictement croissante sur \mathbb{R}$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Limites & croissances comparées</div>
             <div class="f-item"><div class="f-expr">$$lim(x\to+\infty) e^x = +\infty$$</div></div>
             <div class="f-item"><div class="f-expr">$$lim(x\to-\infty) e^x = 0$$</div></div>
             <div class="f-item"><div class="f-expr">$$lim(x\to+\infty) e^x/x^n = +\infty &nbsp; (l'exponentielle l'emporte)$$</div></div>
-            <div class="f-item"><div class="f-expr">$$lim(x\to+\infty) x^n\cdot e^{-x} = 0$$</div></div>
+            <div class="f-item"><div class="f-expr">$$lim(x\to+\infty) x^n\cdote⁻^x = 0$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Équation différentielle</div>
-            <div class="f-item"><div class="f-label">Solution générale de y' = ay</div><div class="f-expr">$$y = C\cdot eᵃ^x &nbsp; avec C \in \mathbb{R}$$</div></div>
+            <div class="f-item"><div class="f-label">Solution générale de y' = ay</div><div class="f-expr">$$y = C\cdoteᵃ^x &nbsp; avec C \in \mathbb{R}$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Suites géométriques & exponentielle</div>
@@ -594,7 +594,7 @@
       <!-- Trigonométrie -->
       <div class="card card-wide">
         <div class="card-top">
-          <div class="card-icon c2">\pi</div>
+          <div class="card-icon c2">π</div>
           <div><h3>Fonctions trigonométriques</h3><div class="sub">Cercle, valeurs remarquables, formules</div></div>
         </div>
         <div class="card-body">
@@ -603,12 +603,12 @@
               <div class="block-title">Cercle trigonométrique</div>
               <div class="f-item"><div class="f-label">Radian</div><div class="f-expr">$$1 rad = arc de longueur 1 sur le cercle unité$$</div></div>
               <div class="f-item"><div class="f-label">Tour complet</div><div class="f-expr">$$2\pi rad = 360°$$</div></div>
-              <div class="f-item"><div class="f-label">Cosinus / Sinus d'un réel x</div><div class="f-expr">$$M = (\cos x, \sin x) sur le cercle unité$$</div></div>
+              <div class="f-item"><div class="f-label">Cosinus / Sinus d'un réel x</div><div class="f-expr">$$M = (cos x, sin x) sur le cercle unité$$</div></div>
               <div class="f-item"><div class="f-expr">$$cos^2x + sin^2x = 1$$</div></div>
-              <div class="f-item"><div class="f-expr">$$tan x = \sin x / \cos x$$</div></div>
-              <div class="f-item" style="margin-top:8px"><div class="f-label">Périodicité</div><div class="f-expr">$$cos(x+2\pi) = \cos x &nbsp;&nbsp; sin(x+2\pi) = \sin x$$</div></div>
-              <div class="f-item"><div class="f-label">Parité</div><div class="f-expr">$$cos paire : cos(-x) = \cos x$$</div></div>
-              <div class="f-item"><div class="f-expr">$$sin impaire : sin(-x) = -\sin x$$</div></div>
+              <div class="f-item"><div class="f-expr">$$tan x = sin x / cos x$$</div></div>
+              <div class="f-item" style="margin-top:8px"><div class="f-label">Périodicité</div><div class="f-expr">$$cos(x+2\pi) = cos x &nbsp;&nbsp; sin(x+2\pi) = sin x$$</div></div>
+              <div class="f-item"><div class="f-label">Parité</div><div class="f-expr">$$cos paire : cos(-x) = cos x$$</div></div>
+              <div class="f-item"><div class="f-expr">$$sin impaire : sin(-x) = -sin x$$</div></div>
             </div>
             <div>
               <div class="block-title">Valeurs remarquables</div>
@@ -623,13 +623,13 @@
             </div>
             <div>
               <div class="block-title">Symétries & formules associées</div>
-              <div class="f-item"><div class="f-label">Supplémentaires (\pi - x)</div><div class="f-expr">$$cos(\pi-x) = -\cos x &nbsp;&nbsp; sin(\pi-x) = \sin x$$</div></div>
-              <div class="f-item"><div class="f-label">Opposés (\pi + x)</div><div class="f-expr">$$cos(\pi+x) = -\cos x &nbsp;&nbsp; sin(\pi+x) = -\sin x$$</div></div>
-              <div class="f-item"><div class="f-label">Complémentaires (\pi/2 - x)</div><div class="f-expr">$$cos(\pi/2-x) = \sin x &nbsp;&nbsp; sin(\pi/2-x) = \cos x$$</div></div>
-              <div class="f-item"><div class="f-label">Formules d'addition</div><div class="f-expr">$$cos(a+b) = cos a\cdot cos b - sin a\cdot sin b$$</div></div>
-              <div class="f-item"><div class="f-expr">$$sin(a+b) = sin a\cdot cos b + cos a\cdot sin b$$</div></div>
+              <div class="f-item"><div class="f-label">Supplémentaires (π − x)</div><div class="f-expr">$$cos(\pi-x) = -cos x &nbsp;&nbsp; sin(\pi-x) = sin x$$</div></div>
+              <div class="f-item"><div class="f-label">Opposés (π + x)</div><div class="f-expr">$$cos(\pi+x) = -cos x &nbsp;&nbsp; sin(\pi+x) = -sin x$$</div></div>
+              <div class="f-item"><div class="f-label">Complémentaires (π/2 − x)</div><div class="f-expr">$$cos(\pi/2-x) = sin x &nbsp;&nbsp; sin(\pi/2-x) = cos x$$</div></div>
+              <div class="f-item"><div class="f-label">Formules d'addition</div><div class="f-expr">$$cos(a+b) = cos a\cdotcos b - sin a\cdotsin b$$</div></div>
+              <div class="f-item"><div class="f-expr">$$sin(a+b) = sin a\cdotcos b + cos a\cdotsin b$$</div></div>
               <div class="f-item"><div class="f-label">Duplication</div><div class="f-expr">$$cos(2a) = cos^2a - sin^2a = 1-2sin^2a = 2cos^2a-1$$</div></div>
-              <div class="f-item"><div class="f-expr">$$sin(2a) = 2\cdot sin a\cdot cos a$$</div></div>
+              <div class="f-item"><div class="f-expr">$$sin(2a) = 2\cdotsin a\cdotcos a$$</div></div>
             </div>
           </div>
         </div>
@@ -646,7 +646,7 @@
       <span class="section-num">03</span>
       <div class="section-info">
         <h2>Géométrie</h2>
-        <p>Produit scalaire \cdot Géométrie repérée</p>
+        <p>Produit scalaire · Géométrie repérée</p>
       </div>
     </div>
 
@@ -655,37 +655,37 @@
       <!-- Produit scalaire -->
       <div class="card">
         <div class="card-top">
-          <div class="card-icon c3">u\cdot v</div>
+          <div class="card-icon c3">u·v</div>
           <div><h3>Produit scalaire</h3><div class="sub">Définitions, bilinéarité, orthogonalité</div></div>
         </div>
         <div class="card-body">
           <div class="block">
             <div class="block-title">Définitions</div>
-            <div class="f-item"><div class="f-label">Via cosinus</div><div class="f-expr">$$\vec{u} \cdot \vec{v} = \|\vec{u}\| \cdot \|\vec{v}\| \cdot \cos \theta$$</div><div class="f-note">$\theta$ = angle entre $\vec{u}$ et $\vec{v}$</div></div>
-            <div class="f-item"><div class="f-label">Via projection orthogonale</div><div class="f-expr">$$\vec{u} \cdot \vec{v} = \|\vec{u}\| \times \text{(proj. de } \vec{v} \text{ sur } \vec{u})$$</div></div>
-            <div class="f-item"><div class="f-label">En base orthonormée</div><div class="f-expr">$$\vec{u}(x_1, y_1) \cdot \vec{v}(x_2, y_2) = x_1 x_2 + y_1 y_2$$</div></div>
-            <div class="f-item"><div class="f-label">Via normes</div><div class="f-expr">$$\vec{u} \cdot \vec{v} = \frac{\|\vec{u} + \vec{v}\|^2 - \|\vec{u}\|^2 - \|\vec{v}\|^2}{2}$$</div></div>
+            <div class="f-item"><div class="f-label">Via cosinus</div><div class="f-expr">$$\vec_{u} \cdot \vec_{v} = \|\vec_{u}\| \cdot \|\vec_{v}\| \cdot \cos \theta$$</div><div class="f-note">$\theta$ = angle entre $\vec{u}$ et $\vec{v}$</div></div>
+            <div class="f-item"><div class="f-label">Via projection orthogonale</div><div class="f-expr">$$\vec_{u} \cdot \vec_{v} = \|\vec_{u}\| \times \text_{(proj. de } \vec_{v} \text_{ sur } \vec_{u})$$</div></div>
+            <div class="f-item"><div class="f-label">En base orthonormée</div><div class="f-expr">$$\vec_{u}(x_1, y_1) \cdot \vec_{v}(x_2, y_2) = x_1 x_2 + y_1 y_2$$</div></div>
+            <div class="f-item"><div class="f-label">Via normes</div><div class="f-expr">$$\vec_{u} \cdot \vec_{v} = \frac_{\|\vec_{u} + \vec_{v}\|^2 - \|\vec_{u}\|^2 - \|\vec_{v}\|^2}{2}$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Propriétés (bilinéarité, symétrie)</div>
-            <div class="f-item"><div class="f-expr">$$\vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u} \quad \text{(symétrie)}$$</div></div>
-            <div class="f-item"><div class="f-expr">$$(\vec{u} + \vec{v}) \cdot \vec{w} = \vec{u} \cdot \vec{w} + \vec{v} \cdot \vec{w} \quad \text{(distributivité)}$$</div></div>
-            <div class="f-item"><div class="f-expr">$$(\lambda \vec{u}) \cdot \vec{v} = \lambda (\vec{u} \cdot \vec{v})$$</div></div>
-            <div class="f-item"><div class="f-label">Norme au carré</div><div class="f-expr">$$\|\vec{u}\|^2 = \vec{u} \cdot \vec{u} = x^2 + y^2$$</div></div>
+            <div class="f-item"><div class="f-expr">$$\vec_{u} \cdot \vec_{v} = \vec_{v} \cdot \vec_{u} \quad \text_{(symétrie)}$$</div></div>
+            <div class="f-item"><div class="f-expr">$$(\vec_{u} + \vec_{v}) \cdot \vec_{w} = \vec_{u} \cdot \vec_{w} + \vec_{v} \cdot \vec_{w} \quad \text_{(distributivité)}$$</div></div>
+            <div class="f-item"><div class="f-expr">$$(\lambda \vec_{u}) \cdot \vec_{v} = \lambda (\vec_{u} \cdot \vec_{v})$$</div></div>
+            <div class="f-item"><div class="f-label">Norme au carré</div><div class="f-expr">$$\|\vec_{u}\|^2 = \vec_{u} \cdot \vec_{u} = x^2 + y^2$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Développements utiles</div>
-            <div class="f-item"><div class="f-expr">$$\|\vec{u} + \vec{v}\|^2 = \|\vec{u}\|^2 + 2\vec{u} \cdot \vec{v} + \|\vec{v}\|^2$$</div></div>
-            <div class="f-item"><div class="f-expr">$$\|\vec{u} - \vec{v}\|^2 = \|\vec{u}\|^2 - 2\vec{u} \cdot \vec{v} + \|\vec{v}\|^2$$</div></div>
+            <div class="f-item"><div class="f-expr">$$\|\vec_{u} + \vec_{v}\|^2 = \|\vec_{u}\|^2 + 2\vec_{u} \cdot \vec_{v} + \|\vec_{v}\|^2$$</div></div>
+            <div class="f-item"><div class="f-expr">$$\|\vec_{u} - \vec_{v}\|^2 = \|\vec_{u}\|^2 - 2\vec_{u} \cdot \vec_{v} + \|\vec_{v}\|^2$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Orthogonalité & collinéarité</div>
-            <div class="f-item"><div class="f-expr">$$\vec{u} \perp \vec{v} \quad \Leftrightarrow \quad \vec{u} \cdot \vec{v} = 0 \quad \Leftrightarrow \quad x_1 x_2 + y_1 y_2 = 0$$</div></div>
-            <div class="f-item"><div class="f-expr">$$\vec{u} \parallel \vec{v} \quad \Leftrightarrow \quad x_1 y_2 - y_1 x_2 = 0$$</div></div>
+            <div class="f-item"><div class="f-expr">$$\vec_{u} \perp \vec_{v} \quad \Leftrightarrow \quad \vec_{u} \cdot \vec_{v} = 0 \quad \Leftrightarrow \quad x_1 x_2 + y_1 y_2 = 0$$</div></div>
+            <div class="f-item"><div class="f-expr">$$\vec_{u} \parallel \vec_{v} \quad \Leftrightarrow \quad x_1 y_2 - y_1 x_2 = 0$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Formule d'Al-Kashi (généralisation de Pythagore)</div>
-            <div class="f-item"><div class="f-expr">$$BC^2 = AB^2 + AC^2 - 2 \cdot AB \cdot AC \cdot \cos(\widehat{A})$$</div><div class="f-note">Se démontre avec le produit scalaire : $\vec{BC} = \vec{AC} - \vec{AB}$</div></div>
+            <div class="f-item"><div class="f-expr">$$BC^2 = AB^2 + AC^2 - 2 \cdot AB \cdot AC \cdot \cos(\widehat_{A})$$</div><div class="f-note">Se démontre avec le produit scalaire : $\vec{BC} = \vec{AC} - \vec{AB}$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Ensemble des M tels que $\vec{MA} \cdot \vec{MB} = 0$</div>
@@ -703,29 +703,29 @@
         <div class="card-body">
           <div class="block">
             <div class="block-title">Vecteurs & droites</div>
-            <div class="f-item"><div class="f-label">Vecteur normal à $ax + by + c = 0$</div><div class="f-expr">$$\vec{n}(a, b)$$</div></div>
-            <div class="f-item"><div class="f-label">Vecteur directeur de $ax + by + c = 0$</div><div class="f-expr">$$\vec{v}(-b, a)$$</div></div>
+            <div class="f-item"><div class="f-label">Vecteur normal à $ax + by + c = 0$</div><div class="f-expr">$$\vec_{n}(a, b)$$</div></div>
+            <div class="f-item"><div class="f-label">Vecteur directeur de $ax + by + c = 0$</div><div class="f-expr">$$\vec_{v}(-b, a)$$</div></div>
             <div class="f-item"><div class="f-label">Équation depuis point A et $\vec{n}(a,b)$</div><div class="f-expr">$$a(x - x_A) + b(y - y_A) = 0$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Distances</div>
-            <div class="f-item"><div class="f-label">Distance de $M(x_0, y_0)$ à la droite $ax + by + c = 0$</div><div class="f-expr">$$d = \frac{|ax_0 + by_0 + c|}{\sqrt{a^2 + b^2}}$$</div></div>
-            <div class="f-item"><div class="f-label">Distance entre $A(x_A, y_A)$ et $B(x_B, y_B)$</div><div class="f-expr">$$AB = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$$</div></div>
-            <div class="f-item"><div class="f-label">Milieu de [AB]</div><div class="f-expr">$$I = \left(\frac{x_A + x_B}{2}, \frac{y_A + y_B}{2}\right)$$</div></div>
+            <div class="f-item"><div class="f-label">Distance de $M(x_0, y_0)$ à la droite $ax + by + c = 0$</div><div class="f-expr">$$d = \frac_{|ax_0 + by_0 + c|}{\sqrt_{a^2 + b^2}}$$</div></div>
+            <div class="f-item"><div class="f-label">Distance entre $A(x_A, y_A)$ et $B(x_B, y_B)$</div><div class="f-expr">$$AB = \sqrt_{(x_B - x_A)^2 + (y_B - y_A)^2}$$</div></div>
+            <div class="f-item"><div class="f-label">Milieu de [AB]</div><div class="f-expr">$$I = \left(\frac_{x_A + x_B}{2}, \frac_{y_A + y_B}{2}\right)$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Cercle</div>
             <div class="f-item"><div class="f-label">Équation (centre $\Omega(a,b)$, rayon $r$)</div><div class="f-expr">$$(x - a)^2 + (y - b)^2 = r^2$$</div></div>
-            <div class="f-item"><div class="f-label">Développée $x^2 + y^2 + dx + ey + f = 0$</div><div class="f-expr">$$\text{Centre : } \left(-\frac{d}{2}, -\frac{e}{2}\right), \quad r = \sqrt{\frac{d^2}{4} + \frac{e^2}{4} - f}$$</div></div>
+            <div class="f-item"><div class="f-label">Développée $x^2 + y^2 + dx + ey + f = 0$</div><div class="f-expr">$$\text_{Centre : } \left(-\frac_{d}{2}, -\frac_{e}{2}\right), \quad r = \sqrt_{\frac_{d^2}{4} + \frac_{e^2}{4} - f}$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Parabole $y = ax^2 + bx + c$</div>
-            <div class="f-item"><div class="f-label">Axe de symétrie</div><div class="f-expr">$$x = -\frac{b}{2a}$$</div></div>
-            <div class="f-item"><div class="f-label">Sommet</div><div class="f-expr">$$S\left(-\frac{b}{2a}, f\left(-\frac{b}{2a}\right)\right)$$</div></div>
+            <div class="f-item"><div class="f-label">Axe de symétrie</div><div class="f-expr">$$x = -\frac_{b}{2a}$$</div></div>
+            <div class="f-item"><div class="f-label">Sommet</div><div class="f-expr">$$S\left(-\frac_{b}{2a}, f\left(-\frac_{b}{2a}\right)\right)$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Projeté orthogonal de M sur une droite</div>
-            <div class="f-item"><div class="f-expr">$$H$ = pied de la perpendiculaire depuis $M$ à la droite$</div><div class="f-note">Utiliser $\vec{n}$ et la droite paramétrique pour calculer $H$</div></div>
+            <div class="f-item"><div class="f-expr">$$$H$ = pied de la perpendiculaire depuis $M$ à la droite$$</div><div class="f-note">Utiliser $\vec{n}$ et la droite paramétrique pour calculer $H$</div></div>
           </div>
         </div>
       </div>
@@ -741,7 +741,7 @@
       <span class="section-num">04</span>
       <div class="section-info">
         <h2>Probabilités & Statistiques</h2>
-        <p>Probabilités conditionnelles \cdot Variables aléatoires \cdot Loi binomiale</p>
+        <p>Probabilités conditionnelles · Variables aléatoires · Loi binomiale</p>
       </div>
     </div>
 
@@ -758,9 +758,9 @@
             <div class="block-title">Vocabulaire fondamental</div>
             <div class="v-item"><span class="v-term">Événement</span><span class="v-def">Sous-ensemble de l'univers Ω</span></div>
             <div class="v-item"><span class="v-term">Univers Ω</span><span class="v-def">Ensemble de toutes les issues possibles</span></div>
-            <div class="v-item"><span class="v-term">Complémentaire Ā</span><span class="v-def">Événement contraire : P(Ā) = 1 - P(A)</span></div>
-            <div class="v-item"><span class="v-term">Événements incompatibles</span><span class="v-def">A\capB = ∅ ⟹ P(A\cupB) = P(A)+P(B)</span></div>
-            <div class="v-item"><span class="v-term">Partition de Ω</span><span class="v-def">Système complet d'événements B_1,…,B_n disjoints dont l'union = Ω</span></div>
+            <div class="v-item"><span class="v-term">Complémentaire Ā</span><span class="v-def">Événement contraire : P(Ā) = 1 − P(A)</span></div>
+            <div class="v-item"><span class="v-term">Événements incompatibles</span><span class="v-def">A∩B = ∅ ⟹ P(A∪B) = P(A)+P(B)</span></div>
+            <div class="v-item"><span class="v-term">Partition de Ω</span><span class="v-def">Système complet d'événements B₁,…,Bₙ disjoints dont l'union = Ω</span></div>
           </div>
           <div class="block">
             <div class="block-title">Probabilité conditionnelle</div>
@@ -769,16 +769,16 @@
           </div>
           <div class="block">
             <div class="block-title">Formule des probabilités totales</div>
-            <div class="f-item"><div class="f-expr">$$P(A) = P(A|B)\cdot P(B) + P(A|B̄)\cdot P(B̄)$$</div></div>
-            <div class="f-item"><div class="f-label">Cas général (partition B_1,…,B_n)</div><div class="f-expr">$$P(A) = \sigma P(A|B_i)\cdot P(B_i)$$</div></div>
+            <div class="f-item"><div class="f-expr">$$P(A) = P(A|B)\cdotP(B) + P(A|B̄)\cdotP(B̄)$$</div></div>
+            <div class="f-item"><div class="f-label">Cas général (partition B₁,…,Bₙ)</div><div class="f-expr">$$P(A) = \sigma P(A|B_i)\cdotP(B_i)$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Formule de Bayes</div>
-            <div class="f-item"><div class="f-expr">$$P(B|A) = P(A|B)\cdot P(B) / P(A)$$</div><div class="f-note">Attention : P(A|B) \neq P(B|A) ! (erreur fréquente des faux positifs)</div></div>
+            <div class="f-item"><div class="f-expr">$$P(B|A) = P(A|B)\cdotP(B) / P(A)$$</div><div class="f-note">Attention : P(A|B) ≠ P(B|A) ! (erreur fréquente des faux positifs)</div></div>
           </div>
           <div class="block">
             <div class="block-title">Indépendance</div>
-            <div class="f-item"><div class="f-expr">$$A et B indépendants ⟺ P(A\capB) = P(A)\cdot P(B)$$</div></div>
+            <div class="f-item"><div class="f-expr">$$A et B indépendants ⟺ P(A\capB) = P(A)\cdotP(B)$$</div></div>
             <div class="f-item"><div class="f-expr">$$A⊥B ⟺ P(B|A) = P(B)$$</div></div>
           </div>
         </div>
@@ -793,15 +793,15 @@
         <div class="card-body">
           <div class="block">
             <div class="block-title">Définitions</div>
-            <div class="v-item"><span class="v-term">Variable aléatoire X</span><span class="v-def">Fonction de l'univers Ω vers \mathbb{R} associant un nombre à chaque issue</span></div>
-            <div class="v-item"><span class="v-term">Loi de X</span><span class="v-def">Tableau donnant toutes les valeurs x_i et leurs probabilités P(X=x_i)</span></div>
+            <div class="v-item"><span class="v-term">Variable aléatoire X</span><span class="v-def">Fonction de l'univers Ω vers ℝ associant un nombre à chaque issue</span></div>
+            <div class="v-item"><span class="v-term">Loi de X</span><span class="v-def">Tableau donnant toutes les valeurs xᵢ et leurs probabilités P(X=xᵢ)</span></div>
             <div class="v-item"><span class="v-term">{X = a}</span><span class="v-def">Événement : «X prend la valeur a»</span></div>
-            <div class="v-item"><span class="v-term">{X \leq a}</span><span class="v-def">Événement : «X est inférieur ou égal à a»</span></div>
+            <div class="v-item"><span class="v-term">{X ≤ a}</span><span class="v-def">Événement : «X est inférieur ou égal à a»</span></div>
           </div>
           <div class="block">
             <div class="block-title">Espérance (moyenne théorique)</div>
-            <div class="f-item"><div class="f-expr">$$E(X) = \sigma x_i \cdot P(X = x_i)$$</div><div class="f-note">Valeur moyenne à long terme \cdot Mise pour un jeu équitable</div></div>
-            <div class="f-item"><div class="f-label">Linéarité</div><div class="f-expr">$$E(aX + b) = a\cdot E(X) + b$$</div></div>
+            <div class="f-item"><div class="f-expr">$$E(X) = \sigma x_i \cdot P(X = x_i)$$</div><div class="f-note">Valeur moyenne à long terme · Mise pour un jeu équitable</div></div>
+            <div class="f-item"><div class="f-label">Linéarité</div><div class="f-expr">$$E(aX + b) = a\cdotE(X) + b$$</div></div>
           </div>
           <div class="block">
             <div class="block-title">Variance & écart-type</div>
@@ -811,7 +811,7 @@
           </div>
           <div class="block">
             <div class="block-title">Propriétés</div>
-            <div class="f-item"><div class="f-expr">$$V(aX+b) = a^2\cdot V(X)$$</div></div>
+            <div class="f-item"><div class="f-expr">$$V(aX+b) = a^2\cdotV(X)$$</div></div>
             <div class="f-item"><div class="f-expr">$$\sigma P(X = x_i) = 1 &nbsp; (somme des prob. = 1)$$</div></div>
           </div>
         </div>
@@ -827,13 +827,13 @@
           <div class="grid grid-3" style="gap:12px">
             <div>
               <div class="block-title">Contexte</div>
-              <div class="v-item"><span class="v-term">Épreuve de Bernoulli</span><span class="v-def">Expérience à deux issues : Succès (prob. p) ou Échec (prob. 1-p)</span></div>
+              <div class="v-item"><span class="v-term">Épreuve de Bernoulli</span><span class="v-def">Expérience à deux issues : Succès (prob. p) ou Échec (prob. 1−p)</span></div>
               <div class="v-item"><span class="v-term">Schéma de Bernoulli</span><span class="v-def">n épreuves de Bernoulli identiques et indépendantes</span></div>
-              <div class="v-item"><span class="v-term">X ~ B(n, p)</span><span class="v-def">X = nombre de succès parmi n épreuves (0 \leq X \leq n)</span></div>
+              <div class="v-item"><span class="v-term">X ~ B(n, p)</span><span class="v-def">X = nombre de succès parmi n épreuves (0 ≤ X ≤ n)</span></div>
             </div>
             <div>
               <div class="block-title">Probabilité & formules</div>
-              <div class="f-item"><div class="f-label">P(X = k), pour k \in {0,…,n}</div><div class="f-expr">$$P(X=k) = C(n,k) \cdot pᵏ \cdot (1-p)^n-ᵏ$$</div></div>
+              <div class="f-item"><div class="f-label">P(X = k), pour k ∈ {0,…,n}</div><div class="f-expr">$$P(X=k) = C(n,k) \cdot pᵏ \cdot (1-p)^n⁻ᵏ$$</div></div>
               <div class="f-item"><div class="f-label">Espérance</div><div class="f-expr">$$E(X) = np$$</div></div>
               <div class="f-item"><div class="f-label">Variance</div><div class="f-expr">$$V(X) = np(1-p)$$</div></div>
               <div class="f-item"><div class="f-label">Écart-type</div><div class="f-expr">$$\sigma(X) = \sqrt{np(1-p})$$</div></div>
@@ -861,7 +861,7 @@
       <span class="section-num">05</span>
       <div class="section-info">
         <h2>Algorithmique & Programmation</h2>
-        <p>Python \cdot Listes \cdot Fonctions \cdot Notions clés</p>
+        <p>Python · Listes · Fonctions · Notions clés</p>
       </div>
     </div>
 
@@ -930,7 +930,7 @@
       <span class="section-num">06</span>
       <div class="section-info">
         <h2>Vocabulaire ensembliste & Logique</h2>
-        <p>Ensembles \cdot Connecteurs \cdot Raisonnement \cdot Quantificateurs</p>
+        <p>Ensembles · Connecteurs · Raisonnement · Quantificateurs</p>
       </div>
     </div>
 
@@ -938,31 +938,31 @@
 
       <div class="card">
         <div class="card-top">
-          <div class="card-icon c6">\in</div>
+          <div class="card-icon c6">∈</div>
           <div><h3>Vocabulaire ensembliste</h3><div class="sub">Symboles et notations officiels</div></div>
         </div>
         <div class="card-body">
           <div class="block">
             <div class="block-title">Notations à maîtriser</div>
-            <div class="v-item"><span class="v-term">\in</span><span class="v-def">Appartenance : x \in E signifie «x est élément de E»</span></div>
+            <div class="v-item"><span class="v-term">∈</span><span class="v-def">Appartenance : x ∈ E signifie «x est élément de E»</span></div>
             <div class="v-item"><span class="v-term">⊂</span><span class="v-def">Inclusion : A ⊂ B signifie «tout élément de A est dans B»</span></div>
-            <div class="v-item"><span class="v-term">\cap</span><span class="v-def">Intersection : A\capB = {x | x\inA ET x\inB}</span></div>
-            <div class="v-item"><span class="v-term">\cup</span><span class="v-def">Réunion : A\cupB = {x | x\inA OU x\inB}</span></div>
+            <div class="v-item"><span class="v-term">∩</span><span class="v-def">Intersection : A∩B = {x | x∈A ET x∈B}</span></div>
+            <div class="v-item"><span class="v-term">∪</span><span class="v-def">Réunion : A∪B = {x | x∈A OU x∈B}</span></div>
             <div class="v-item"><span class="v-term">Ā ou E\A</span><span class="v-def">Complémentaire de A dans E : tout ce qui n'est pas dans A</span></div>
             <div class="v-item"><span class="v-term">∅</span><span class="v-def">Ensemble vide</span></div>
           </div>
           <div class="block">
             <div class="block-title">Ensembles de nombres</div>
-            <div class="v-item"><span class="v-term">\mathbb{N}</span><span class="v-def">Entiers naturels {0, 1, 2, 3, …}</span></div>
-            <div class="v-item"><span class="v-term">\mathbb{Z}</span><span class="v-def">Entiers relatifs {…, -2, -1, 0, 1, 2, …}</span></div>
+            <div class="v-item"><span class="v-term">ℕ</span><span class="v-def">Entiers naturels {0, 1, 2, 3, …}</span></div>
+            <div class="v-item"><span class="v-term">ℤ</span><span class="v-def">Entiers relatifs {…, −2, −1, 0, 1, 2, …}</span></div>
             <div class="v-item"><span class="v-term">ℚ</span><span class="v-def">Rationnels (fractions p/q)</span></div>
-            <div class="v-item"><span class="v-term">\mathbb{R}</span><span class="v-def">Réels (droite numérique complète)</span></div>
+            <div class="v-item"><span class="v-term">ℝ</span><span class="v-def">Réels (droite numérique complète)</span></div>
             <div class="v-item"><span class="v-term">[a,b] / ]a,b[</span><span class="v-def">Intervalle fermé / ouvert</span></div>
           </div>
           <div class="block">
             <div class="block-title">Couples et produit cartésien</div>
             <div class="v-item"><span class="v-term">(a,b)</span><span class="v-def">Couple ordonné de deux éléments</span></div>
-            <div class="v-item"><span class="v-term">A \times B</span><span class="v-def">Produit cartésien : {(a,b) | a\inA, b\inB}</span></div>
+            <div class="v-item"><span class="v-term">A × B</span><span class="v-def">Produit cartésien : {(a,b) | a∈A, b∈B}</span></div>
           </div>
         </div>
       </div>
@@ -990,17 +990,17 @@
           </div>
           <div class="block">
             <div class="block-title">Quantificateurs</div>
-            <div class="v-item"><span class="v-term">\forall  (pour tout)</span><span class="v-def">\forall x\inE, P(x) : P est vraie pour tout x de E</span></div>
-            <div class="v-item"><span class="v-term">\exists  (il existe)</span><span class="v-def">\exists x\inE, P(x) : il existe au moins un x dans E tel que P(x) est vraie</span></div>
-            <div class="v-item"><span class="v-term">Négation de \forall </span><span class="v-def">NON(\forall x, P(x)) ⟺ \exists x, NON P(x)</span></div>
-            <div class="v-item"><span class="v-term">Négation de \exists </span><span class="v-def">NON(\exists x, P(x)) ⟺ \forall x, NON P(x)</span></div>
+            <div class="v-item"><span class="v-term">∀ (pour tout)</span><span class="v-def">∀x∈E, P(x) : P est vraie pour tout x de E</span></div>
+            <div class="v-item"><span class="v-term">∃ (il existe)</span><span class="v-def">∃x∈E, P(x) : il existe au moins un x dans E tel que P(x) est vraie</span></div>
+            <div class="v-item"><span class="v-term">Négation de ∀</span><span class="v-def">NON(∀x, P(x)) ⟺ ∃x, NON P(x)</span></div>
+            <div class="v-item"><span class="v-term">Négation de ∃</span><span class="v-def">NON(∃x, P(x)) ⟺ ∀x, NON P(x)</span></div>
           </div>
           <div class="block">
             <div class="block-title">Types de raisonnements</div>
             <div class="v-item"><span class="v-term">Par contraposée</span><span class="v-def">Prouver «P⟹Q» en montrant «non Q ⟹ non P»</span></div>
             <div class="v-item"><span class="v-term">Par l'absurde</span><span class="v-def">Supposer NON Q et aboutir à une contradiction</span></div>
             <div class="v-item"><span class="v-term">Par disjonction</span><span class="v-def">Traiter séparément plusieurs cas exhaustifs</span></div>
-            <div class="v-item"><span class="v-term">Contre-exemple</span><span class="v-def">Un seul cas où P est fausse suffit à infirmer «\forall x, P(x)»</span></div>
+            <div class="v-item"><span class="v-term">Contre-exemple</span><span class="v-def">Un seul cas où P est fausse suffit à infirmer «∀x, P(x)»</span></div>
           </div>
           <div class="block">
             <div class="block-title">Statut des lettres & égalités</div>
@@ -1017,8 +1017,8 @@
 </main>
 
 <footer>
-  <p>Mathématiques Spécialité \cdot Première Générale \cdot Programme officiel BO<br>
-  <span>Algèbre \cdot Analyse \cdot Géométrie \cdot Probabilités \cdot Algorithmique \cdot Logique</span></p>
+  <p>Mathématiques Spécialité · Première Générale · Programme officiel BO<br>
+  <span>Algèbre · Analyse · Géométrie · Probabilités · Algorithmique · Logique</span></p>
 </footer>
 
 <script>
@@ -1038,10 +1038,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
