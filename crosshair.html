@@ -1,139 +1,66 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="fr">
 <head>
-  <link rel="manifest" href="/manifest.webmanifest">
-  <meta name="theme-color" content="#2563eb">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Mon Site">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Crosshair</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <link rel="shortcut icon" href="IMG/crosshair.ico" type="image/x-icon">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYP52P3GC8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-JYP52P3GC8');
-  </script>
-  <style>
-    /* Style pour le bouton */
-    .button {
-      background-color: #ff0000;
-      /* Couleur de fond verte */
-      border: none;
-      /* Pas de bordure */
-      color: white;
-      /* Texte en blanc */
-      padding: 15px 32px;
-      /* Espacement interne */
-      text-align: center;
-      /* Centrer le texte */
-      text-decoration: none;
-      /* Enlever le soulignement */
-      display: inline-block;
-      /* Permet d'ajuster le bouton */
-      font-size: 50px;
-      /* Taille du texte */
-      border-radius: 12px;
-      /* Coins arrondis */
-      transition: background-color 0.3s;
-      /* Transition de couleur */
-    }
-
-    /* Effet au survol */
-    .button:hover {
-      background-color: #880000;
-      /* Couleur verte plus foncée au survol */
-    }
-  </style>
-  <style>
-    @media screen and (max-width: 900px) {
-      .explications p {
-        margin-top: 500px;
-      }
-    }
-  </style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crosshair — Craxxxy5909</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <meta name="theme-color" content="#0a0a0a">
 </head>
-<script src="script.js"></script>
-
 <body>
-  <script src="script.js"></script>
-  <header>
-    <a href="index.html" class="logo">Accueil</a>
-    <div class="nav-link">
-      <ul>
-        <li class="nav"><a href="Cours.html">Cours</a></li>
-        <li class="nav"><a href="Musique.html">Musique</a></li>
-        <li class="nav"><a href="chat.html">Chat</a></li>
-        <li class="nav"><a href="ip.html">Infos</a></li>
-        <li class="nav">
-          <p href="crosshair.html">Crosshair</p>
-        </li>
-        <li class="nav"><a href="HTML.html">HTML,CSS,JS</a></li>
-        <li class="nav"><a href="PY.html">Python</a></li>
-        <li class="nav"><a href="film.html"><img src=IMG/noir.png></a></li>
-      </ul>
+  <div class="noise"></div><div class="bg-grid"></div><div class="orbs"><div class="orb orb-1"></div></div>
+  <header id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><span class="logo-mark">●</span><span class="logo-text">CRAXXXY5909</span><span class="logo-sub">/ crosshair</span></a>
+      <nav class="nav"><ul>
+        <li><a href="html.html" class="nav-link"><span>Code</span></a></li>
+        <li><a href="chat.html" class="nav-link"><span>Chat</span></a></li>
+        <li><a href="ip.html" class="nav-link"><span>Outils</span></a></li>
+      </ul></nav>
+      <div class="header-actions"><a href="index.html" class="btn btn-ghost">Accueil</a><a href="https://www.mediafire.com/file/ithbqo2a418xpjp/Crosshair.zip/file" target="_blank" class="btn btn-primary">Télécharger →</a><button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span></button></div>
     </div>
-    <img src="IMG/menu-btn.png" alt="menu-btn" class="menu-btn">
+    <div class="mobile-nav" id="mobileNav"><div class="mobile-nav-inner"><a href="ip.html">Outils</a><a href="index.html">Accueil</a><div class="mobile-footer"><span>crosshair tool</span><span>© 2026</span></div></div></div>
   </header>
-  <div class="container-crosshair"></div>
-  <div class="container2">
-    <p style="font-size: 25px; display: flex; margin-top: 375px;" class="explications">
-      1. Pour avoir un crosshair gratuitement sur beaucoup de jeux et aute. Il faut télécharger le fichier zip
-      si-dessous, puis l'extraire. <br>2. Après cela il vous faut executer le fichier Install #1.bat et installer python
-      via la redirection. <br>3. Maintenent vous devais, après la fin de l'installation de python, executer le fichier
-      Install #2.bat. <br>4. Il vous faudra attendre la fin des installetion des dépendances. <br>5. Puis un racourcis
-      apparaitra sur votre bureau. Ne le supprimez surtout pas. <br>6. Maintenent que tout est installer vous pouvez
-      executez le racourcis. Et choisir votre crosshair et la taille. (Le crosshair par default et celui de Teeqzy.).
-      <br>7. Si vous voulez d'autres crosshair, telecharger un image du crosshair que vous voulez et verifiez qu'il n'y
-      ai pas d'arrière plant. <br>8. Il faut maintenentant que renomiez l'image en crosshair7.png ou crosshair8.png.
-    </p>
-    <p style="font-size: 25px; color: #4b7bff;">Si vous avez une quetion ou un problème appuillez sur la bulle bleu en
-      bas a droite !!!</p>
-    <a href="https://www.mediafire.com/file/ithbqo2a418xpjp/Crosshair.zip/file" class="button" target="_blank">
-      Télécharger Crosshair.zip
-    </a>
-    <img src="" alt="">
-  </div>
-  <script type="text/javascript">
-    window.addEventListener("scroll", function () {
-      var header = document.querySelector("header");
-      header.classList.toggle("header-js", window.scrollY > 100);
-    })
-  </script>
-  <script src=script.js></script>
-  <script src="/pwa.js" defer></script>
+
+  <main>
+    <section class="hero" style="min-height:40vh;padding-top:56px">
+      <div class="hero-inner">
+        <div class="badge reveal" style="--delay:0ms"><span class="badge-dot"></span> Overlay • Gratuit • Tous jeux</div>
+        <h1 class="hero-title" style="margin-top:18px"><span class="line reveal" style="--delay:120ms">Crosshair</span><span class="line serif reveal" style="--delay:200ms"><i>overlay pro.</i></span></h1>
+        <p class="hero-desc reveal" style="--delay:280ms">Un viseur personnalisable par dessus tes jeux. Léger, sans anti-cheat, design minimal.</p>
+      </div>
+    </section>
+
+    <section class="bento-wrap">
+      <div class="bento">
+        <div class="card card-large reveal" style="--delay:0ms">
+          <div class="card-top"><div class="card-icon">+</div><div class="card-arrow">●</div></div>
+          <h3>Installation en 3 étapes</h3>
+          <ol style="margin-top:12px;padding-left:18px;display:grid;gap:8px;font-size:14px;color:var(--text-soft);line-height:1.6">
+            <li>Télécharge <strong style="color:var(--text)">Crosshair.zip</strong> et extrais le dossier.</li>
+            <li>Exécute <code style="font-family:var(--font-mono);background:var(--bg-soft);padding:2px 6px;border-radius:6px;border:1px solid var(--border)">Install #1.bat</code> → installe Python si demandé.</li>
+            <li>Exécute <code style="font-family:var(--font-mono);background:var(--bg-soft);padding:2px 6px;border-radius:6px;border:1px solid var(--border)">Install #2.bat</code> → un raccourci apparaît sur le bureau.</li>
+            <li>Lance le raccourci, choisis ton crosshair et sa taille. Par défaut : Teeqzy.</li>
+          </ol>
+          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+            <a href="https://www.mediafire.com/file/ithbqo2a418xpjp/Crosshair.zip/file" target="_blank" class="btn btn-primary btn-lg">Télécharger le ZIP <span class="btn-arrow">→</span></a>
+            <span class="mono" style="font-size:11px;color:var(--text-muted);align-self:center">Gratuit • ~5MB • Windows</span>
+          </div>
+        </div>
+        <div class="card reveal" style="--delay:80ms">
+          <div class="card-top"><div class="card-icon">◐</div><div class="card-arrow">●</div></div>
+          <h3>Custom</h3>
+          <p>Ajoute ton propre viseur : renomme ton PNG en <span class="mono">crosshair7.png</span> ou <span class="mono">crosshair8.png</span> sans fond.</p>
+        </div>
+        <div class="card reveal" style="--delay:160ms">
+          <div class="card-top"><div class="card-icon">?</div><div class="card-arrow">●</div></div>
+          <h3>Support</h3>
+          <p>Question ou bug ? Clique la bulle bleue en bas à droite, réponse rapide.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="footer-inner"><div class="footer-left"><span class="logo-mark">●</span> CRAXXXY5909</div><div class="footer-right"><a href="ip.html">Outils</a><a href="index.html">Accueil</a><span class="mono muted">2026</span></div></div></footer>
+  <script src="script.js"></script>
 </body>
-</script>
-<script>const menuBtn = document.querySelector(".menu-btn")
-  const navLink = document.querySelector(".nav-link")
-
-  menuBtn.addEventListener('click', () => {
-    navLink.classList.toggle('mobile-menu')
-  })
-</script>
-<!-- Brevo Conversations {literal} -->
-<script>
-    (function (d, w, c) {
-      w.BrevoConversationsID = '6638f96315299c4930164136';
-      w[c] = w[c] || function () {
-        (w[c].q = w[c].q || []).push(arguments);
-      };
-      var s = d.createElement('script');
-      s.async = true;
-      s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
-      if (d.head) d.head.appendChild(s);
-    })(document, window, 'BrevoConversations');
-</script>
-<!-- /Brevo Conversations {/literal} -->
-
 </html>

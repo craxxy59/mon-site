@@ -3,81 +3,231 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mon Site | Accueil</title>
-  <meta name="description" content="Ressources de cours, programmation, musique et outils utiles dans un espace clair et professionnel.">
+  <title>Craxxxy5909 — Workspace</title>
+  <meta name="description" content="Espace de travail personnel — code, chat et outils. Design épuré, rapide, pro.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="manifest" href="/manifest.webmanifest">
-  <meta name="theme-color" content="#2563eb">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Mon Site">
+  <meta name="theme-color" content="#0a0a0a">
   <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link href="style.css" rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" href="IMG/Colombus_Isle.JPG" type="image/x-icon">
+  <link href="style.css" rel="stylesheet">
+  <link rel="icon" href="/img/craxxy5909.png">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYP52P3GC8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-JYP52P3GC8');
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JYP52P3GC8');</script>
 </head>
 <body>
-  <header>
-    <a href="index.html" class="logo">Mon Site</a>
-    <nav class="nav-link" aria-label="Navigation principale">
-      <ul>
-        <li class="nav"><a href="Cours.html">Cours</a></li>
-        <li class="nav"><a href="Musique.html">Musique</a></li>
-        <li class="nav"><a href="chat.html">Chat</a></li>
-        <li class="nav"><a href="ip.html">Infos</a></li>
-        <li class="nav"><a href="crosshair.html">Crosshair</a></li>
-        <li class="nav"><a href="HTML.html">HTML, CSS, JS</a></li>
-        <li class="nav"><a href="PY.html">Python</a></li>
-        <li class="nav"><a href="film.html"><img src="IMG/noir.png" alt="Mode sombre"></a></li>
-      </ul>
-    </nav>
-    <img src="IMG/menu-btn.png" alt="Ouvrir le menu" class="menu-btn">
+  <div class="noise"></div>
+  <div class="bg-grid"></div>
+  <div class="orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <header id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">●</span>
+        <span class="logo-text">CRAXXXY5909</span>
+        <span class="logo-sub">/ workspace</span>
+      </a>
+      <nav class="nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="html.html" class="nav-link"><span>Code</span></a></li>
+          <li><a href="chat.html" class="nav-link"><span>Chat</span></a></li>
+          <li><a href="ip.html" class="nav-link"><span>Outils</span></a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a href="html.html" class="btn btn-ghost">Docs</a>
+        <a href="chat.html" class="btn btn-primary">Ouvrir →</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-inner">
+        <a href="html.html">HTML, CSS, JS <em>→ Mémo dev</em></a>
+        <a href="py.html">Python <em>→ Référence</em></a>
+        <a href="chat.html">Chat <em>→ Discussion</em></a>
+        <a href="ip.html">Infos & Outils <em>→ IP, Crosshair</em></a>
+        <div class="mobile-footer">
+          <span>craxxy5909.netlify.app</span>
+          <span>© 2026 — épuré, rapide, pro</span>
+        </div>
+      </div>
+    </div>
   </header>
 
   <main>
     <section class="hero">
-      <p class="eyebrow">Plateforme personnelle</p>
-      <h1>Un espace de travail plus propre, plus lisible, plus pro.</h1>
-      <p class="hero-text">
-        Retrouvez vos liens utiles, cours et outils dans une interface moderne avec une navigation claire sur ordinateur et mobile.
-      </p>
-      <div class="hero-actions">
-        <a href="Cours.html" class="btn btn-primary">Voir les cours</a>
-        <a href="HTML.html" class="btn btn-secondary">Aller en programmation</a>
+      <div class="hero-inner">
+        <div class="hero-top">
+          <div class="badge reveal" style="--delay:0ms">
+            <span class="badge-dot"></span>
+            Refonte 2026 • Sans musique, sans cours — juste l'essentiel
+          </div>
+          <div class="hero-meta reveal" style="--delay:80ms">
+            <span class="mono">v2.1</span>
+            <span class="sep">/</span>
+            <span>Built for focus</span>
+          </div>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="line reveal" style="--delay:120ms">Un espace de travail</span>
+          <span class="line serif reveal" style="--delay:200ms">plus <i>propre,</i></span>
+          <span class="line reveal" style="--delay:280ms">plus lisible.</span>
+        </h1>
+
+        <div class="hero-bottom">
+          <p class="hero-desc reveal" style="--delay:360ms">
+            Code, chat et outils réunis dans une interface minimaliste, animée et pensée pour la vitesse. Sans bruit. Juste l'essentiel.
+          </p>
+          <div class="hero-actions reveal" style="--delay:440ms">
+            <a href="html.html" class="btn btn-primary btn-lg">
+              <span>Voir le code</span>
+              <span class="btn-arrow">→</span>
+            </a>
+            <a href="chat.html" class="btn btn-secondary btn-lg">
+              <span>Ouvrir le chat</span>
+            </a>
+            <div class="hero-stats">
+              <div><strong>4</strong><span>modules</span></div>
+              <div><strong>100%</strong><span>épuré</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll reveal" style="--delay:600ms">
+        <span class="mono">SCROLL</span>
+        <div class="scroll-line"><div class="scroll-progress" id="scrollProgress"></div></div>
       </div>
     </section>
 
-    <section class="quick-links" aria-label="Accès rapide">
-      <a class="card-link" href="chat.html">
-        <h2>Chat</h2>
-        <p>Accès direct à votre espace de discussion.</p>
-      </a>
-      <a class="card-link" href="HTML.html">
-        <h2>Code</h2>
-        <p>HTML, CSS, JavaScript et Python au même endroit.</p>
-      </a>
+    <section class="bento-wrap">
+      <div class="section-head reveal">
+        <h2><span class="mono">[01]</span> Accès rapide</h2>
+        <p>Tout à portée, sans friction.</p>
+      </div>
+      <div class="bento">
+        <a href="chat.html" class="card card-large reveal" style="--delay:0ms">
+          <div class="card-top">
+            <div class="card-icon">◐</div>
+            <div class="card-arrow">↗</div>
+          </div>
+          <h3>Chat</h3>
+          <p>Discussion instantanée, interface épurée. Le minimum pour rester focus.</p>
+          <div class="card-meta"><span class="dot"></span> live • instant</div>
+        </a>
+
+        <a href="html.html" class="card card-tall reveal" style="--delay:80ms">
+          <div class="card-top">
+            <div class="card-icon">{ }</div>
+            <div class="card-arrow">↗</div>
+          </div>
+          <h3>Code</h3>
+          <p>Mémo complet HTML, CSS, JS. Recherche, sidebar, animations douces.</p>
+          <ul class="card-tags"><li>HTML</li><li>CSS</li><li>JS</li></ul>
+        </a>
+
+        <a href="py.html" class="card reveal" style="--delay:160ms">
+          <div class="card-top">
+            <div class="card-icon">py</div>
+            <div class="card-arrow">↗</div>
+          </div>
+          <h3>Python</h3>
+          <p>Référence rapide, syntaxe claire, exemples concis.</p>
+        </a>
+
+        <a href="ip.html" class="card reveal" style="--delay:240ms">
+          <div class="card-top">
+            <div class="card-icon">◎</div>
+            <div class="card-arrow">↗</div>
+          </div>
+          <h3>Outils</h3>
+          <p>IP, device, crosshair, jeux. Utilitaires légers et rapides.</p>
+        </a>
+
+        <a href="crosshair.html" class="card reveal" style="--delay:320ms">
+          <div class="card-top">
+            <div class="card-icon">+</div>
+            <div class="card-arrow">↗</div>
+          </div>
+          <h3>Crosshair</h3>
+          <p>Overlay custom pour tes jeux. Léger, pro, minimal.</p>
+        </a>
+
+        <a href="plus-ou-moins.html" class="card reveal" style="--delay:400ms">
+          <div class="card-top">
+            <div class="card-icon">±</div>
+            <div class="card-arrow">↗</div>
+          </div>
+          <h3>Mini jeux</h3>
+          <p>Plus ou moins, expériences légères.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="manifesto">
+      <div class="manifesto-inner">
+        <div class="manifesto-left reveal">
+          <div class="mono-label">Manifeste</div>
+          <h2>Moins de bruit.<br>Plus d'intention.</h2>
+        </div>
+        <div class="manifesto-right">
+          <div class="manifesto-item reveal" style="--delay:0ms">
+            <span class="num">01</span>
+            <div><h4>Épuré</h4><p>Pas de couleurs criardes. Une palette noir, blanc, gris. Une seule accentuation.</p></div>
+          </div>
+          <div class="manifesto-item reveal" style="--delay:80ms">
+            <span class="num">02</span>
+            <div><h4>Animé, pas distrayant</h4><p>Chaque animation a une fonction : guider le regard, donner du rythme, pas décorer.</p></div>
+          </div>
+          <div class="manifesto-item reveal" style="--delay:160ms">
+            <span class="num">03</span>
+            <div><h4>Rapide</h4><p>Pas de framework lourd. HTML, CSS, JS vanilla. Chargement instantané, même en 4G.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="cta-inner reveal">
+        <div class="cta-content">
+          <h2>Prêt à travailler ?</h2>
+          <p>Accède à tout depuis une seule interface claire.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="html.html" class="btn btn-primary btn-lg">Commencer <span class="btn-arrow">→</span></a>
+          <span class="cta-note mono">craxxy5909.netlify.app • toujours à jour</span>
+        </div>
+      </div>
     </section>
   </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="logo-mark">●</span> CRAXXXY5909
+        <span class="footer-sep">—</span>
+        <span class="muted">Workspace personnel</span>
+      </div>
+      <div class="footer-right">
+        <a href="ip.html">Outils</a>
+        <a href="crosshair.html">Crosshair</a>
+        <a href="https://github.com/craxxy59/mon-site" target="_blank">GitHub ↗</a>
+        <span class="mono muted">2026</span>
+      </div>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
   <script src="/pwa.js" defer></script>
   <script>
-    (function (d, w, c) {
-      w.BrevoConversationsID = '6638f96315299c4930164136';
-      w[c] = w[c] || function () {
-        (w[c].q = w[c].q || []).push(arguments);
-      };
-      var s = d.createElement('script');
-      s.async = true;
-      s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
-      if (d.head) d.head.appendChild(s);
-    })(document, window, 'BrevoConversations');
+    (function(d,w,c){w.BrevoConversationsID='6638f96315299c4930164136';w[c]=w[c]||function(){(w[c].q=w[c].q||[]).push(arguments);};var s=d.createElement('script');s.async=true;s.src='https://conversations-widget.brevo.com/brevo-conversations.js';if(d.head)d.head.appendChild(s);})(document,window,'BrevoConversations');
   </script>
 </body>
 </html>
