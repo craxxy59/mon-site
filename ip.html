@@ -1,126 +1,77 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-  <link rel="manifest" href="/manifest.webmanifest">
-  <meta name="theme-color" content="#2563eb">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Mon Site">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-
-  <meta charset="UTF-8">
-  <title>Informations IP et Appareil</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <link rel="shortcut icon" href="IMG/Colombus_Isle.JPG" type="image/x-icon">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Outils — Craxxxy5909</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <meta name="theme-color" content="#0a0a0a">
 </head>
-<script src="script.js"></script>
-
 <body>
-  <script src="script.js"></script>
-  <header>
-    <a href="index.html" class="logo">Accueil</a>
-    <div class="nav-link">
-      <ul>
-        <li class="nav"><a href="Cours.html">Cours</a></li>
-        <li class="nav"><a href="Musique.html">Musique</a></li>
-        <li class="nav"><a href="chat.html">Chat</a></li>
-        <li class="nav"><p href="ip.html">Infos</p></li>
-        <li class="nav"><a href="crosshair.html">Crosshair</a></li>
-        <li class="nav"><a href="HTML.html">HTML,CSS,JS</a></li>
-        <li class="nav"><a href="PY.html">Python</a></li>
-        <li class="nav"><a href="film.html"><img src=IMG/noir.png></a></li>
-      </ul>
+  <div class="noise"></div><div class="bg-grid"></div><div class="orbs"><div class="orb orb-2"></div></div>
+  <header id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo"><span class="logo-mark">●</span><span class="logo-text">CRAXXXY5909</span><span class="logo-sub">/ outils</span></a>
+      <nav class="nav"><ul>
+        <li><a href="cours.html" class="nav-link"><span>Cours</span></a></li>
+        <li><a href="html.html" class="nav-link"><span>Code</span></a></li>
+        <li><a href="chat.html" class="nav-link"><span>Chat</span></a></li>
+        <li><a href="ip.html" class="nav-link" style="background:var(--bg-soft);color:var(--text)"><span>Outils</span></a></li>
+      </ul></nav>
+      <div class="header-actions"><a href="index.html" class="btn btn-ghost">Accueil</a><button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false"><span></span><span></span></button></div>
     </div>
-    <img src="IMG/menu-btn.png" alt="menu-btn" class="menu-btn">
+    <div class="mobile-nav" id="mobileNav"><div class="mobile-nav-inner"><a href="crosshair.html">Crosshair <em>→ Générateur</em></a><a href="plus-ou-moins.html">Jeu ± <em>→ Devine le nombre</em></a><a href="onde.html">Onde <em>→ AirDrop sonore</em></a><a href="ecran.html">Écran <em>→ Wallpaper</em></a><div class="mobile-footer"><span>outils</span><span>© 2026</span></div></div></div>
   </header>
-  <div class="containerip"></div>
-  <div class="container2">
-    <h1>
-      <h1>Informations sur votre IP et votre Appareil</h1>
-      <div id="userIP">Votre IP: Chargement...</div>
-      <div id="userDevice">Votre Appareil: Chargement...</div>
-      <div id="deviceName">Chargement...</div>
-      <script>
-        // Fonction pour obtenir l'adresse IP de l'utilisateur
-        function getUserIP() {
-          fetch('https://api.ipify.org?format=json')
-            .then(function (response) {
-              return response.json();
-            })
-            .then(function (data) {
-              document.getElementById('userIP').innerHTML = 'Votre IP: ' + data.ip;
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
-        }
-        // Fonction pour obtenir des informations sur l'appareil de l'utilisateur
-        function getUserDevice() {
-          var userAgent = navigator.userAgent;
-          var deviceType = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream ? 'iOS' : 'non-iOS';
-          var os = navigator.platform;
-          var browser = navigator.appName;
-          document.getElementById('userDevice').innerHTML = 'Votre Appareil: ' + os + ', ' + deviceType + ', ' + browser;
-        }
-        // Appel des fonctions
-        getUserIP();
-        getUserDevice();
-      </script>
-    </h1>
-  </div>
-  <script type="text/javascript">
-    window.addEventListener("scroll", function () {
-      var header = document.querySelector("header");
-      header.classList.toggle("header-js", window.scrollY > 100);
-    })
-  </script>
-  <script src=script.js></script>
-  <script src="/pwa.js" defer></script>
-</body>
-</script>
-<script>const menuBtn = document.querySelector(".menu-btn")
-  const navLink = document.querySelector(".nav-link")
 
-  menuBtn.addEventListener('click', () => {
-    navLink.classList.toggle('mobile-menu')
-  })
-</script>
-<!-- Brevo Conversations {literal} -->
-<script>
-    (function (d, w, c) {
-      w.BrevoConversationsID = '6638f96315299c4930164136';
-      w[c] = w[c] || function () {
-        (w[c].q = w[c].q || []).push(arguments);
-      };
-      var s = d.createElement('script');
-      s.async = true;
-      s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
-      if (d.head) d.head.appendChild(s);
-    })(document, window, 'BrevoConversations');
-</script>
+  <main>
+    <section class="hero" style="min-height:44vh;padding-top:56px">
+      <div class="hero-inner">
+        <div class="badge reveal" style="--delay:0ms"><span class="badge-dot"></span> Outils système • temps réel</div>
+        <h1 class="hero-title" style="margin-top:18px"><span class="line reveal" style="--delay:120ms">Tes infos,</span><span class="line serif reveal" style="--delay:200ms"><i>lisibles.</i></span></h1>
+      </div>
+    </section>
 
-<script>
-  // Fonction pour déterminer le nom de l'appareil
-  function getDeviceName() {
-    var userAgent = navigator.userAgent;
-    // Logique pour déterminer le nom de l'appareil
-    // Cette logique peut être complexe et dépend de la structure de la chaîne userAgent
-    // Ici, nous utilisons une expression régulière simple comme exemple
-    var deviceName = userAgent.match(/(iPad|iPhone|iPod|Android|Windows Phone|BlackBerry)/i);
-    if (deviceName) {
-      return deviceName[0]; // Retourne le premier résultat correspondant
-    } else {
-      return 'Inconnu'; // Si aucun appareil n'est détecté
+    <section class="bento-wrap">
+      <div class="bento">
+        <div class="card card-large reveal" style="--delay:0ms">
+          <div class="card-top"><div class="card-icon">◎</div><div class="card-arrow">●</div></div>
+          <h3>Informations appareil</h3>
+          <div style="margin-top:12px;display:grid;gap:10px;font-family:var(--font-mono);font-size:13px">
+            <div id="userIP" style="padding:10px 12px;background:var(--bg-soft);border:1px solid var(--border);border-radius:10px">IP: chargement…</div>
+            <div id="userDevice" style="padding:10px 12px;background:var(--bg-soft);border:1px solid var(--border);border-radius:10px">Appareil: chargement…</div>
+            <div id="deviceName" style="padding:10px 12px;background:var(--bg-soft);border:1px solid var(--border);border-radius:10px">Nom: chargement…</div>
+          </div>
+        </div>
+        <a href="crosshair.html" class="card reveal" style="--delay:80ms"><div class="card-top"><div class="card-icon">+</div><div class="card-arrow">↗</div></div><h3>Crosshair</h3><p>Générateur de viseur custom, pro, minimal.</p></a>
+        <a href="plus-ou-moins.html" class="card reveal" style="--delay:160ms"><div class="card-top"><div class="card-icon">±</div><div class="card-arrow">↗</div></div><h3>Jeu ±</h3><p>Devine le nombre. Design épuré.</p></a>
+        <a href="ecran.html" class="card reveal" style="--delay:240ms"><div class="card-top"><div class="card-icon">◫</div><div class="card-arrow">↗</div></div><h3>Wallpaper</h3><p>Fond d'écran panoramique futuriste.</p></a>
+        <a href="onde.html" class="card reveal" style="--delay:320ms"><div class="card-top"><div class="card-icon">◍</div><div class="card-arrow">↗</div></div><h3>AirDrop Sonore</h3><p>Transfert via ultrason. Expérimental.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="footer-inner"><div class="footer-left"><span class="logo-mark">●</span> CRAXXXY5909</div><div class="footer-right"><a href="index.html">Accueil</a><span class="mono muted">2026</span></div></div></footer>
+
+  <script>
+    function getUserIP(){
+      fetch('https://api.ipify.org?format=json').then(r=>r.json()).then(d=>{
+        document.getElementById('userIP').textContent='IP: '+d.ip;
+      }).catch(()=>{document.getElementById('userIP').textContent='IP: indisponible'});
     }
-  }
-  // Affichage du nom de l'appareil
-  document.getElementById('deviceName').textContent = 'Nom de l\'Appareil: ' + getDeviceName();
-</script>
+    function getUserDevice(){
+      var ua=navigator.userAgent;
+      var deviceType=/iPad|iPhone|iPod/.test(ua) && !window.MSStream?'iOS':'non-iOS';
+      var os=navigator.platform;var browser=navigator.appName;
+      document.getElementById('userDevice').textContent='Appareil: '+os+', '+deviceType+', '+browser;
+    }
+    function getDeviceName(){
+      var ua=navigator.userAgent;
+      var m=ua.match(/(iPad|iPhone|iPod|Android|Windows Phone|BlackBerry)/i);
+      return m?m[0]:'Inconnu';
+    }
+    getUserIP();getUserDevice();
+    document.getElementById('deviceName').textContent='Nom: '+getDeviceName();
+  </script>
+  <script src="script.js"></script>
 </body>
-
-</html>
-</body>
-
 </html>
