@@ -1,86 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#060913">
-  <title>Code Editor — Craxxy Studio</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-</head>
-<body>
-  <div class="bg-system"><div class="bg-gradient"></div><div class="bg-grid"></div></div>
-  <div class="orb orb--cyan"></div><div class="orb orb--red"></div>
-
-  <header class="header" id="header">
-    <a href="index.html" class="logo"><div class="logo-icon">CX</div><span>Craxxy Studio</span></a>
-    <nav class="nav-desktop">
-      <a href="index.html" class="nav-link "><span class="icon">⚡</span> Workspace</a>
-      <a href="code.html" class="nav-link active"><span class="icon">🖥</span> Code</a>
-      <a href="chat.html" class="nav-link "><span class="icon">💬</span> Chat</a>
-      <a href="tools.html" class="nav-link "><span class="icon">🔧</span> Outils</a>
-      <a href="films.html" class="nav-link "><span class="icon">🎬</span> Films</a>
-      <a href="games.html" class="nav-link "><span class="icon">🎮</span> Jeux</a>
-    </nav>
-    <div class="nav-actions">
-      <div class="live-clock" id="liveClock"></div>
-      <button class="nav-btn" id="cmdBtn" title="Ctrl+K">⌘</button>
-      <button class="mobile-nav-trigger" id="mobileNavTrigger"><span></span><span></span><span></span></button>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#060913">
+    <meta name="description" content="Craxxy Studio — site perso premium, workspace, chat, outils IP, streaming, jeux et lab créatif.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Code Lab — Craxxy Studio</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-page="code">
+    <div class="site-bg" aria-hidden="true">
+      <img src="img/premium-waves.jpg" alt="" class="bg-art">
+      <div class="mesh mesh-cyan"></div>
+      <div class="mesh mesh-red"></div>
+      <div class="mesh mesh-orange"></div>
+      <div class="grain"></div>
+      <canvas id="orbCanvas" class="orb-canvas"></canvas>
     </div>
-  </header>
 
-  <nav class="mobile-nav" id="mobileNav">
-    <a href="index.html" class="mobile-nav-link ">⚡ Workspace</a>
-    <a href="code.html" class="mobile-nav-link active">🖥 Code</a>
-    <a href="chat.html" class="mobile-nav-link ">💬 Chat Pro</a>
-    <a href="tools.html" class="mobile-nav-link ">🔧 Outils IP</a>
-    <a href="crosshair.html" class="mobile-nav-link ">🎯 Crosshair</a>
-    <a href="films.html" class="mobile-nav-link ">🎬 Films</a>
-    <a href="wallpaper.html" class="mobile-nav-link ">🖼 Wallpaper</a>
-    <a href="airdrop.html" class="mobile-nav-link ">📡 AirDrop</a>
-    <a href="games.html" class="mobile-nav-link ">🎮 Jeux</a>
-    <a href="test.html" class="mobile-nav-link ">🧪 Test</a>
-  </nav>
-
-  <div class="cmd-palette-overlay" id="cmdPalette">
-    <div class="cmd-palette">
-      <input type="text" class="cmd-palette-input" id="cmdInput" placeholder="Rechercher…" autocomplete="off">
-      <div class="cmd-palette-results" id="cmdResults"></div>
-    </div>
-  </div>
-
-  <main class="main">
-    <div class="container">
-      
-      <link rel="stylesheet" href="code.css">
-      <div class="editor-layout">
-        <div class="editor-panel">
-          <div class="editor-panel-header"><span>HTML / CSS / JS</span></div>
-          <textarea class="editor-textarea" id="codeEditor">&lt;h1 style="color:#00e5ff;text-align:center;margin-top:20vh;font-family:sans-serif;"&gt;Hello Craxxy Studio !&lt;/h1&gt;</textarea>
-        </div>
-        <div class="editor-panel">
-          <div class="editor-panel-header"><span>Preview</span></div>
-          <iframe class="preview-frame" id="codePreview"></iframe>
-        </div>
+    <header class="topbar" id="topbar">
+      <a class="brand magnetic" href="index.html" aria-label="Craxxy Studio accueil">
+        <span class="brand-mark">CX</span>
+        <span class="brand-text">Craxxy<span>Studio</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Navigation principale">
+          <a class="nav-link " href="index.html"><span>⌁</span>Workspace</a>
+          <a class="nav-link " href="chat.html"><span>◖</span>Chat Pro</a>
+          <a class="nav-link " href="tools.html"><span>◎</span>Outils IP</a>
+          <a class="nav-link " href="films.html"><span>▶</span>Streaming</a>
+          <a class="nav-link active" href="code.html"><span>⌘</span>Code Lab</a>
+          <a class="nav-link " href="games.html"><span>◈</span>Mini-jeux</a>
+          <a class="nav-link " href="wallpaper.html"><span>▧</span>Wallpapers</a>
+          <a class="nav-link " href="airdrop.html"><span>◌</span>AirDrop</a>
+          <a class="nav-link " href="crosshair.html"><span>✣</span>Crosshair</a>
+          <a class="nav-link " href="test.html"><span>◇</span>Lab</a>
+      </nav>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="installBtn" hidden title="Installer l'app">PWA</button>
+        <button class="icon-btn" id="cmdBtn" title="Palette de commandes Ctrl+K">⌘K</button>
+        <button class="mobile-trigger" id="mobileTrigger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
-    
-    </div>
-  </main>
+    </header>
 
-  <footer class="footer"><div class="container"><p>Craxxy Studio © 2025</p></div></footer>
-  <div class="toast-container" id="toastContainer"></div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
+      <div class="mobile-nav-panel">
+          <a class="mobile-nav-link " href="index.html"><span>⌁</span>Workspace</a>
+          <a class="mobile-nav-link " href="chat.html"><span>◖</span>Chat Pro</a>
+          <a class="mobile-nav-link " href="tools.html"><span>◎</span>Outils IP</a>
+          <a class="mobile-nav-link " href="films.html"><span>▶</span>Streaming</a>
+          <a class="mobile-nav-link active" href="code.html"><span>⌘</span>Code Lab</a>
+          <a class="mobile-nav-link " href="games.html"><span>◈</span>Mini-jeux</a>
+          <a class="mobile-nav-link " href="wallpaper.html"><span>▧</span>Wallpapers</a>
+          <a class="mobile-nav-link " href="airdrop.html"><span>◌</span>AirDrop</a>
+          <a class="mobile-nav-link " href="crosshair.html"><span>✣</span>Crosshair</a>
+          <a class="mobile-nav-link " href="test.html"><span>◇</span>Lab</a>
+      </div>
+    </nav>
 
-  <script>
-    (function(d,w,c){w.BrevoConversationsID='6638f96315299c4930164136';w[c]=w[c]||function(){(w[c].q=w[c].q||[]).push(arguments)};var s=d.createElement('script');s.async=true;s.src='https://conversations-widget.brevo.com/brevo-conversations.js';if(d.head)d.head.appendChild(s)})(document,window,'BrevoConversations');
-  </script>
-  <script src="script.js"></script>
-  <script>
-      const editor = document.getElementById('codeEditor');
-      const preview = document.getElementById('codePreview');
-      function update() { preview.srcdoc = editor.value; }
-      editor.addEventListener('input', update);
-      update();
+    <section class="command-overlay" id="commandOverlay" aria-hidden="true">
+      <div class="command-card" role="dialog" aria-modal="true" aria-label="Palette de commandes">
+        <div class="command-head"><span>⌘</span><input id="commandInput" autocomplete="off" placeholder="Rechercher une page, un outil, une action…"></div>
+        <div class="command-results" id="commandResults"></div>
+      </div>
+    </section>
+
+    <main class="page-shell">
+      <section class="hero-section reveal">
+        <div class="eyebrow"><span></span>Build fast</div>
+        <h1>Éditeur HTML/CSS/JS + Python dans le navigateur.</h1>
+        <p class="hero-lead">Prototype une interface en live et exécute du Python côté navigateur via Pyodide, sans backend.</p>
+        <div class="hero-actions">
+          <a class="btn primary magnetic" href="chat.html">Ouvrir le chat</a>
+          <button class="btn ghost magnetic" data-open-command>Ctrl + K</button>
+        </div>
+      </section>
+      <section class="app-grid reveal">
+        <article class="glass-card code-card">
+          <div class="section-head"><div><span class="card-kicker">HTML CSS JS Python</span><h2>Code Lab Pro</h2></div><button class="pill" id="runCode">Run</button></div>
+          <div class="code-tabs" id="codeTabs">
+            <button class="code-tab active" data-code-tab="html">HTML</button>
+            <button class="code-tab" data-code-tab="css">CSS</button>
+            <button class="code-tab" data-code-tab="js">JS</button>
+            <button class="code-tab" data-code-tab="python">Python</button>
+          </div>
+          <textarea class="code-editor active" id="htmlInput" spellcheck="false"><section class="demo-card">
+  <h1>Craxxy Lab</h1>
+  <p>Prototype premium en live.</p>
+  <button onclick="pulse()">Glow</button>
+</section></textarea>
+          <textarea class="code-editor" id="cssInput" spellcheck="false">body{min-height:100vh;margin:0;display:grid;place-items:center;background:#060913;color:#eefbff;font-family:Inter,system-ui}.demo-card{padding:34px;border-radius:28px;background:rgba(18,24,44,.72);border:1px solid #00e5ff;box-shadow:0 0 60px rgba(0,229,255,.18)}button{border:0;border-radius:999px;padding:12px 18px;background:linear-gradient(135deg,#00e5ff,#ff2d55,#ff7a18);font-weight:900}.hot{filter:drop-shadow(0 0 28px #00e5ff)}</textarea>
+          <textarea class="code-editor" id="jsInput" spellcheck="false">function pulse(){document.body.classList.toggle('hot')}</textarea>
+          <textarea class="code-editor" id="pythonInput" spellcheck="false">from math import sin, pi
+for i in range(8):
+    print(i, round(sin(i*pi/4), 3))
+
+print('Python dans Craxxy Code Lab ✅')</textarea>
+          <div class="code-actions"><button class="pill" id="formatCode" type="button">Format</button><button class="pill" id="saveSnippet" type="button">Sauver</button><button class="pill" id="loadSnippet" type="button">Charger</button></div>
+        </article>
+        <article class="glass-card preview-card"><iframe id="codePreview" title="Aperçu code"></iframe><div class="python-output" id="pythonOutput">Sortie Python prête.</div></article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div><strong>Craxxy Studio</strong><span>Dark premium vanilla build</span></div>
+      <p id="liveClock">--:--:--</p>
+    </footer>
+
+    <div class="toast-stack" id="toastStack"></div>
+    <script>
+      (function(d,w,c){w.BrevoConversationsID='6638f96315299c4930164136';w[c]=w[c]||function(){(w[c].q=w[c].q||[]).push(arguments)};var s=d.createElement('script');s.async=true;s.src='https://conversations-widget.brevo.com/brevo-conversations.js';if(d.head)d.head.appendChild(s)})(document,window,'BrevoConversations');
     </script>
-</body>
+    <script src="script.js" defer></script>
+  </body>
 </html>

@@ -1,196 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#060913">
+    <meta name="description" content="Craxxy Studio — site perso premium, workspace, chat, outils IP, streaming, jeux et lab créatif.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Plus ou Moins & Arcade — Craxxy Studio</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-page="games">
+    <div class="site-bg" aria-hidden="true">
+      <img src="img/premium-waves.jpg" alt="" class="bg-art">
+      <div class="mesh mesh-cyan"></div>
+      <div class="mesh mesh-red"></div>
+      <div class="mesh mesh-orange"></div>
+      <div class="grain"></div>
+      <canvas id="orbCanvas" class="orb-canvas"></canvas>
+    </div>
 
-<head>
-  <link rel="manifest" href="/manifest.webmanifest">
-  <meta name="theme-color" content="#2563eb">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Mon Site">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+    <header class="topbar" id="topbar">
+      <a class="brand magnetic" href="index.html" aria-label="Craxxy Studio accueil">
+        <span class="brand-mark">CX</span>
+        <span class="brand-text">Craxxy<span>Studio</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Navigation principale">
+          <a class="nav-link " href="index.html"><span>⌁</span>Workspace</a>
+          <a class="nav-link " href="chat.html"><span>◖</span>Chat Pro</a>
+          <a class="nav-link " href="tools.html"><span>◎</span>Outils IP</a>
+          <a class="nav-link " href="films.html"><span>▶</span>Streaming</a>
+          <a class="nav-link " href="code.html"><span>⌘</span>Code Lab</a>
+          <a class="nav-link active" href="games.html"><span>◈</span>Mini-jeux</a>
+          <a class="nav-link " href="wallpaper.html"><span>▧</span>Wallpapers</a>
+          <a class="nav-link " href="airdrop.html"><span>◌</span>AirDrop</a>
+          <a class="nav-link " href="crosshair.html"><span>✣</span>Crosshair</a>
+          <a class="nav-link " href="test.html"><span>◇</span>Lab</a>
+      </nav>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="installBtn" hidden title="Installer l'app">PWA</button>
+        <button class="icon-btn" id="cmdBtn" title="Palette de commandes Ctrl+K">⌘K</button>
+        <button class="mobile-trigger" id="mobileTrigger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </header>
 
-<meta charset="UTF-8">
-<title>Jeu du Plus ou Moins</title>
-<link rel="shortcut icon" href="https://tse1.mm.bing.net/th/id/OIP.z5ZCQgCooWWvE1pZ3B91IgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" type="image/x-icon">
-</head>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
+      <div class="mobile-nav-panel">
+          <a class="mobile-nav-link " href="index.html"><span>⌁</span>Workspace</a>
+          <a class="mobile-nav-link " href="chat.html"><span>◖</span>Chat Pro</a>
+          <a class="mobile-nav-link " href="tools.html"><span>◎</span>Outils IP</a>
+          <a class="mobile-nav-link " href="films.html"><span>▶</span>Streaming</a>
+          <a class="mobile-nav-link " href="code.html"><span>⌘</span>Code Lab</a>
+          <a class="mobile-nav-link active" href="games.html"><span>◈</span>Mini-jeux</a>
+          <a class="mobile-nav-link " href="wallpaper.html"><span>▧</span>Wallpapers</a>
+          <a class="mobile-nav-link " href="airdrop.html"><span>◌</span>AirDrop</a>
+          <a class="mobile-nav-link " href="crosshair.html"><span>✣</span>Crosshair</a>
+          <a class="mobile-nav-link " href="test.html"><span>◇</span>Lab</a>
+      </div>
+    </nav>
 
-<style>
+    <section class="command-overlay" id="commandOverlay" aria-hidden="true">
+      <div class="command-card" role="dialog" aria-modal="true" aria-label="Palette de commandes">
+        <div class="command-head"><span>⌘</span><input id="commandInput" autocomplete="off" placeholder="Rechercher une page, un outil, une action…"></div>
+        <div class="command-results" id="commandResults"></div>
+      </div>
+    </section>
 
-body{
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    background-image: url(https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmczaWVoeWI5OTdmZ2MzNHdlNWJ0YTVzcWxhbHM3OXhrY3F0MDdpMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/doXBzUFJRxpaUbuaqz/giphy.gif);
-    background-size: 125%;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+    <main class="page-shell">
+      <section class="hero-section reveal">
+        <div class="eyebrow"><span></span>Arcade mode</div>
+        <h1>Des mini-jeux rapides en néon.</h1>
+        <p class="hero-lead">Un premier jeu Plus ou Moins avec score local, prêt à accueillir Snake, Memory ou Aim Trainer.</p>
+        <div class="hero-actions">
+          <a class="btn primary magnetic" href="chat.html">Ouvrir le chat</a>
+          <button class="btn ghost magnetic" data-open-command>Ctrl + K</button>
+        </div>
+      </section>
+      <section class="app-grid reveal">
+        <article class="glass-card game-card">
+          <div class="section-head"><div><span class="card-kicker">Arcade premium</span><h2>Mini-jeux Neon</h2></div><button class="pill" id="resetGame">Reset</button></div>
+          <div class="game-tabs" id="gameTabs">
+            <button class="game-tab active" data-game="guess">Plus ou moins</button>
+            <button class="game-tab" data-game="memory">Memory</button>
+            <button class="game-tab" data-game="reaction">Réflexes</button>
+            <button class="game-tab" data-game="snake">Snake</button>
+            <button class="game-tab" data-game="aim">Aim trainer</button>
+          </div>
+          <div class="game-panel active" id="game-guess">
+            <p>Trouve le nombre secret entre 1 et 100.</p>
+            <div class="game-console"><input id="guessInput" type="number" min="1" max="100" placeholder="42"><button class="btn primary" id="guessBtn">Tester</button></div>
+            <div class="game-output" id="gameOutput">Prêt.</div>
+          </div>
+          <div class="game-panel" id="game-memory"><p>Retrouve toutes les paires le plus vite possible.</p><div class="memory-grid" id="memoryGrid"></div></div>
+          <div class="game-panel" id="game-reaction"><p>Clique uniquement quand la zone devient cyan.</p><div class="reaction-pad" id="reactionPad">Démarrer</div></div>
+          <div class="game-panel" id="game-snake"><p>Flèches clavier ou boutons mobiles. Mange l'orange, évite les murs.</p><canvas class="snake-canvas" id="snakeCanvas" width="420" height="420"></canvas><div class="snake-controls"><button class="pill" data-dir="up">↑</button><button class="pill" data-dir="left">←</button><button class="pill" data-dir="down">↓</button><button class="pill" data-dir="right">→</button></div></div>
+          <div class="game-panel" id="game-aim"><p>Touche 20 cibles le plus vite possible.</p><div class="aim-stage" id="aimStage"></div></div>
+        </article>
+        <article class="glass-card side-card"><h3>Scoreboard</h3><div class="score" id="scoreBoard">Tentatives : 0</div><div class="score" id="arcadeScore">Arcade prête.</div><p>Records enregistrés localement dans ce navigateur.</p></article>
+      </section>
+    </main>
 
-.jeu{
-    width: 350px;
-    margin: 100px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-    text-align: center;
-}
+    <footer class="footer">
+      <div><strong>Craxxy Studio</strong><span>Dark premium vanilla build</span></div>
+      <p id="liveClock">--:--:--</p>
+    </footer>
 
-h2{
-    color: #2c3e50;
-}
-
-#boutonValider{
-    padding: 10px 18px;
-    margin: 5px;
-    font-size: 15px;
-    border: none;
-    border-radius: 6px;
-    background-color: #3498db;
-    color: white;
-    cursor: pointer;
-    transition: 0.2s;
-}
-#boutonValider:hover{
-    background-color: #2980b9;
-    transform: scale(1.05);
-}
-#restart{
-    padding: 10px 18px;
-    margin: 5px;
-    font-size: 15px;
-    border: none;
-    border-radius: 6px;
-    background-color: #3498db;
-    color: white;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-#restart:hover{
-    background-color: #2980b9;
-    transform: scale(1.05);
-}
-
-#entree{
-    padding: 8px;
-    width: 120px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    text-align: center;
-}
-</style>
-
-<body>
-
-<div class="jeu">
-
-<h2>Jeu du Plus ou Moins</h2>
-<h4>Le nombre a trouver est un nombre entier compris entre 36 et 48 non inclus</h4>
-<p>
-Proposition :
-<input id="entree" type="number">
-</p>
-
-<p>
-<input id="boutonValider" type="button" value="Valider">
-<input id="restart" type="button" value="Restart">
-</p>
-
-<p>
-Message : <span id="message"></span>
-</p>
-
-</div>
-
-<script>
-
-var entree = document.getElementById("entree");
-var boutonValider = document.getElementById("boutonValider");
-var boutonRestart = document.getElementById("restart");
-var resultat = document.getElementById("message");
-
-var essais = 0;
-var maxEssais = 3;
-
-var hasard = Math.floor(Math.random() * (47 - 37 + 1)) + 37;
-
-function compare(valeur){
-    if(valeur == 9){
-        console.log(hasard)
-    }else if(valeur < 37 || valeur > 47){
-        return 2;
-    }else if(valeur > hasard){
-        return -1;
-    }else if(valeur < hasard){
-        return 1;
-    }else{
-        return 0;
-    }
-}
-
-function afficheMessage(){
-
-    if(essais >= maxEssais){
-        resultat.innerHTML = "Plus d'essais ! Clique sur Restart.";
-        return;
-    }
-
-    var proposition = parseInt(entree.value);
-    var message = "";
-
-    if(isNaN(proposition)){
-        message = "Erreur de saisie";
-    }
-    else{
-
-        essais++;
-
-        var rep = compare(proposition);
-
-        if(rep == -1){
-            message = "C'est moins 🤞";
-            /*console.log(essais)*/
-        }else if(rep == 2){
-            message = "Veillez entre un nombre entre 36 et 48 exclus 😾";
-            essais--
-            /*console.log(essais)*/
-        }else if(rep == 1){
-            message = "C'est plus 🤞";
-            /*console.log(essais)*/
-        }else{
-            message = "Bravo ! 🥳";
-            boutonValider.disabled = true;
-            /*console.log(essais)*/
-        }
-
-        if(essais == maxEssais && rep != 0){
-            message += " | Perdu !😭 Le nombre était " + hasard;
-            boutonValider.disabled = true;
-        }
-    }
-
-    resultat.innerHTML = message;
-    entree.value = "";
-}
-
-function restartJeu(){
-    hasard = Math.floor(Math.random() * (47 - 37 + 1)) + 37;
-    essais = 0;
-    resultat.innerHTML = "";
-    entree.value = "";
-    boutonValider.disabled = false;
-    entree.focus();
-}
-
-boutonValider.onclick = afficheMessage;
-boutonRestart.onclick = restartJeu;
-
-entree.focus();
-
-</script>
-
-  <script src="/pwa.js" defer></script>
-</body>
+    <div class="toast-stack" id="toastStack"></div>
+    <script>
+      (function(d,w,c){w.BrevoConversationsID='6638f96315299c4930164136';w[c]=w[c]||function(){(w[c].q=w[c].q||[]).push(arguments)};var s=d.createElement('script');s.async=true;s.src='https://conversations-widget.brevo.com/brevo-conversations.js';if(d.head)d.head.appendChild(s)})(document,window,'BrevoConversations');
+    </script>
+    <script src="script.js" defer></script>
+  </body>
 </html>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <filter id="g"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#001b3d"/><stop offset=".52" stop-color="#710057"/><stop offset="1" stop-color="#11051f"/></linearGradient>
+    <linearGradient id="n" x1="0" x2="1"><stop stop-color="#00e5ff"/><stop offset=".55" stop-color="#ff2d55"/><stop offset="1" stop-color="#ff7a18"/></linearGradient>
+    <pattern id="grid" width="70" height="70" patternUnits="userSpaceOnUse"><path d="M70 0H0v70" fill="none" stroke="#eefbff" stroke-opacity=".06" stroke-width="2"/></pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/><rect width="1600" height="900" fill="url(#grid)"/>
+  <g filter="url(#g)" fill="none" stroke-linejoin="round">
+    <path d="M60 720V190h440l70-70h460l70 70h440v530" stroke="#00e5ff" stroke-width="10"/>
+    <path d="M60 190h440l70-70h460l70 70h440" stroke="#ff2d55" stroke-width="14"/>
+    <path d="M0 330h330l-95-95M1600 330h-330l95-95M0 680h330l-95 95M1600 680h-330l95 95" stroke="url(#n)" stroke-width="16"/>
+    <circle cx="800" cy="390" r="225" stroke="url(#n)" stroke-width="16"/>
+  </g>
+  <image href="craxxy-logo.svg" x="560" y="115" width="480" height="480"/>
+  <text x="800" y="720" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="900" font-size="160" fill="#eefbff" stroke="#ff2d55" stroke-width="10" paint-order="stroke">CRAXXY</text>
+  <text x="800" y="820" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="900" font-size="92" fill="#00e5ff" stroke="#ff2d55" stroke-width="6" paint-order="stroke">5909</text>
+</svg>

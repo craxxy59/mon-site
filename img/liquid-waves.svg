@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1800" preserveAspectRatio="none">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <linearGradient id="c" x1="0" x2="1"><stop offset="0" stop-color="#00111f"/><stop offset=".35" stop-color="#00e5ff"/><stop offset="1" stop-color="#02101d"/></linearGradient>
+    <linearGradient id="r" x1="0" x2="1"><stop offset="0" stop-color="#16000a"/><stop offset=".48" stop-color="#ff2d55"/><stop offset="1" stop-color="#ff7a18"/></linearGradient>
+    <linearGradient id="d" x1="0" x2="1"><stop offset="0" stop-color="#020510"/><stop offset=".5" stop-color="#07172c"/><stop offset="1" stop-color="#020510"/></linearGradient>
+  </defs>
+  <rect width="1440" height="1800" fill="transparent"/>
+  <g filter="url(#glow)" opacity=".9">
+    <path d="M-80 160 C160 40 300 260 520 150 C730 45 860 18 1080 90 C1260 150 1390 76 1520 20 L1520 220 C1300 300 1140 250 980 190 C790 120 680 220 520 260 C300 320 160 190 -80 330Z" fill="url(#c)" opacity=".42"/>
+    <path d="M-80 360 C210 210 380 490 650 350 C830 255 1030 230 1210 330 C1320 390 1430 330 1520 270 L1520 520 C1300 590 1130 520 930 440 C730 360 600 520 380 520 C170 520 80 420 -80 560Z" fill="url(#d)" opacity=".7"/>
+    <path d="M-80 520 C180 360 335 570 560 520 C760 476 900 530 1070 610 C1240 690 1350 610 1520 500 L1520 710 C1240 870 1090 760 890 690 C700 620 570 720 360 715 C170 710 50 650 -80 730Z" fill="url(#r)" opacity=".55"/>
+    <path d="M-80 760 C120 690 250 830 460 760 C700 680 850 730 1050 820 C1240 905 1360 850 1520 750 L1520 950 C1240 1100 1070 980 880 910 C650 830 550 950 330 950 C140 950 20 880 -80 930Z" fill="url(#d)" opacity=".72"/>
+    <path d="M-80 970 C130 850 310 1110 560 980 C720 895 950 935 1150 1010 C1320 1075 1430 1010 1520 945 L1520 1140 C1290 1235 1110 1160 920 1085 C720 1005 585 1140 360 1145 C130 1150 30 1060 -80 1140Z" fill="url(#c)" opacity=".38"/>
+    <path d="M-80 1210 C170 1080 315 1320 540 1240 C760 1162 910 1210 1115 1305 C1295 1390 1410 1300 1520 1190 L1520 1430 C1300 1535 1135 1465 930 1380 C730 1295 600 1430 365 1430 C160 1430 45 1355 -80 1415Z" fill="url(#r)" opacity=".46"/>
+    <path d="M-80 1480 C180 1390 320 1600 555 1515 C780 1433 970 1490 1165 1580 C1330 1656 1430 1580 1520 1510 L1520 1800 L-80 1800Z" fill="url(#c)" opacity=".34"/>
+  </g>
+</svg>

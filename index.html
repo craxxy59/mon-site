@@ -1,90 +1,115 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#060913">
-  <title>Workspace — Craxxy Studio</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
-</head>
-<body>
-  <div class="bg-system"><div class="bg-gradient"></div><div class="bg-grid"></div></div>
-  <div class="orb orb--cyan"></div><div class="orb orb--red"></div>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#060913">
+    <meta name="description" content="Craxxy Studio — site perso premium, workspace, chat, outils IP, streaming, jeux et lab créatif.">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Workspace — Craxxy Studio</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-page="index">
+    <div class="site-bg" aria-hidden="true">
+      <img src="img/premium-waves.jpg" alt="" class="bg-art">
+      <div class="mesh mesh-cyan"></div>
+      <div class="mesh mesh-red"></div>
+      <div class="mesh mesh-orange"></div>
+      <div class="grain"></div>
+      <canvas id="orbCanvas" class="orb-canvas"></canvas>
+    </div>
 
-  <header class="header" id="header">
-    <a href="index.html" class="logo"><div class="logo-icon">CX</div><span>Craxxy Studio</span></a>
-    <nav class="nav-desktop">
-      <a href="index.html" class="nav-link active"><span class="icon">⚡</span> Workspace</a>
-      <a href="code.html" class="nav-link "><span class="icon">🖥</span> Code</a>
-      <a href="chat.html" class="nav-link "><span class="icon">💬</span> Chat</a>
-      <a href="tools.html" class="nav-link "><span class="icon">🔧</span> Outils</a>
-      <a href="films.html" class="nav-link "><span class="icon">🎬</span> Films</a>
-      <a href="games.html" class="nav-link "><span class="icon">🎮</span> Jeux</a>
+    <header class="topbar" id="topbar">
+      <a class="brand magnetic" href="index.html" aria-label="Craxxy Studio accueil">
+        <span class="brand-mark">CX</span>
+        <span class="brand-text">Craxxy<span>Studio</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Navigation principale">
+          <a class="nav-link active" href="index.html"><span>⌁</span>Workspace</a>
+          <a class="nav-link " href="chat.html"><span>◖</span>Chat Pro</a>
+          <a class="nav-link " href="tools.html"><span>◎</span>Outils IP</a>
+          <a class="nav-link " href="films.html"><span>▶</span>Streaming</a>
+          <a class="nav-link " href="code.html"><span>⌘</span>Code Lab</a>
+          <a class="nav-link " href="games.html"><span>◈</span>Mini-jeux</a>
+          <a class="nav-link " href="wallpaper.html"><span>▧</span>Wallpapers</a>
+          <a class="nav-link " href="airdrop.html"><span>◌</span>AirDrop</a>
+          <a class="nav-link " href="crosshair.html"><span>✣</span>Crosshair</a>
+          <a class="nav-link " href="test.html"><span>◇</span>Lab</a>
+      </nav>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="installBtn" hidden title="Installer l'app">PWA</button>
+        <button class="icon-btn" id="cmdBtn" title="Palette de commandes Ctrl+K">⌘K</button>
+        <button class="mobile-trigger" id="mobileTrigger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
+      <div class="mobile-nav-panel">
+          <a class="mobile-nav-link active" href="index.html"><span>⌁</span>Workspace</a>
+          <a class="mobile-nav-link " href="chat.html"><span>◖</span>Chat Pro</a>
+          <a class="mobile-nav-link " href="tools.html"><span>◎</span>Outils IP</a>
+          <a class="mobile-nav-link " href="films.html"><span>▶</span>Streaming</a>
+          <a class="mobile-nav-link " href="code.html"><span>⌘</span>Code Lab</a>
+          <a class="mobile-nav-link " href="games.html"><span>◈</span>Mini-jeux</a>
+          <a class="mobile-nav-link " href="wallpaper.html"><span>▧</span>Wallpapers</a>
+          <a class="mobile-nav-link " href="airdrop.html"><span>◌</span>AirDrop</a>
+          <a class="mobile-nav-link " href="crosshair.html"><span>✣</span>Crosshair</a>
+          <a class="mobile-nav-link " href="test.html"><span>◇</span>Lab</a>
+      </div>
     </nav>
-    <div class="nav-actions">
-      <div class="live-clock" id="liveClock"></div>
-      <button class="nav-btn" id="cmdBtn" title="Ctrl+K">⌘</button>
-      <button class="mobile-nav-trigger" id="mobileNavTrigger"><span></span><span></span><span></span></button>
-    </div>
-  </header>
 
-  <nav class="mobile-nav" id="mobileNav">
-    <a href="index.html" class="mobile-nav-link active">⚡ Workspace</a>
-    <a href="code.html" class="mobile-nav-link ">🖥 Code</a>
-    <a href="chat.html" class="mobile-nav-link ">💬 Chat Pro</a>
-    <a href="tools.html" class="mobile-nav-link ">🔧 Outils IP</a>
-    <a href="crosshair.html" class="mobile-nav-link ">🎯 Crosshair</a>
-    <a href="films.html" class="mobile-nav-link ">🎬 Films</a>
-    <a href="wallpaper.html" class="mobile-nav-link ">🖼 Wallpaper</a>
-    <a href="airdrop.html" class="mobile-nav-link ">📡 AirDrop</a>
-    <a href="games.html" class="mobile-nav-link ">🎮 Jeux</a>
-    <a href="test.html" class="mobile-nav-link ">🧪 Test</a>
-  </nav>
+    <section class="command-overlay" id="commandOverlay" aria-hidden="true">
+      <div class="command-card" role="dialog" aria-modal="true" aria-label="Palette de commandes">
+        <div class="command-head"><span>⌘</span><input id="commandInput" autocomplete="off" placeholder="Rechercher une page, un outil, une action…"></div>
+        <div class="command-results" id="commandResults"></div>
+      </div>
+    </section>
 
-  <div class="cmd-palette-overlay" id="cmdPalette">
-    <div class="cmd-palette">
-      <input type="text" class="cmd-palette-input" id="cmdInput" placeholder="Rechercher…" autocomplete="off">
-      <div class="cmd-palette-results" id="cmdResults"></div>
-    </div>
-  </div>
-
-  <main class="main">
-    <div class="container">
-      
-      <section class="hero">
-        <div class="hero-badge"><span class="dot"></span><span>Workspace personnel — v3.0</span></div>
-        <h1>Bienvenue dans<br><span class="gradient-text">Craxxy Studio</span></h1>
-        <p>Un espace de travail immersif néon cyber avec code, chat chiffré et outils réseau.</p>
+    <main class="page-shell">
+      <section class="hero-section reveal">
+        <div class="eyebrow"><span></span>Personal operating system</div>
+        <h1>Site perso <em>dark premium</em> pour tout piloter.</h1>
+        <p class="hero-lead">Workspace glassmorphism, orbs interactifs, outils réseau, chat, streaming, mini-jeux et lab créatif — en HTML/CSS/JS vanilla.</p>
         <div class="hero-actions">
-          <a href="code.html" class="btn btn--primary">🖥 Ouvrir l'éditeur</a>
-          <a href="chat.html" class="btn btn--ghost">💬 Lancer le chat</a>
-          <button class="btn btn--ghost" onclick="openCmd()">⌘ Ctrl+K</button>
+          <a class="btn primary magnetic" href="chat.html">Ouvrir le chat</a>
+          <button class="btn ghost magnetic" data-open-command>Ctrl + K</button>
         </div>
       </section>
-      <div class="bento-grid">
-        <a href="code.html" class="bento-card"><div class="bento-card-icon">🖥</div><h3>Éditeur de Code</h3><p>Live preview HTML/CSS/JS + Python console.</p><span class="tag tag--cyan">Dev</span></a>
-        <a href="chat.html" class="bento-card"><div class="bento-card-icon">💬</div><h3>Chat Pro</h3><p>Messagerie locale chiffrée E2E.</p><span class="tag tag--red">Encrypted</span></a>
-        <a href="tools.html" class="bento-card"><div class="bento-card-icon">🔧</div><h3>Outils IP & Device</h3><p>Informations réseau et machine complètes.</p><span class="tag tag--orange">Réseau</span></a>
-        <a href="crosshair.html" class="bento-card"><div class="bento-card-icon">🎯</div><h3>Crosshair Overlay</h3><p>Réticule de visée personnalisable.</p><span class="tag tag--cyan">Gaming</span></a>
-        <a href="films.html" class="bento-card"><div class="bento-card-icon">🎬</div><h3>Films</h3><p>Catalogue cinéma et séries interactif.</p><span class="tag tag--red">Media</span></a>
-        <a href="wallpaper.html" class="bento-card"><div class="bento-card-icon">🖼</div><h3>Wallpaper Generator</h3><p>Génération procédurale de fonds d'écran 4K.</p><span class="tag tag--orange">Generative</span></a>
-        <a href="airdrop.html" class="bento-card"><div class="bento-card-icon">📡</div><h3>AirDrop Sonore</h3><p>Transmission ultrasonique FSK 18kHz.</p><span class="tag tag--cyan">Ultrason</span></a>
-        <a href="games.html" class="bento-card"><div class="bento-card-icon">🎮</div><h3>Plus ou Moins</h3><p>Jeu classique du nombre mystère.</p><span class="tag tag--red">Jeu</span></a>
-        <a href="test.html" class="bento-card"><div class="bento-card-icon">🧪</div><h3>Test Lab</h3><p>Vérification de compatibilité navigateur et PWA.</p><span class="tag tag--orange">Lab</span></a>
-      </div>
-    
-    </div>
-  </main>
+      <section class="hero-grid reveal">
+        <article class="glass-card feature-card tall">
+          <div class="card-kicker">Live system</div>
+          <h2>Dashboard bento, orbs interactifs et commandes instantanées.</h2>
+          <p>Une interface pensée comme un cockpit personnel : liens rapides, statut PWA, raccourcis clavier et micro-interactions néon.</p>
+          <div class="metric-row"><span><b data-count="10">0</b> pages</span><span><b data-count="60">0</b> fps</span><span><b data-count="100">0</b>% vanilla</span></div>
+        </article>
+        <article class="visual-card glass-card"><canvas id="visualizer" width="680" height="340"></canvas><img class="hero-logo" src="img/craxxy-logo.svg" alt="Logo Craxxy 5909"><button class="pill" id="visualBtn">Lancer visualizer</button></article>
+        <article class="glass-card status-card"><span class="status-dot"></span><h3>Online & PWA-ready</h3><p>Service worker, manifest, offline fallback et install prompt.</p></article>
+      </section>
+      <section class="bento-grid reveal">
+        <a class="bento xl" href="chat.html"><span>◖</span><h3>Chat Pro</h3><p>Messagerie locale premium avec bulles glass, sauvegarde navigateur et mode focus.</p></a>
+        <a class="bento" href="tools.html"><span>◎</span><h3>Outils IP</h3><p>IP publique, device, UA, latence et diagnostics.</p></a>
+        <a class="bento" href="films.html"><span>▶</span><h3>Streaming</h3><p>Redirection directe vers pursteam.wiki.</p></a>
+        <a class="bento" href="games.html"><span>◈</span><h3>Mini-jeux</h3><p>Plus ou Moins, Memory, Réflexes, Snake et Aim Trainer.</p></a>
+        <a class="bento wide" href="wallpaper.html"><span>▧</span><h3>Wallpaper Studio</h3><p>Génère des fonds abstraits dans l'esprit de ton image : vagues cyan, rouge et orange sur noir profond.</p></a>
+        <a class="bento" href="airdrop.html"><span>◌</span><h3>AirDrop Sonore</h3><p>Prototype créatif d'échange via Web Audio.</p></a>
+      </section>
+    </main>
 
-  <footer class="footer"><div class="container"><p>Craxxy Studio © 2025</p></div></footer>
-  <div class="toast-container" id="toastContainer"></div>
+    <footer class="footer">
+      <div><strong>Craxxy Studio</strong><span>Dark premium vanilla build</span></div>
+      <p id="liveClock">--:--:--</p>
+    </footer>
 
-  <script>
-    (function(d,w,c){w.BrevoConversationsID='6638f96315299c4930164136';w[c]=w[c]||function(){(w[c].q=w[c].q||[]).push(arguments)};var s=d.createElement('script');s.async=true;s.src='https://conversations-widget.brevo.com/brevo-conversations.js';if(d.head)d.head.appendChild(s)})(document,window,'BrevoConversations');
-  </script>
-  <script src="script.js"></script>
-  
-</body>
+    <div class="toast-stack" id="toastStack"></div>
+    <script>
+      (function(d,w,c){w.BrevoConversationsID='6638f96315299c4930164136';w[c]=w[c]||function(){(w[c].q=w[c].q||[]).push(arguments)};var s=d.createElement('script');s.async=true;s.src='https://conversations-widget.brevo.com/brevo-conversations.js';if(d.head)d.head.appendChild(s)})(document,window,'BrevoConversations');
+    </script>
+    <script src="script.js" defer></script>
+  </body>
 </html>
