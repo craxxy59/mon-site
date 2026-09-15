@@ -1,83 +1,90 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mon Site | Accueil</title>
-  <meta name="description" content="Ressources de cours, programmation, musique et outils utiles dans un espace clair et professionnel.">
-  <link rel="manifest" href="/manifest.webmanifest">
-  <meta name="theme-color" content="#2563eb">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Mon Site">
-  <link rel="apple-touch-icon" href="/icons/icon-192.png">
-  <link href="style.css" rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" href="IMG/Colombus_Isle.JPG" type="image/x-icon">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JYP52P3GC8"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-JYP52P3GC8');
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#060913">
+  <title>Workspace — Craxxy Studio</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 </head>
 <body>
-  <header>
-    <a href="index.html" class="logo">Mon Site</a>
-    <nav class="nav-link" aria-label="Navigation principale">
-      <ul>
-        <li class="nav"><a href="Cours.html">Cours</a></li>
-        <li class="nav"><a href="Musique.html">Musique</a></li>
-        <li class="nav"><a href="chat.html">Chat</a></li>
-        <li class="nav"><a href="ip.html">Infos</a></li>
-        <li class="nav"><a href="crosshair.html">Crosshair</a></li>
-        <li class="nav"><a href="HTML.html">HTML, CSS, JS</a></li>
-        <li class="nav"><a href="PY.html">Python</a></li>
-        <li class="nav"><a href="film.html"><img src="IMG/noir.png" alt="Mode sombre"></a></li>
-      </ul>
+  <div class="bg-system"><div class="bg-gradient"></div><div class="bg-grid"></div></div>
+  <div class="orb orb--cyan"></div><div class="orb orb--red"></div>
+
+  <header class="header" id="header">
+    <a href="index.html" class="logo"><div class="logo-icon">CX</div><span>Craxxy Studio</span></a>
+    <nav class="nav-desktop">
+      <a href="index.html" class="nav-link active"><span class="icon">⚡</span> Workspace</a>
+      <a href="code.html" class="nav-link "><span class="icon">🖥</span> Code</a>
+      <a href="chat.html" class="nav-link "><span class="icon">💬</span> Chat</a>
+      <a href="tools.html" class="nav-link "><span class="icon">🔧</span> Outils</a>
+      <a href="films.html" class="nav-link "><span class="icon">🎬</span> Films</a>
+      <a href="games.html" class="nav-link "><span class="icon">🎮</span> Jeux</a>
     </nav>
-    <img src="IMG/menu-btn.png" alt="Ouvrir le menu" class="menu-btn">
+    <div class="nav-actions">
+      <div class="live-clock" id="liveClock"></div>
+      <button class="nav-btn" id="cmdBtn" title="Ctrl+K">⌘</button>
+      <button class="mobile-nav-trigger" id="mobileNavTrigger"><span></span><span></span><span></span></button>
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <p class="eyebrow">Plateforme personnelle</p>
-      <h1>Un espace de travail plus propre, plus lisible, plus pro.</h1>
-      <p class="hero-text">
-        Retrouvez vos liens utiles, cours et outils dans une interface moderne avec une navigation claire sur ordinateur et mobile.
-      </p>
-      <div class="hero-actions">
-        <a href="Cours.html" class="btn btn-primary">Voir les cours</a>
-        <a href="HTML.html" class="btn btn-secondary">Aller en programmation</a>
-      </div>
-    </section>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html" class="mobile-nav-link active">⚡ Workspace</a>
+    <a href="code.html" class="mobile-nav-link ">🖥 Code</a>
+    <a href="chat.html" class="mobile-nav-link ">💬 Chat Pro</a>
+    <a href="tools.html" class="mobile-nav-link ">🔧 Outils IP</a>
+    <a href="crosshair.html" class="mobile-nav-link ">🎯 Crosshair</a>
+    <a href="films.html" class="mobile-nav-link ">🎬 Films</a>
+    <a href="wallpaper.html" class="mobile-nav-link ">🖼 Wallpaper</a>
+    <a href="airdrop.html" class="mobile-nav-link ">📡 AirDrop</a>
+    <a href="games.html" class="mobile-nav-link ">🎮 Jeux</a>
+    <a href="test.html" class="mobile-nav-link ">🧪 Test</a>
+  </nav>
 
-    <section class="quick-links" aria-label="Accès rapide">
-      <a class="card-link" href="chat.html">
-        <h2>Chat</h2>
-        <p>Accès direct à votre espace de discussion.</p>
-      </a>
-      <a class="card-link" href="HTML.html">
-        <h2>Code</h2>
-        <p>HTML, CSS, JavaScript et Python au même endroit.</p>
-      </a>
-    </section>
+  <div class="cmd-palette-overlay" id="cmdPalette">
+    <div class="cmd-palette">
+      <input type="text" class="cmd-palette-input" id="cmdInput" placeholder="Rechercher…" autocomplete="off">
+      <div class="cmd-palette-results" id="cmdResults"></div>
+    </div>
+  </div>
+
+  <main class="main">
+    <div class="container">
+      
+      <section class="hero">
+        <div class="hero-badge"><span class="dot"></span><span>Workspace personnel — v3.0</span></div>
+        <h1>Bienvenue dans<br><span class="gradient-text">Craxxy Studio</span></h1>
+        <p>Un espace de travail immersif néon cyber avec code, chat chiffré et outils réseau.</p>
+        <div class="hero-actions">
+          <a href="code.html" class="btn btn--primary">🖥 Ouvrir l'éditeur</a>
+          <a href="chat.html" class="btn btn--ghost">💬 Lancer le chat</a>
+          <button class="btn btn--ghost" onclick="openCmd()">⌘ Ctrl+K</button>
+        </div>
+      </section>
+      <div class="bento-grid">
+        <a href="code.html" class="bento-card"><div class="bento-card-icon">🖥</div><h3>Éditeur de Code</h3><p>Live preview HTML/CSS/JS + Python console.</p><span class="tag tag--cyan">Dev</span></a>
+        <a href="chat.html" class="bento-card"><div class="bento-card-icon">💬</div><h3>Chat Pro</h3><p>Messagerie locale chiffrée E2E.</p><span class="tag tag--red">Encrypted</span></a>
+        <a href="tools.html" class="bento-card"><div class="bento-card-icon">🔧</div><h3>Outils IP & Device</h3><p>Informations réseau et machine complètes.</p><span class="tag tag--orange">Réseau</span></a>
+        <a href="crosshair.html" class="bento-card"><div class="bento-card-icon">🎯</div><h3>Crosshair Overlay</h3><p>Réticule de visée personnalisable.</p><span class="tag tag--cyan">Gaming</span></a>
+        <a href="films.html" class="bento-card"><div class="bento-card-icon">🎬</div><h3>Films</h3><p>Catalogue cinéma et séries interactif.</p><span class="tag tag--red">Media</span></a>
+        <a href="wallpaper.html" class="bento-card"><div class="bento-card-icon">🖼</div><h3>Wallpaper Generator</h3><p>Génération procédurale de fonds d'écran 4K.</p><span class="tag tag--orange">Generative</span></a>
+        <a href="airdrop.html" class="bento-card"><div class="bento-card-icon">📡</div><h3>AirDrop Sonore</h3><p>Transmission ultrasonique FSK 18kHz.</p><span class="tag tag--cyan">Ultrason</span></a>
+        <a href="games.html" class="bento-card"><div class="bento-card-icon">🎮</div><h3>Plus ou Moins</h3><p>Jeu classique du nombre mystère.</p><span class="tag tag--red">Jeu</span></a>
+        <a href="test.html" class="bento-card"><div class="bento-card-icon">🧪</div><h3>Test Lab</h3><p>Vérification de compatibilité navigateur et PWA.</p><span class="tag tag--orange">Lab</span></a>
+      </div>
+    
+    </div>
   </main>
 
-  <script src="script.js"></script>
-  <script src="/pwa.js" defer></script>
+  <footer class="footer"><div class="container"><p>Craxxy Studio © 2025</p></div></footer>
+  <div class="toast-container" id="toastContainer"></div>
+
   <script>
-    (function (d, w, c) {
-      w.BrevoConversationsID = '6638f96315299c4930164136';
-      w[c] = w[c] || function () {
-        (w[c].q = w[c].q || []).push(arguments);
-      };
-      var s = d.createElement('script');
-      s.async = true;
-      s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
-      if (d.head) d.head.appendChild(s);
-    })(document, window, 'BrevoConversations');
+    (function(d,w,c){w.BrevoConversationsID='6638f96315299c4930164136';w[c]=w[c]||function(){(w[c].q=w[c].q||[]).push(arguments)};var s=d.createElement('script');s.async=true;s.src='https://conversations-widget.brevo.com/brevo-conversations.js';if(d.head)d.head.appendChild(s)})(document,window,'BrevoConversations');
   </script>
+  <script src="script.js"></script>
+  
 </body>
 </html>

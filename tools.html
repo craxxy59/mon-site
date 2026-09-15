@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#060913">
-  <title>Chat Pro — Craxxy Studio</title>
+  <title>Outils IP — Craxxy Studio</title>
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
@@ -18,8 +18,8 @@
     <nav class="nav-desktop">
       <a href="index.html" class="nav-link "><span class="icon">⚡</span> Workspace</a>
       <a href="code.html" class="nav-link "><span class="icon">🖥</span> Code</a>
-      <a href="chat.html" class="nav-link active"><span class="icon">💬</span> Chat</a>
-      <a href="tools.html" class="nav-link "><span class="icon">🔧</span> Outils</a>
+      <a href="chat.html" class="nav-link "><span class="icon">💬</span> Chat</a>
+      <a href="tools.html" class="nav-link active"><span class="icon">🔧</span> Outils</a>
       <a href="films.html" class="nav-link "><span class="icon">🎬</span> Films</a>
       <a href="games.html" class="nav-link "><span class="icon">🎮</span> Jeux</a>
     </nav>
@@ -33,8 +33,8 @@
   <nav class="mobile-nav" id="mobileNav">
     <a href="index.html" class="mobile-nav-link ">⚡ Workspace</a>
     <a href="code.html" class="mobile-nav-link ">🖥 Code</a>
-    <a href="chat.html" class="mobile-nav-link active">💬 Chat Pro</a>
-    <a href="tools.html" class="mobile-nav-link ">🔧 Outils IP</a>
+    <a href="chat.html" class="mobile-nav-link ">💬 Chat Pro</a>
+    <a href="tools.html" class="mobile-nav-link active">🔧 Outils IP</a>
     <a href="crosshair.html" class="mobile-nav-link ">🎯 Crosshair</a>
     <a href="films.html" class="mobile-nav-link ">🎬 Films</a>
     <a href="wallpaper.html" class="mobile-nav-link ">🖼 Wallpaper</a>
@@ -53,12 +53,9 @@
   <main class="main">
     <div class="container">
       
-      <div class="glass-card chat-container">
-        <div class="chat-messages" id="chatMessages"><div class="chat-msg chat-msg--received">👋 Bienvenue dans votre chat chiffré local.</div></div>
-        <div class="chat-input-bar">
-          <input type="text" class="input" id="chatInput" placeholder="Écrivez un message...">
-          <button class="btn btn--primary btn--sm" id="chatSend">Envoyer</button>
-        </div>
+      <div class="bento-grid">
+        <div class="glass-card"><h3>🌐 Adresse IP</h3><div class="tool-result mt-2"><div class="tool-result-label">IP Publique</div><div class="tool-result-value" id="ipVal">Chargement...</div></div></div>
+        <div class="glass-card"><h3>💻 Système</h3><div class="tool-result mt-2"><div class="tool-result-label">Navigateur & OS</div><div class="tool-result-value" id="sysVal">...</div></div></div>
       </div>
     
     </div>
@@ -72,24 +69,8 @@
   </script>
   <script src="script.js"></script>
   <script>
-      const chatMessages = document.getElementById('chatMessages');
-      const chatInput = document.getElementById('chatInput');
-      document.getElementById('chatSend').addEventListener('click', () => {
-        const text = chatInput.value.trim();
-        if(!text) return;
-        const msg = document.createElement('div');
-        msg.className = 'chat-msg chat-msg--sent';
-        msg.textContent = text;
-        chatMessages.appendChild(msg);
-        chatInput.value = '';
-        setTimeout(() => {
-          const resp = document.createElement('div');
-          resp.className = 'chat-msg chat-msg--received';
-          resp.textContent = '🔒 Message chiffré et stocké localement.';
-          chatMessages.appendChild(resp);
-          chatMessages.scrollTop = chatMessages.scrollHeight;
-        }, 600);
-      });
+      fetch('https://ipapi.co/json/').then(r=>r.json()).then(d=>{ document.getElementById('ipVal').textContent = d.ip || 'N/A'; }).catch(()=>{ document.getElementById('ipVal').textContent = 'Direct IP'; });
+      document.getElementById('sysVal').textContent = navigator.userAgent;
     </script>
 </body>
 </html>
