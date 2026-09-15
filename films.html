@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#070811">
+    <meta name="description" content="Portail streaming Craxxy — redirection vers purstream.wiki.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://craxxy5909.netlify.app/films.html">
+    <meta property="og:site_name" content="Craxxy Studio">
+    <meta property="og:title" content="Streaming — Craxxy Studio">
+    <meta property="og:description" content="Portail streaming Craxxy — redirection vers purstream.wiki.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://craxxy5909.netlify.app/films.html">
+    <meta property="og:image" content="https://craxxy5909.netlify.app/img/banner.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://craxxy5909.netlify.app/img/banner.jpg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Streaming — Craxxy Studio</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Instrument+Serif:ital@1&family=Geist+Mono:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="img/premium-waves.webp" as="image" fetchpriority="high">
+    <link rel="stylesheet" href="style.css">
+
+    <meta http-equiv="refresh" content="1.2;url=https://purstream.wiki">
+  </head>
+  <body data-page="films">
+    <a class="skip-link" href="#main">Aller au contenu</a>
+    <div class="site-bg" aria-hidden="true">
+      <img src="img/premium-waves.webp" alt="" class="bg-art" decoding="async">
+      <div class="mesh mesh-cyan"></div>
+      <div class="mesh mesh-red"></div>
+      <div class="mesh mesh-orange"></div>
+      <div class="grain"></div>
+      <canvas id="orbCanvas" class="orb-canvas"></canvas>
+    </div>
+    <header class="topbar" id="topbar">
+      <a class="brand magnetic" href="index.html" aria-label="Craxxy Studio accueil">
+        <span class="brand-mark"><img src="img/logo.webp" alt="Logo Craxxy 5909" width="44" height="44"></span>
+        <span class="brand-text">Craxxy<span>Studio • 5909</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Navigation principale">
+          <a class="nav-link" href="index.html"><span>⌁</span>Workspace</a>
+          <a class="nav-link" href="chat.html"><span>◖</span>Chat</a>
+          <a class="nav-link" href="tools.html"><span>◎</span>Outils</a>
+          <a class="nav-link active" href="films.html" aria-current="page"><span>▶</span>Streaming</a>
+          <a class="nav-link" href="code.html"><span>⌘</span>Code</a>
+          <a class="nav-link" href="cours.html"><span>∑</span>Cours</a>
+          <a class="nav-link" href="games.html"><span>◈</span>Jeux</a>
+          <a class="nav-link" href="wallpaper.html"><span>▧</span>Fonds</a>
+          <a class="nav-link" href="notes.html"><span>✎</span>Notes</a>
+          <a class="nav-link" href="qr.html"><span>▣</span>QR</a>
+          <a class="nav-link" href="focus.html"><span>◍</span>Focus</a>
+          <a class="nav-link" href="ia.html"><span>✦</span>IA</a>
+      </nav>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="installBtn" hidden title="Installer l'app">PWA</button>
+        <button class="icon-btn" id="cmdBtn" title="Palette de commandes Ctrl+K">⌘K</button>
+        <button class="mobile-trigger" id="mobileTrigger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
+      <div class="mobile-nav-panel">
+          <a class="mobile-nav-link" href="index.html"><span>⌁</span>Workspace</a>
+          <a class="mobile-nav-link" href="chat.html"><span>◖</span>Chat</a>
+          <a class="mobile-nav-link" href="tools.html"><span>◎</span>Outils</a>
+          <a class="mobile-nav-link active" href="films.html"><span>▶</span>Streaming</a>
+          <a class="mobile-nav-link" href="code.html"><span>⌘</span>Code</a>
+          <a class="mobile-nav-link" href="cours.html"><span>∑</span>Cours</a>
+          <a class="mobile-nav-link" href="games.html"><span>◈</span>Jeux</a>
+          <a class="mobile-nav-link" href="wallpaper.html"><span>▧</span>Fonds</a>
+          <a class="mobile-nav-link" href="notes.html"><span>✎</span>Notes</a>
+          <a class="mobile-nav-link" href="qr.html"><span>▣</span>QR</a>
+          <a class="mobile-nav-link" href="focus.html"><span>◍</span>Focus</a>
+          <a class="mobile-nav-link" href="ia.html"><span>✦</span>IA</a>
+      </div>
+    </nav>
+    <section class="command-overlay" id="commandOverlay" aria-hidden="true">
+      <div class="command-card" role="dialog" aria-modal="true" aria-label="Palette de commandes">
+        <div class="command-head"><span>⌘</span><input id="commandInput" autocomplete="off" placeholder="Rechercher une page, un outil, une action…"></div>
+        <div class="command-results" id="commandResults"></div>
+      </div>
+    </section>
+    <main class="page-shell" id="main">
+      <section class="hero-section reveal">
+        <div class="eyebrow"><span></span>Streaming redirect</div>
+        <h1>Redirection vers <em>Purstream</em>.</h1>
+        <p class="hero-lead">Le portail streaming s’ouvre automatiquement sur purstream.wiki dans quelques secondes.</p>
+        <div class="hero-actions">
+          <a class="btn primary magnetic" href="https://purstream.wiki" rel="noopener">Ouvrir maintenant</a>
+          <a class="btn ghost magnetic" href="index.html">Retour workspace</a>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-brand">
+        <img src="img/logo.webp" alt="" width="38" height="38">
+        <div><strong>Craxxy Studio</strong><span>© 2026 Craxxy 5909 — dark premium vanilla build</span></div>
+      </div>
+      <nav class="footer-nav" aria-label="Liens rapides">
+        <a href="index.html">Workspace</a><a href="chat.html">Chat</a><a href="tools.html">Outils</a><a href="cours.html">Cours</a><a href="games.html">Jeux</a><a href="wallpaper.html">Fonds</a><a href="focus.html">Focus</a><a href="ia.html">IA</a>
+      </nav>
+      <p id="liveClock">--:--:--</p>
+    </footer>
+    <div class="toast-stack" id="toastStack"></div>
+    <script>
+      (function(d,w,c){w.BrevoConversationsID='6638f96315299c4930164136';w[c]=w[c]||function(){(w[c].q=w[c].q||[]).push(arguments)};var s=d.createElement('script');s.async=true;s.src='https://conversations-widget.brevo.com/brevo-conversations.js';if(d.head)d.head.appendChild(s)})(document,window,'BrevoConversations');
+    </script>
+
+    <script src="script.js" defer></script>
+<script>setTimeout(()=>location.href="https://purstream.wiki",1200)</script>  </body>
+</html>

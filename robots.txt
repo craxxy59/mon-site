@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://craxxy5909.netlify.app/sitemap.xml

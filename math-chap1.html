@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#070811">
+    <meta name="description" content="Chapitre 1 de mathématiques — suites numériques : définitions, propriétés, formules, astuces, exemples, fiche récap, vidéo et audio NotebookLM.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://craxxy5909.netlify.app/math-chap1.html">
+    <meta property="og:site_name" content="Craxxy Studio">
+    <meta property="og:title" content="Maths · Chap 1 Suites — Craxxy Studio">
+    <meta property="og:description" content="Chapitre 1 de mathématiques — suites numériques : définitions, propriétés, formules, astuces, exemples, fiche récap, vidéo et audio NotebookLM.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://craxxy5909.netlify.app/math-chap1.html">
+    <meta property="og:image" content="https://craxxy5909.netlify.app/img/banner.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://craxxy5909.netlify.app/img/banner.jpg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Maths · Chap 1 Suites — Craxxy Studio</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/icon-192.png" type="image/png">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Instrument+Serif:ital@1&family=Geist+Mono:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="preload" href="img/premium-waves.webp" as="image" fetchpriority="high">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cours.css">
+  </head>
+  <body data-page="cours">
+    <a class="skip-link" href="#main">Aller au contenu</a>
+    <div class="site-bg" aria-hidden="true">
+      <img src="img/premium-waves.webp" alt="" class="bg-art" decoding="async">
+      <div class="mesh mesh-cyan"></div>
+      <div class="mesh mesh-red"></div>
+      <div class="mesh mesh-orange"></div>
+      <div class="grain"></div>
+      <canvas id="orbCanvas" class="orb-canvas"></canvas>
+    </div>
+    <header class="topbar" id="topbar">
+      <a class="brand magnetic" href="index.html" aria-label="Craxxy Studio accueil">
+        <span class="brand-mark"><img src="img/logo.webp" alt="Logo Craxxy 5909" width="44" height="44"></span>
+        <span class="brand-text">Craxxy<span>Studio • 5909</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Navigation principale">
+          <a class="nav-link" href="index.html"><span>⌁</span>Workspace</a>
+          <a class="nav-link" href="chat.html"><span>◖</span>Chat</a>
+          <a class="nav-link" href="tools.html"><span>◎</span>Outils</a>
+          <a class="nav-link" href="films.html"><span>▶</span>Streaming</a>
+          <a class="nav-link" href="code.html"><span>⌘</span>Code</a>
+          <a class="nav-link active" href="cours.html" aria-current="page"><span>∑</span>Cours</a>
+          <a class="nav-link" href="games.html"><span>◈</span>Jeux</a>
+          <a class="nav-link" href="wallpaper.html"><span>▧</span>Fonds</a>
+          <a class="nav-link" href="notes.html"><span>✎</span>Notes</a>
+          <a class="nav-link" href="qr.html"><span>▣</span>QR</a>
+          <a class="nav-link" href="focus.html"><span>◍</span>Focus</a>
+          <a class="nav-link" href="ia.html"><span>✦</span>IA</a>
+      </nav>
+      <div class="topbar-actions">
+        <button class="icon-btn" id="installBtn" hidden title="Installer l'app">PWA</button>
+        <button class="icon-btn" id="cmdBtn" title="Palette de commandes Ctrl+K">⌘K</button>
+        <button class="mobile-trigger" id="mobileTrigger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </header>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Navigation mobile">
+      <div class="mobile-nav-panel">
+          <a class="mobile-nav-link" href="index.html"><span>⌁</span>Workspace</a>
+          <a class="mobile-nav-link" href="chat.html"><span>◖</span>Chat</a>
+          <a class="mobile-nav-link" href="tools.html"><span>◎</span>Outils</a>
+          <a class="mobile-nav-link" href="films.html"><span>▶</span>Streaming</a>
+          <a class="mobile-nav-link" href="code.html"><span>⌘</span>Code</a>
+          <a class="mobile-nav-link active" href="cours.html"><span>∑</span>Cours</a>
+          <a class="mobile-nav-link" href="games.html"><span>◈</span>Jeux</a>
+          <a class="mobile-nav-link" href="wallpaper.html"><span>▧</span>Fonds</a>
+          <a class="mobile-nav-link" href="notes.html"><span>✎</span>Notes</a>
+          <a class="mobile-nav-link" href="qr.html"><span>▣</span>QR</a>
+          <a class="mobile-nav-link" href="focus.html"><span>◍</span>Focus</a>
+          <a class="mobile-nav-link" href="ia.html"><span>✦</span>IA</a>
+      </div>
+    </nav>
+    <section class="command-overlay" id="commandOverlay" aria-hidden="true">
+      <div class="command-card" role="dialog" aria-modal="true" aria-label="Palette de commandes">
+        <div class="command-head"><span>⌘</span><input id="commandInput" autocomplete="off" placeholder="Rechercher une page, un outil, une action…"></div>
+        <div class="command-results" id="commandResults"></div>
+      </div>
+    </section>
+    <main class="page-shell" id="main">
+      <section class="hero-section reveal">
+        <div class="eyebrow"><span></span>Mathématiques • Chapitre 1</div>
+        <h1>Les Suites <em>Numériques</em></h1>
+        <p class="hero-lead">Rappels &amp; fondamentaux : cas général, suites arithmétiques, suites géométriques, bornes et fiche récap — tout le chapitre en version néon, prêt à imprimer.</p>
+        <div class="hero-actions">
+          <button class="btn primary magnetic" onclick="window.print()">Imprimer / PDF</button>
+          <a class="btn ghost magnetic" href="cours.html">Retour aux cours</a>
+        </div>
+      </section>
+      <section class="glass-card course-cover reveal">
+        <div class="cover-badge">Mathématiques • Lycée</div>
+        <h2>Chapitre 1 — Rappels &amp; fondamentaux</h2>
+        <div class="formula-box">u<sub>n+1</sub> = u<sub>n</sub> + r &nbsp;•&nbsp; u<sub>n</sub> = u<sub>0</sub> · q<sup>n</sup></div>
+        <div class="cover-tags"><span>Définitions</span><span>Propriétés</span><span>Formules</span><span>Astuces</span><span>Exemples</span></div>
+      </section>
+      <section class="reveal" style="margin-top:18px">
+        <div class="section-head"><div><span class="card-kicker">Médias du chapitre</span><h2>Vidéo &amp; audio pour réviser</h2></div></div>
+        <div class="media-grid">
+          <article class="glass-card media-card">
+            <div class="media-thumb"><img src="img/banner.webp" loading="lazy" decoding="async" alt="Aperçu de la vidéo Les Suites Numériques"><span class="media-type">🎬 VIDÉO</span><span class="media-play">▶</span></div>
+            <div class="media-body">
+              <h3>Les Suites Numériques</h3>
+              <p>Vidéo récap du chapitre générée avec NotebookLM : idéale à revoir la veille d’un DS pour fixer les formules clés.</p>
+              <div class="media-actions">
+                <a class="btn primary" href="https://notebook.google.com/notebook/b9eb2403-8165-4e9b-b282-51e2da3de0c8/artifact/aeba1518-61a2-4c85-b2de-1f99b663ddf7" target="_blank" rel="noopener">Lancer le lecteur</a>
+                <button class="pill" data-copy="https://notebook.google.com/notebook/b9eb2403-8165-4e9b-b282-51e2da3de0c8/artifact/aeba1518-61a2-4c85-b2de-1f99b663ddf7">Copier le lien</button>
+              </div>
+              <small class="media-note">Lecture via le lecteur officiel Google : l’affichage en cadre intégré est bloqué par Google (X-Frame-Options : DENY).</small>
+            </div>
+          </article>
+          <article class="glass-card media-card">
+            <div class="media-thumb"><img src="img/affiche.webp" loading="lazy" decoding="async" alt="Aperçu de l’audio Le monde discret des suites numériques"><span class="media-type">🎧 AUDIO</span><span class="media-play">♪</span></div>
+            <div class="media-body">
+              <h3>Le monde discret des suites numériques</h3>
+              <p>Version audio façon discussion : tu écoutes le chapitre comme un podcast, dans les transports ou en révisant les yeux fermés.</p>
+              <div class="media-actions">
+                <a class="btn primary" href="https://notebook.google.com/notebook/b9eb2403-8165-4e9b-b282-51e2da3de0c8/artifact/8472e6c7-9e0d-456c-a224-1c53468c5d38" target="_blank" rel="noopener">Écouter maintenant</a>
+                <button class="pill" data-copy="https://notebook.google.com/notebook/b9eb2403-8165-4e9b-b282-51e2da3de0c8/artifact/8472e6c7-9e0d-456c-a224-1c53468c5d38">Copier le lien</button>
+              </div>
+              <small class="media-note">Lecture via le lecteur officiel Google : l’affichage en cadre intégré est bloqué par Google (X-Frame-Options : DENY).</small>
+            </div>
+          </article>
+        </div>
+      </section>
+      <nav class="toc reveal" aria-label="Sommaire du chapitre">
+        <a href="#partie-1"><b>1</b> Cas général</a>
+        <a href="#partie-2"><b>2</b> Suites arithmétiques</a>
+        <a href="#partie-3"><b>3</b> Suites géométriques</a>
+        <a href="#partie-4"><b>4</b> Bornes</a>
+        <a href="#partie-5"><b>5</b> Fiche récap</a>
+      </nav>
+
+      <section class="glass-card course-part reveal" id="partie-1">
+        <h2 class="part-title">🔢 Partie 1 — Cas général</h2>
+        <div class="definition">
+          <span class="badge badge-def">Définition</span>
+          Une <strong>suite numérique</strong> est une fonction <span class="math">u : ℕ → ℝ</span> qui à tout entier naturel <span class="math">n</span> associe un nombre réel noté <strong><span class="math">u<sub>n</sub></span></strong> (lu « u indice n »). On note la suite <strong><span class="math">(u<sub>n</sub>)</span></strong>.
+          <ul>
+            <li><span class="math">u<sub>n</sub></span> est le <strong>terme de rang n</strong> ou <strong>terme général</strong>.</li>
+            <li>Le premier terme est souvent <span class="math">u<sub>0</sub></span> (parfois <span class="math">u<sub>1</sub></span>).</li>
+          </ul>
+        </div>
+        <div class="exemple">
+          <span class="badge badge-exemple">Exemple</span>
+          La suite <span class="math">u<sub>n</sub> = n² − 4n + 3</span> donne :
+          <strong>u<sub>0</sub> = 3 · u<sub>1</sub> = 0 · u<sub>2</sub> = −1 · u<sub>3</sub> = 0 · u<sub>4</sub> = 3</strong>
+        </div>
+        <h3>📜 Deux façons de définir une suite</h3>
+        <table>
+          <thead><tr><th style="width:28%">Type de définition</th><th>Principe</th><th>Exemple</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Explicite</strong></td><td>u<sub>n</sub> s’écrit directement en fonction de <em>n</em> : on peut calculer n’importe quel terme tout de suite.</td><td>u<sub>n</sub> = √(n+3)</td></tr>
+            <tr><td><strong>Par récurrence</strong></td><td>On donne le premier terme ET une relation qui calcule un terme à partir du précédent : u<sub>n+1</sub> = f(u<sub>n</sub>). Il faut calculer dans l’ordre.</td><td>v<sub>n+1</sub> = v<sub>n</sub>² − 3 et v<sub>0</sub> = 0</td></tr>
+          </tbody>
+        </table>
+        <div class="astuce">
+          <span class="badge badge-astuce">Astuce</span>
+          Avec une formule <strong>explicite</strong>, tu peux calculer u<sub>1000</sub> directement. Avec une formule <strong>récurrente</strong>, il faut passer par u<sub>0</sub>, u<sub>1</sub>, …, u<sub>999</sub> avant !
+        </div>
+        <h3>📈 Sens de variation d’une suite</h3>
+        <p>Une suite (u<sub>n</sub>) définie sur ℕ est :</p>
+        <table>
+          <thead><tr><th>Type</th><th>Condition pour tout n ∈ ℕ</th></tr></thead>
+          <tbody>
+            <tr><td>🟢 <strong>Croissante</strong></td><td>u<sub>n+1</sub> ≥ u<sub>n</sub></td></tr>
+            <tr><td>🔴 <strong>Décroissante</strong></td><td>u<sub>n+1</sub> ≤ u<sub>n</sub></td></tr>
+            <tr><td>⚪ <strong>Constante</strong></td><td>u<sub>n+1</sub> = u<sub>n</sub></td></tr>
+            <tr><td>🔵 <strong>Monotone</strong></td><td>Si elle est croissante OU décroissante</td></tr>
+            <tr><td>🟡 <strong>Strictement</strong> monotone</td><td>Inégalités strictes (&gt; ou &lt;)</td></tr>
+          </tbody>
+        </table>
+        <div class="methode">
+          <strong>🛠️ Méthode clé</strong> : Pour étudier le sens de variation, on étudie le <strong>signe de la différence</strong>
+          <div class="formula">u<sub>n+1</sub> − u<sub>n</sub></div>
+          <ul>
+            <li>Si cette différence est <strong>positive</strong> (≥ 0) → la suite est <strong>croissante</strong>.</li>
+            <li>Si elle est <strong>négative</strong> (≤ 0) → la suite est <strong>décroissante</strong>.</li>
+            <li>Si u<sub>n</sub> &gt; 0 pour tout n, on peut aussi comparer le quotient u<sub>n+1</sub>/u<sub>n</sub> à 1.</li>
+          </ul>
+        </div>
+        <div class="attention">
+          <span class="badge badge-attention">Attention</span>
+          Si une suite n’est ni croissante ni décroissante (ex : (−1)<sup>n</sup> qui oscille entre 1 et −1), on dit qu’elle est <strong>non monotone</strong>.
+        </div>
+      </section>
+
+      <section class="glass-card course-part reveal" id="partie-2">
+        <h2 class="part-title">➕ Partie 2 — Suites arithmétiques</h2>
+        <div class="definition">
+          <span class="badge badge-def">Définition</span>
+          Une suite (u<sub>n</sub>) est <strong>arithmétique</strong> s’il existe un réel <strong>r</strong> appelé <strong>raison</strong> tel que, pour tout entier <em>n</em> :
+          <div class="formula">u<sub>n+1</sub> = u<sub>n</sub> + r</div>
+          On passe d’un terme au suivant en <strong>ajoutant toujours le même nombre r</strong>.
+        </div>
+        <div class="exemple">
+          <span class="badge badge-exemple">Exemple</span>
+          Si u<sub>0</sub> = 2 et r = 5 : u<sub>0</sub>=2, u<sub>1</sub>=7, u<sub>2</sub>=12, u<sub>3</sub>=17…
+        </div>
+        <div class="mustknow">
+          <h3>🧩 Formule du terme général</h3>
+          <div class="formula">u<sub>n</sub> = u<sub>0</sub> + n × r</div>
+          <p><strong>Cas général</strong> (pour partir du terme u<sub>p</sub> plutôt que u<sub>0</sub>) :</p>
+          <div class="formula">u<sub>n</sub> = u<sub>p</sub> + (n − p) × r</div>
+        </div>
+        <div class="propriete">
+          <span class="badge badge-prop">Propriété</span>
+          Pour qu’une suite (u<sub>n</sub>) soit arithmétique, il faut et il suffit que la différence <strong>u<sub>n+1</sub> − u<sub>n</sub> soit constante</strong> (cette constante est la raison r).
+        </div>
+        <h3>📊 Variations d’une suite arithmétique</h3>
+        <table>
+          <thead><tr><th>Valeur de la raison r</th><th>Nature de la suite</th><th>Allure des points (n, u<sub>n</sub>)</th></tr></thead>
+          <tbody>
+            <tr><td><strong>r &gt; 0</strong></td><td>🟢 Strictement croissante</td><td rowspan="3" style="text-align:center;">Les points sont<br><strong>alignés</strong> !</td></tr>
+            <tr><td><strong>r &lt; 0</strong></td><td>🔴 Strictement décroissante</td></tr>
+            <tr><td><strong>r = 0</strong></td><td>⚪ Constante</td></tr>
+          </tbody>
+        </table>
+        <div class="astuce">
+          <span class="badge badge-astuce">Astuce</span>
+          Comme u<sub>n</sub> = u<sub>0</sub> + n·r est une fonction <em>affine</em> de n, les points (n, u<sub>n</sub>) sont alignés sur une droite de pente r. C’est un excellent moyen de vérifier graphiquement !
+        </div>
+        <h3>➕ Somme des termes d’une suite arithmétique</h3>
+        <div class="mustknow">
+          <div class="formula big">S = u<sub>0</sub> + u<sub>1</sub> + ··· + u<sub>n</sub> = <span class="frac"><span class="num">(n+1)(u<sub>0</sub> + u<sub>n</sub>)</span><span class="den">2</span></span></div>
+          <p class="center">ou encore : <strong>S = <span class="frac"><span class="num">nombre de termes × (1<sup>er</sup> terme + dernier terme)</span><span class="den">2</span></span></strong></p>
+        </div>
+        <div class="exemple">
+          <span class="badge badge-exemple">Exemple</span>
+          Somme des 101 premiers entiers de 0 à 100 : c’est la suite arithmétique u<sub>n</sub> = n (raison r = 1), de u<sub>0</sub>=0 à u<sub>100</sub>=100.
+          S = 101 × (0 + 100) / 2 = <strong>5050</strong>.
+        </div>
+        <div class="tip-card">
+          <strong>💡 Piège classique :</strong> Le nombre de termes de u<sub>0</sub> à u<sub>n</sub> est <strong>n + 1</strong> (et non n). Pense à compter le terme de départ !
+        </div>
+      </section>
+
+      <section class="glass-card course-part reveal" id="partie-3">
+        <h2 class="part-title">✖️ Partie 3 — Suites géométriques</h2>
+        <div class="definition">
+          <span class="badge badge-def">Définition</span>
+          Une suite (u<sub>n</sub>) est <strong>géométrique</strong> s’il existe un réel <strong>q</strong> appelé <strong>raison</strong> tel que, pour tout entier <em>n</em> :
+          <div class="formula">u<sub>n+1</sub> = u<sub>n</sub> × q</div>
+          On passe d’un terme au suivant en <strong>multipliant toujours par le même nombre q</strong>.
+        </div>
+        <div class="exemple">
+          <span class="badge badge-exemple">Exemple</span>
+          Si u<sub>0</sub> = 3 et q = 2 : u<sub>0</sub>=3, u<sub>1</sub>=6, u<sub>2</sub>=12, u<sub>3</sub>=24, u<sub>4</sub>=48… (la suite « double » à chaque étape).
+        </div>
+        <div class="mustknow">
+          <h3>🧩 Formule du terme général</h3>
+          <div class="formula">u<sub>n</sub> = u<sub>0</sub> × q<sup>n</sup></div>
+          <p><strong>Cas général</strong> :</p>
+          <div class="formula">u<sub>n</sub> = u<sub>p</sub> × q<sup>n − p</sup></div>
+        </div>
+        <div class="propriete">
+          <span class="badge badge-prop">Propriété</span>
+          Pour qu’une suite (u<sub>n</sub>) (dont tous les termes sont non nuls) soit géométrique, il faut et il suffit que le quotient <strong>u<sub>n+1</sub> / u<sub>n</sub> soit constant</strong> (cette constante est la raison q).
+        </div>
+        <h3>📊 Variations de la suite géométrique (q<sup>n</sup>)</h3>
+        <table>
+          <thead><tr><th>Valeur de q</th><th>Comportement de (q<sup>n</sup>)</th></tr></thead>
+          <tbody>
+            <tr><td><strong>q &gt; 1</strong></td><td>🟢 Strictement croissante (ex : 2<sup>n</sup> → 1,2,4,8,16…)</td></tr>
+            <tr><td><strong>0 &lt; q &lt; 1</strong></td><td>🔴 Strictement décroissante (ex : (1/2)<sup>n</sup> → 1 ; 0,5 ; 0,25…)</td></tr>
+            <tr><td><strong>q = 1</strong></td><td>⚪ Constante (tous les termes valent 1)</td></tr>
+            <tr><td><strong>q = 0</strong></td><td>⚪ Constante à partir du rang 1 (0, 0, 0…)</td></tr>
+            <tr><td><strong>q &lt; 0</strong></td><td>⚠️ <strong>Non monotone</strong> : les termes alternent entre positifs et négatifs (ex : (−2)<sup>n</sup>)</td></tr>
+          </tbody>
+        </table>
+        <div class="attention">
+          <span class="badge badge-attention">Attention</span>
+          Le sens de variation de (u<sub>n</sub>) dépend aussi du <strong>signe de u<sub>0</sub></strong> !
+          <ul>
+            <li>Si u<sub>0</sub> &gt; 0, (u<sub>n</sub>) varie dans le <strong>même sens</strong> que (q<sup>n</sup>).</li>
+            <li>Si u<sub>0</sub> &lt; 0, (u<sub>n</sub>) varie en <strong>sens contraire</strong> de (q<sup>n</sup>).</li>
+          </ul>
+        </div>
+        <h3>➕ Somme des termes d’une suite géométrique</h3>
+        <div class="mustknow">
+          <p class="center">Si <strong>q ≠ 1</strong> :</p>
+          <div class="formula big">S = u<sub>0</sub> + u<sub>1</sub> + ··· + u<sub>n</sub> = u<sub>0</sub> × <span class="frac"><span class="num">1 − q<sup>n+1</sup></span><span class="den">1 − q</span></span></div>
+          <p class="center">ou encore : <strong>S = 1<sup>er</sup> terme × <span class="frac"><span class="num">1 − q<sup>nombre de termes</sup></span><span class="den">1 − q</span></span></strong></p>
+          <p class="center">Si <strong>q = 1</strong> : S = (n+1) × u<sub>0</sub> (suite constante).</p>
+        </div>
+        <div class="exemple">
+          <span class="badge badge-exemple">Exemple</span>
+          Somme S = 1 + 2 + 4 + 8 + 16 + 32. C’est une suite géométrique de premier terme u<sub>0</sub>=1, raison q=2, et 6 termes.
+          S = 1 × (1 − 2<sup>6</sup>)/(1 − 2) = (1 − 64)/(−1) = <strong>63</strong>.
+        </div>
+      </section>
+
+      <section class="glass-card course-part reveal" id="partie-4">
+        <h2 class="part-title">🎯 Partie 4 — Comportement global : Bornes</h2>
+        <h3>🔎 3 méthodes pour étudier les variations</h3>
+        <div class="methode">
+          <strong>① Méthode algébrique</strong>
+          On compare deux termes consécutifs en étudiant le <strong>signe de u<sub>n+1</sub> − u<sub>n</sub></strong>. Si tous les u<sub>n</sub> sont strictement positifs, on peut aussi comparer u<sub>n+1</sub>/u<sub>n</sub> à 1.
+        </div>
+        <div class="methode">
+          <strong>② Méthode fonctionnelle</strong>
+          Si la suite est définie par u<sub>n</sub> = f(n) avec f une fonction connue (ex : n², √n, 1/n…), on étudie les variations de f sur [0 ; +∞[ puis on en déduit celles de la suite.
+        </div>
+        <div class="methode">
+          <strong>③ Méthode par récurrence</strong>
+          Pour une suite définie par u<sub>n+1</sub> = f(u<sub>n</sub>), on démontre par le principe de récurrence que, pour tout n, u<sub>n+1</sub> ≥ u<sub>n</sub> (ou ≤).
+        </div>
+        <h3>📏 Suites majorées, minorées, bornées</h3>
+        <div class="definition">
+          <span class="badge badge-def">Définition</span>
+          Une suite (u<sub>n</sub>) est dite :
+          <table>
+            <thead><tr><th>Terme</th><th>Condition</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Majorée</strong> 📈</td><td>Il existe un réel M tel que pour tout n ∈ ℕ, <strong>u<sub>n</sub> ≤ M</strong>. Le nombre M est appelé un <em>majorant</em>.</td></tr>
+              <tr><td><strong>Minorée</strong> 📉</td><td>Il existe un réel m tel que pour tout n ∈ ℕ, <strong>u<sub>n</sub> ≥ m</strong>. Le nombre m est appelé un <em>minorant</em>.</td></tr>
+              <tr><td><strong>Bornée</strong> 📦</td><td>Si la suite est à la fois <strong>majorée et minorée</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="propriete">
+          <span class="badge badge-prop">Propriétés utiles</span>
+          <ul>
+            <li>Une suite majorée admet une <strong>infinité de majorants</strong> : si M est un majorant, tout réel supérieur à M est aussi un majorant. (Même chose pour les minorants.)</li>
+            <li>Une suite peut n’être ni majorée ni minorée (ex : u<sub>n</sub> = (−1)<sup>n</sup>·n qui tend vers ±∞).</li>
+            <li>Toute suite <strong>croissante</strong> est <strong>minorée par son premier terme</strong>.</li>
+            <li>Toute suite <strong>décroissante</strong> est <strong>majorée par son premier terme</strong>.</li>
+          </ul>
+        </div>
+        <div class="exemple">
+          <span class="badge badge-exemple">Exemple</span>
+          La suite u<sub>n</sub> = 1/(n+1) est :
+          <ul>
+            <li><strong>Décroissante</strong> (u<sub>n+1</sub> − u<sub>n</sub> &lt; 0),</li>
+            <li><strong>Majorée</strong> par 1 (son premier terme u<sub>0</sub> = 1),</li>
+            <li><strong>Minorée</strong> par 0 (tous les termes sont positifs),</li>
+            <li>donc <strong>bornée</strong> 🎉.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="glass-card course-part reveal" id="partie-5">
+        <h2 class="part-title">🏆 Partie 5 — Fiche récap : les indispensables</h2>
+        <table>
+          <thead><tr><th></th><th>➕ Suite arithmétique</th><th>✖️ Suite géométrique</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Récurrence</strong></td><td>u<sub>n+1</sub> = u<sub>n</sub> + r</td><td>u<sub>n+1</sub> = u<sub>n</sub> × q</td></tr>
+            <tr><td><strong>Terme général</strong></td><td>u<sub>n</sub> = u<sub>0</sub> + n·r</td><td>u<sub>n</sub> = u<sub>0</sub> × q<sup>n</sup></td></tr>
+            <tr><td><strong>Pour la reconnaître</strong></td><td>u<sub>n+1</sub> − u<sub>n</sub> constant</td><td>u<sub>n+1</sub>/u<sub>n</sub> constant</td></tr>
+            <tr><td><strong>Croissante si…</strong></td><td>r &gt; 0</td><td>q &gt; 1 et u<sub>0</sub> &gt; 0 (ou 0&lt;q&lt;1 et u<sub>0</sub>&lt;0)</td></tr>
+            <tr><td><strong>Décroissante si…</strong></td><td>r &lt; 0</td><td>0 &lt; q &lt; 1 et u<sub>0</sub> &gt; 0 (ou q&gt;1 et u<sub>0</sub>&lt;0)</td></tr>
+            <tr><td><strong>Somme (n+1 termes)</strong></td><td><span class="frac"><span class="num">(n+1)(u<sub>0</sub>+u<sub>n</sub>)</span><span class="den">2</span></span></td><td>u<sub>0</sub> × <span class="frac"><span class="num">1−q<sup>n+1</sup></span><span class="den">1−q</span></span> (si q≠1)</td></tr>
+          </tbody>
+        </table>
+        <h3>🧠 Les 8 commandements des suites</h3>
+        <ol class="commandements">
+          <li>🔹 Une suite <strong>arithmétique</strong> = on <strong>ajoute</strong> toujours le même nombre (la raison r).</li>
+          <li>🔹 Une suite <strong>géométrique</strong> = on <strong>multiplie</strong> toujours par le même nombre (la raison q).</li>
+          <li>🔹 Pour démontrer arithmétique : montre que <strong>u<sub>n+1</sub> − u<sub>n</sub></strong> est constant.</li>
+          <li>🔹 Pour démontrer géométrique : montre que <strong>u<sub>n+1</sub>/u<sub>n</sub></strong> est constant (et u<sub>n</sub> ≠ 0).</li>
+          <li>🔹 Pour les variations : étudie le <strong>signe de u<sub>n+1</sub> − u<sub>n</sub></strong>.</li>
+          <li>🔹 N’oublie jamais le <strong>signe de u<sub>0</sub></strong> pour les variations géométriques !</li>
+          <li>🔹 Somme arithmétique : <em>(nombre de termes) × (premier + dernier) / 2</em>.</li>
+          <li>🔹 Somme géométrique : <em>premier terme × (1 − q<sup>nbre termes</sup>) / (1 − q)</em>.</li>
+        </ol>
+        <div class="mustknow">
+          <h3>🔥 À savoir par cœur</h3>
+          <p>Les deux formules de somme, les deux termes généraux, et les deux critères de reconnaissance. Tout le reste s’en déduit.</p>
+        </div>
+      </section>
+
+      <section class="glass-card course-final reveal">
+        <div class="final-emoji">🚀</div>
+        <h2>Tu es prêt·e !</h2>
+        <p>Les suites, c’est comme une recette de cuisine : <strong>une formule de départ + une règle pour passer au terme suivant</strong>, et ça roule tout seul ! 🧑‍🍳<br>
+        Avec ces fiches en tête, tu vas tout déchirer au prochain DS. 💪<br>
+        <em>Courage, les maths c’est pas sorcier — ça s’apprend, pas à pas.</em> ✨</p>
+        <div class="hero-actions center">
+          <a class="btn primary magnetic" href="cours.html">Retour aux cours</a>
+          <a class="btn ghost magnetic" href="focus.html">Mode Focus</a>
+        </div>
+      </section>
+
+    </main>
+    <footer class="footer">
+      <div class="footer-brand">
+        <img src="img/logo.webp" alt="" width="38" height="38">
+        <div><strong>Craxxy Studio</strong><span>© 2026 Craxxy 5909 — dark premium vanilla build</span></div>
+      </div>
+      <nav class="footer-nav" aria-label="Liens rapides">
+        <a href="index.html">Workspace</a><a href="chat.html">Chat</a><a href="tools.html">Outils</a><a href="cours.html">Cours</a><a href="games.html">Jeux</a><a href="wallpaper.html">Fonds</a><a href="focus.html">Focus</a><a href="ia.html">IA</a>
+      </nav>
+      <p id="liveClock">--:--:--</p>
+    </footer>
+    <div class="toast-stack" id="toastStack"></div>
+    <script>
+      (function(d,w,c){w.BrevoConversationsID='6638f96315299c4930164136';w[c]=w[c]||function(){(w[c].q=w[c].q||[]).push(arguments)};var s=d.createElement('script');s.async=true;s.src='https://conversations-widget.brevo.com/brevo-conversations.js';if(d.head)d.head.appendChild(s)})(document,window,'BrevoConversations');
+    </script>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

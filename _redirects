@@ -1,0 +1,17 @@
+# Anciennes pages -> nouvelles destinations (301)
+/html.html            /code.html      301
+/py.html              /code.html      301
+/plus-ou-moins.html   /games.html     301
+/film.html            /films.html     301
+/streaming.html       /films.html     301
+/accordes.html        /index.html     301
+/onde.html            /index.html     301
+/bac-math.html        /cours.html     301
+/math.html            /cours.html     301
+/physique.html        /cours.html     301
+/physique%20copy.html /cours.html     301
+/hist2.html           /cours.html     301
+/ip.html              /tools.html     301
+/ecran.html           /tools.html     301
+/musique.html         /films.html     301
+/next_summer.damiendodavid.html /films.html 301
